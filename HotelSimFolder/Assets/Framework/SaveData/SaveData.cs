@@ -236,7 +236,7 @@ public class SaveData
 	/// </summary>
 
 	//current path on the desktop\testSavedData folder.
-	public void Save() { Save("C:"+"\\"+"Users"+"\\"+"graphic"+"\\"+"Desktop"+"\\"+"testSavedData"+"\\"+fileName+extension); }
+	public void Save() { Save("C:"+"\\"+"Users"+"\\"+"Leonard"+"\\"+"Desktop"+"\\"+"testSavedData"+"\\"+fileName+extension); }
 	
 	/// <summary>
 	/// 	- Saves this instance to the specified path.

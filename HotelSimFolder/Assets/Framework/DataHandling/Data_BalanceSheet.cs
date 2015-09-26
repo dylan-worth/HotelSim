@@ -13,7 +13,13 @@ public class Data_BalanceSheet : MonoBehaviour {
 		for(int i =0; i < Reception.balanceSheets.Count; i++)
 		{
 		//Add keys with significant names and values
-		data["dateOfReport"] = Reception.balanceSheets[i].dateOfReport;
+
+        string reportEnding =  Reception.balanceSheets[i].dateOfReport.month.ToString()
+            +Reception.balanceSheets[i].dateOfReport.day.ToString()
+            +Reception.balanceSheets[i].dateOfReport.year.ToString();
+        data["Report Ending:" + reportEnding] = Reception.balanceSheets[i];
+            /*
+        data["dateOfReport"] = Reception.balanceSheets[i].dateOfReport;
 
 		data["cashAtBank"] = Reception.balanceSheets[i].cashAtBank;
 		data["accountsReceivable"] = Reception.balanceSheets[i].accountsReceivable;
@@ -32,20 +38,20 @@ public class Data_BalanceSheet : MonoBehaviour {
 		data["retainedEarnings"] = Reception.balanceSheets[i].retainedEarnings;
 		data["ownersEquity"] = Reception.balanceSheets[i].ownersEquity;
 		data["totalLiabilitiesAndOwnersEquity"] = Reception.balanceSheets[i].totalLiabilitiesAndOwnersEquity;
-
+            */
 		}
 		
 		//Save the data
-		data.Save();
+        data.Save("C:" + "\\" + "Users" + "\\" + "Leonard" + "\\" + "Desktop" + "\\" + "testSavedData" + "\\" + fileName + ".xml");
 		
 		//Load the data we just saved
-		data = SaveData.Load("C:"+"\\"+"Users"+"\\"+"graphic"+"\\"+"Desktop"+"\\"+"testSavedData"+"\\"+fileName+".xml");
+        data = SaveData.Load("C:" + "\\" + "Users" + "\\" + "Leonard" + "\\" + "Desktop" + "\\" + "testSavedData" + "\\" + fileName + ".xml");
 		
 
 	}
 	public void OpenInExcel()
 	{
-		Application.OpenURL ("C:"+"\\"+"Users"+"\\"+"graphic"+"\\"+"Desktop"+"\\"+"testSavedData"+"\\"+"balanceSheet.xml");
+		Application.OpenURL ("C:"+"\\"+"Users"+"\\"+"Leonard"+"\\"+"Desktop"+"\\"+"testSavedData"+"\\"+"balanceSheet.xml");
 		//Application.OpenURL("http://www.w3schools.com/xml/plant_catalog.xml");
 	}
 }
