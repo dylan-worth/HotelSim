@@ -1,0 +1,1215 @@
+Initialize engine version: 5.1.1f1 (2046fc06d4d8)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 750 (ID=0x1381)
+    Vendor:   NVIDIA
+    VRAM:     1989 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Leonard\Desktop\hotelSimsGraphics\HotelSim\FinalBuild_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Leonard\Desktop\hotelSimsGraphics\HotelSim\FinalBuild_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Leonard\Desktop\hotelSimsGraphics\HotelSim\FinalBuild_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Leonard\Desktop\hotelSimsGraphics\HotelSim\FinalBuild_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Leonard\Desktop\hotelSimsGraphics\HotelSim\FinalBuild_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Leonard\Desktop\hotelSimsGraphics\HotelSim\FinalBuild_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Leonard\Desktop\hotelSimsGraphics\HotelSim\FinalBuild_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Leonard\Desktop\hotelSimsGraphics\HotelSim\FinalBuild_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Leonard\Desktop\hotelSimsGraphics\HotelSim\FinalBuild_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Leonard\Desktop\hotelSimsGraphics\HotelSim\FinalBuild_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.056 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: C:\Users\Leonard\Desktop\hotelSimsGraphics\HotelSim\FinalBuild_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Leonard\Desktop\hotelSimsGraphics\HotelSim\FinalBuild_Data\Managed\System.dll (this message is harmless)
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 25d0 -> priority: 1 
+  Thread -> id: 2560 -> priority: 1 
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+NullReferenceException: Object reference not set to an instance of an object
+  at MainMenuUI.MoveTheLogo () [0x00000] in <filename unknown>:0 
+  at MainMenuUI.Update () [0x00000] in <filename unknown>:0 
+ 
+(Filename:  Line: -1)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.209969 ms
+Seting Text Box
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Set Text Box
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+50
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+75
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+65
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+110
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 18073.
+Total: 3.909611 ms (FindLiveObjects: 0.729577 ms CreateObjectMapping: 0.300212 ms MarkObjects: 2.845038 ms  DeleteObjects: 0.033927 ms)
+
+1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 2564 -> priority: 1 
+  Thread -> id: ec4 -> priority: 1 
+5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+15.058
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+HotelFloor3
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+4
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+14.058
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+HotelFloor3
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+3
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+13.058
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+HotelFloor3
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+4
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+14.058
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+HotelFloor3
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+15.058
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
+HotelFloor3
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 65)
+
