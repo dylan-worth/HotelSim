@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Xml;
+using System.Xml.Serialization;
+using System.IO;
 
 public class Data_BalanceSheet : MonoBehaviour {
 
@@ -8,6 +11,9 @@ public class Data_BalanceSheet : MonoBehaviour {
 
 	public void SaveBalanceSheet ()
 	{
+
+        Reception.balanceSheets[0].Save("savedBalanceSheet.xml");
+        /*
 		//Create data instance
 		data = new SaveData(fileName);
 		for(int i =0; i < Reception.balanceSheets.Count; i++)
@@ -18,40 +24,69 @@ public class Data_BalanceSheet : MonoBehaviour {
             +Reception.balanceSheets[i].dateOfReport.day.ToString()
             +Reception.balanceSheets[i].dateOfReport.year.ToString();
         data["Report Ending:" + reportEnding] = Reception.balanceSheets[i];
-            /*
-        data["dateOfReport"] = Reception.balanceSheets[i].dateOfReport;
 
-		data["cashAtBank"] = Reception.balanceSheets[i].cashAtBank;
-		data["accountsReceivable"] = Reception.balanceSheets[i].accountsReceivable;
-		data["inventories"] = Reception.balanceSheets[i].inventories;
-		data["totalCurrentAssets"] = Reception.balanceSheets[i].totalCurrentAssets;
-		data["propretyAndEquipment"] = Reception.balanceSheets[i].propretyAndEquipment;
-		data["totalAssets"] = Reception.balanceSheets[i].totalAssets;
-		data["accountsPayable"] = Reception.balanceSheets[i].accountsPayable;
-		data["carbonOffsetReceipts"] = Reception.balanceSheets[i].carbonOffsetReceipts;
-		data["incomeTaxPayable"] = Reception.balanceSheets[i].incomeTaxPayable;
-		data["dividendOwed"] = Reception.balanceSheets[i].dividendOwed;
-		data["currentMaturityofLongtermDebt"] = Reception.balanceSheets[i].currentMaturityofLongtermDebt;
-		data["totalCurrentLiabilities"] = Reception.balanceSheets[i].totalCurrentLiabilities;
-		data["longTermDebt"] = Reception.balanceSheets[i].longTermDebt;
-		data["shareCapital"] = Reception.balanceSheets[i].shareCapital;
-		data["retainedEarnings"] = Reception.balanceSheets[i].retainedEarnings;
-		data["ownersEquity"] = Reception.balanceSheets[i].ownersEquity;
-		data["totalLiabilitiesAndOwnersEquity"] = Reception.balanceSheets[i].totalLiabilitiesAndOwnersEquity;
-            */
 		}
 		
 		//Save the data
         data.Save("C:" + "\\" + "Users" + "\\" + "Leonard" + "\\" + "Desktop" + "\\" + "testSavedData" + "\\" + fileName + ".xml");
 		
 		//Load the data we just saved
-        data = SaveData.Load("C:" + "\\" + "Users" + "\\" + "Leonard" + "\\" + "Desktop" + "\\" + "testSavedData" + "\\" + fileName + ".xml");
-		
+        //data = SaveData.Load("C:" + "\\" + "Users" + "\\" + "Leonard" + "\\" + "Desktop" + "\\" + "testSavedData" + "\\" + fileName + ".xml");
+		*/
 
 	}
 	public void OpenInExcel()
 	{
-		Application.OpenURL ("C:"+"\\"+"Users"+"\\"+"Leonard"+"\\"+"Desktop"+"\\"+"testSavedData"+"\\"+"balanceSheet.xml");
-		//Application.OpenURL("http://www.w3schools.com/xml/plant_catalog.xml");
+		//Application.OpenURL ("C:"+"\\"+"Users"+"\\"+"Leonard"+"\\"+"Desktop"+"\\"+"testSavedData"+"\\"+"balanceSheet.xml");
+        Debug.Log(Reception.balanceSheets[0].cashAtBank);
+        Debug.Log(Reception.balanceSheets[0].year);
+        Debug.Log(Reception.balanceSheets[0].day);
+        Debug.Log(Reception.balanceSheets[0].month);
+        Debug.Log(Reception.balanceSheets[0].accountsPayable);
 	}
+    public void LoadBalanceSheets() 
+    {
+        BalanceSheet loadedFile = BalanceSheet.LoadFromFile("savedBalanceSheet.xml");
+        Reception.balanceSheets.Add(loadedFile);
+        Debug.Log(loadedFile.cashAtBank);
+        Debug.Log(loadedFile.year);
+        Debug.Log(loadedFile.day);
+        Debug.Log(loadedFile.month);
+        Debug.Log(loadedFile.accountsPayable);
+        Debug.Log(Reception.balanceSheets[0].cashAtBank);
+        Debug.Log(Reception.balanceSheets[0].year);
+        Debug.Log(Reception.balanceSheets[0].day);
+        Debug.Log(Reception.balanceSheets[0].month);
+        Debug.Log(Reception.balanceSheets[0].accountsPayable);
+        /*
+        data = SaveData.Load("C:" + "\\" + "Users" + "\\" + "Leonard" + "\\" + "Desktop" + "\\" + "testSavedData" + "\\" + fileName + ".xml");
+
+        int period = 0;
+        bool loopBool = true;
+        while (loopBool)
+        {
+            date endOfPeriod = Calendar.GetEndOfPeriodDate(period);
+            string reportEnding = endOfPeriod.month.ToString()+endOfPeriod.day.ToString()+endOfPeriod.year.ToString();
+            if (data.HasKey("Report Ending:" + reportEnding))
+            {
+                Debug.Log("Period : " + period + "Date Sorted: " + data.GetValue<string>("Report Ending:" + reportEnding));
+            }
+            else
+            {
+                loopBool = false;
+            }
+            period++;
+        }*/
+    }
+   /* public void DeserializeBalanceSheets()
+    {
+        BalanceSheet_Collection balanceSheetCollection = null;
+        string path = "C:" + "\\" + "Users" + "\\" + "Leonard" + "\\" + "Desktop" + "\\" + "testSavedData" + "\\" + fileName + ".xml";
+
+        XmlSerializer serializer = new XmlSerializer(typeof(BalanceSheet_Collection));
+
+        StreamReader reader = new StreamReader(path);
+        balanceSheetCollection = (BalanceSheet_Collection)serializer.Deserialize(reader);
+        reader.Close();
+    }*/
 }

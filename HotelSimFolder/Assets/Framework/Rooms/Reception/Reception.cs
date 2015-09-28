@@ -128,7 +128,7 @@ public class Reception : MonoBehaviour
 	RevenueManagement revenueManagementTab;
 
 	//Variables (Utility)
-	static float debugDayDelay = 0.5f;
+	static float debugDayDelay = 0f;
 
 	public GameObject controller;
 	public static int Days = 0;
@@ -384,7 +384,10 @@ public class Reception : MonoBehaviour
 			                 MasterReference.incomeTaxPayable, MasterReference.dividendOwed, MasterReference.currentMaturityofLongtermDebt,
 			                 MasterReference.totalCurrentLiabilities(), MasterReference.longTermDebt, MasterReference.shareCapital,
 			                 MasterReference.retainedEarnings, MasterReference.ownersEquity(), MasterReference.totalLiabilitiesAndOwnersEquity);
-
+        //add date reference for nicer serialization
+        newBalanceSheet.day = Calendar.getDate().dayOfTheMonth;
+        newBalanceSheet.month = Calendar.getDate().month;
+        newBalanceSheet.year = Calendar.getDate().year;
 		balanceSheets.Add(newBalanceSheet);
 		//-------------------------------ADD DATA TO MONTHLY REPORT------------------------------------------------//
 		newMonthlyReport.restaurantTake = (newRestaurantBook.totalBeverageSales + newRestaurantBook.totalFoodSales);

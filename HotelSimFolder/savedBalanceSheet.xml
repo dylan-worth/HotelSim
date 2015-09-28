@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<BalanceSheet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" cashAtBank="225091.391">
+  <day>29</day>
+  <month>January</month>
+  <year>2017</year>
+  <accountsReceivable>29044.3867</accountsReceivable>
+  <inventories>13757</inventories>
+  <totalCurrentAssets>242801.391</totalCurrentAssets>
+  <propretyAndEquipment>5200641</propretyAndEquipment>
+  <totalAssets>5443442.5</totalAssets>
+  <accountsPayable>16128</accountsPayable>
+  <carbonOffsetReceipts>0</carbonOffsetReceipts>
+  <incomeTaxPayable>0</incomeTaxPayable>
+  <dividendOwed>0</dividendOwed>
+  <currentMaturityofLongtermDebt>0</currentMaturityofLongtermDebt>
+  <totalCurrentLiabilities>16128</totalCurrentLiabilities>
+  <longTermDebt>0</longTermDebt>
+  <shareCapital>4750000</shareCapital>
+  <retainedEarnings>136295</retainedEarnings>
+  <ownersEquity>4886295</ownersEquity>
+  <totalLiabilitiesAndOwnersEquity>5487819</totalLiabilitiesAndOwnersEquity>
+</BalanceSheet>

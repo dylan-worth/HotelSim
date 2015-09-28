@@ -2,13 +2,18 @@
 using System.Collections;
 using System.Xml;
 using System.Xml.Serialization;
-
+using System.IO;
 
 public class BalanceSheet{
 
 	//saved for every months. Last day of Period
+    [XmlIgnoreAttribute]
 	public date dateOfReport;
+    public int day;
+    public months month;
+    public int year;
 	//currentAssets
+   
 	public float cashAtBank;
 	public float accountsReceivable;
 	public float inventories;
@@ -39,7 +44,24 @@ public class BalanceSheet{
 	public float ownersEquity;		
 			
 	public float totalLiabilitiesAndOwnersEquity;
-
+    //save function inside class
+    public void Save(string filename) 
+    {
+        using (var stream = new FileStream(filename, FileMode.Create)) 
+        {
+            var XML = new XmlSerializer(typeof(BalanceSheet));
+            XML.Serialize(stream, this);
+        }
+    }
+    //load function for balance sheet
+    public static BalanceSheet LoadFromFile(string filename) 
+    {
+        using (var stream = new FileStream(filename, FileMode.Open))
+        {
+            var XML = new XmlSerializer(typeof(BalanceSheet));
+            return (BalanceSheet)XML.Deserialize(stream);
+        }
+    }
 
 	public BalanceSheet deepCopy()
 	{
