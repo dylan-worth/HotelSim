@@ -1,13 +1,40 @@
 <?xml version="1.0" encoding="Windows-1252"?>
-<BalanceSheet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" cashAtBank="225091.391">
-  <day>29</day>
+<BalanceSheet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <dayOfTheMonth>29</dayOfTheMonth>
   <month>January</month>
   <year>2017</year>
-  <accountsReceivable>29044.3867</accountsReceivable>
+  <day>Sunday</day>
+  <numberOfWeeks>4</numberOfWeeks>
+  <cashAtBank>223426.5</cashAtBank>
+  <accountsReceivable>27859.49</accountsReceivable>
   <inventories>13757</inventories>
-  <totalCurrentAssets>242801.391</totalCurrentAssets>
+  <totalCurrentAssets>241616.484</totalCurrentAssets>
   <propretyAndEquipment>5200641</propretyAndEquipment>
-  <totalAssets>5443442.5</totalAssets>
+  <totalAssets>5442257.5</totalAssets>
+  <accountsPayable>16128</accountsPayable>
+  <carbonOffsetReceipts>0</carbonOffsetReceipts>
+  <incomeTaxPayable>0</incomeTaxPayable>
+  <dividendOwed>0</dividendOwed>
+  <currentMaturityofLongtermDebt>0</currentMaturityofLongtermDebt>
+  <totalCurrentLiabilities>16128</totalCurrentLiabilities>
+  <longTermDebt>0</longTermDebt>
+  <shareCapital>4750000</shareCapital>
+  <retainedEarnings>136295</retainedEarnings>
+  <ownersEquity>4886295</ownersEquity>
+  <totalLiabilitiesAndOwnersEquity>5487819</totalLiabilitiesAndOwnersEquity>
+</BalanceSheet><?xml version="1.0" encoding="Windows-1252"?>
+<BalanceSheet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <dayOfTheMonth>26</dayOfTheMonth>
+  <month>February</month>
+  <year>2017</year>
+  <day>Sunday</day>
+  <numberOfWeeks>4</numberOfWeeks>
+  <cashAtBank>243234.563</cashAtBank>
+  <accountsReceivable>25426.0723</accountsReceivable>
+  <inventories>13757</inventories>
+  <totalCurrentAssets>262609.563</totalCurrentAssets>
+  <propretyAndEquipment>5200641</propretyAndEquipment>
+  <totalAssets>5463250.5</totalAssets>
   <accountsPayable>16128</accountsPayable>
   <carbonOffsetReceipts>0</carbonOffsetReceipts>
   <incomeTaxPayable>0</incomeTaxPayable>

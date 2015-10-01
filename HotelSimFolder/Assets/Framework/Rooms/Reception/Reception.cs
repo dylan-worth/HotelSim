@@ -385,9 +385,12 @@ public class Reception : MonoBehaviour
 			                 MasterReference.totalCurrentLiabilities(), MasterReference.longTermDebt, MasterReference.shareCapital,
 			                 MasterReference.retainedEarnings, MasterReference.ownersEquity(), MasterReference.totalLiabilitiesAndOwnersEquity);
         //add date reference for nicer serialization
-        newBalanceSheet.day = Calendar.getDate().dayOfTheMonth;
-        newBalanceSheet.month = Calendar.getDate().month;
-        newBalanceSheet.year = Calendar.getDate().year;
+        date currentDate = Calendar.getDate();
+        newBalanceSheet.dayOfTheMonth = currentDate.dayOfTheMonth;
+        newBalanceSheet.month = currentDate.month;
+        newBalanceSheet.year = currentDate.year;
+        newBalanceSheet.day = currentDate.day;
+        newBalanceSheet.numberOfWeeks = currentDate.numberOfWeeks;
 		balanceSheets.Add(newBalanceSheet);
 		//-------------------------------ADD DATA TO MONTHLY REPORT------------------------------------------------//
 		newMonthlyReport.restaurantTake = (newRestaurantBook.totalBeverageSales + newRestaurantBook.totalFoodSales);

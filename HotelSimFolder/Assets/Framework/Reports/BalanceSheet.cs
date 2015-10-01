@@ -1,56 +1,98 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
+[XmlRoot("BalanceSheets")]
+[XmlInclude(typeof(BalanceSheet))] // include type class BalanceSheet
+public class BalanceSheetList
+{
+    [XmlArray("BalanceSheetArray")]
+    [XmlArrayItem("BalanceSheetObject")]
+    public List<BalanceSheet> balanceSheetsTest = new List<BalanceSheet>();
+
+    [XmlElement("Listname")]
+    public string Listname { get; set; }
+
+    // Constructor
+    public BalanceSheetList() { }
+
+    public BalanceSheetList(string name)
+    {
+        this.Listname = name;
+    }
+
+    public void AddBalanceSheet(BalanceSheet balanceSheet)
+    {
+        balanceSheetsTest.Add(balanceSheet);
+    }
+}
+[System.Serializable]
+[XmlType("BalanceSheet")]
 public class BalanceSheet{
 
-	//saved for every months. Last day of Period
-    [XmlIgnoreAttribute]
-	public date dateOfReport;
-    public int day;
-    public months month;
-    public int year;
-	//currentAssets
-   
-	public float cashAtBank;
-	public float accountsReceivable;
-	public float inventories;
 
-	public float totalCurrentAssets;
+    
+
+	//saved for every months. Last day of Period
+    [XmlIgnoreAttribute]//To remove the data.
+    public date dateOfReport { get; set; }
+    public int dayOfTheMonth { get; set; }
+    public months month { get; set; }
+    public int year { get; set; }
+    public WeekDays day { get; set; }
+    public int numberOfWeeks { get; set; } 
+	//currentAssets
+
+    public float cashAtBank { get; set; }
+    public float accountsReceivable { get; set; }
+    public float inventories { get; set; }
+
+    public float totalCurrentAssets { get; set; } 
 
 	//Property & Equipment
-	public float propretyAndEquipment;
+    public float propretyAndEquipment { get; set; }
 
-	public float totalAssets;
+    public float totalAssets { get; set; } 
 
 	//current Liabilities
-	public float accountsPayable;		
-	public float carbonOffsetReceipts;		
-	public float incomeTaxPayable;		
-	public float dividendOwed;		
-	public float currentMaturityofLongtermDebt;	
+    public float accountsPayable { get; set; }
+    public float carbonOffsetReceipts { get; set; }
+    public float incomeTaxPayable { get; set; }
+    public float dividendOwed { get; set; }
+    public float currentMaturityofLongtermDebt { get; set; }
 
-	public float totalCurrentLiabilities;	
+    public float totalCurrentLiabilities { get; set; } 	
 		
 	//Long-term Liabilities	  
-	public float longTermDebt;		
+    public float longTermDebt { get; set; } 		
 			
 	//	Owners' Equity	 		 
-	public float  shareCapital;		
-	public float retainedEarnings;		
- 	 		 
-	public float ownersEquity;		
-			
-	public float totalLiabilitiesAndOwnersEquity;
-    //save function inside class
+    public float shareCapital { get; set; }
+    public float retainedEarnings { get; set; }
+
+    public float ownersEquity { get; set; }
+
+    public float totalLiabilitiesAndOwnersEquity { get; set; }
+    //save function for balance sheet
     public void Save(string filename) 
     {
         using (var stream = new FileStream(filename, FileMode.Create)) 
         {
             var XML = new XmlSerializer(typeof(BalanceSheet));
             XML.Serialize(stream, this);
+        }
+    }
+    public void AddToSavedFile(string filename)
+    {
+        using (var stream = new FileStream(filename, FileMode.Append))
+        {
+            var XML = new XmlSerializer(typeof(BalanceSheet));                                 
+            XML.Serialize(stream, this);
+
         }
     }
     //load function for balance sheet
@@ -63,7 +105,7 @@ public class BalanceSheet{
         }
     }
 
-	public BalanceSheet deepCopy()
+    public BalanceSheet deepCopy()
 	{
 		BalanceSheet newSheet = new BalanceSheet();
 

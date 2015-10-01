@@ -4,6 +4,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
 
+
 public class Data_BalanceSheet : MonoBehaviour {
 
 	public string fileName = "balanceSheet";
@@ -11,36 +12,43 @@ public class Data_BalanceSheet : MonoBehaviour {
 
 	public void SaveBalanceSheet ()
 	{
+        //saves the list of balanceSheets to xml file.
+        BalanceSheetList newList = new BalanceSheetList();
+        if (Reception.balanceSheets.Count != 0)
+        {
 
-        Reception.balanceSheets[0].Save("savedBalanceSheet.xml");
-        /*
-		//Create data instance
-		data = new SaveData(fileName);
-		for(int i =0; i < Reception.balanceSheets.Count; i++)
-		{
-		//Add keys with significant names and values
 
-        string reportEnding =  Reception.balanceSheets[i].dateOfReport.month.ToString()
-            +Reception.balanceSheets[i].dateOfReport.day.ToString()
-            +Reception.balanceSheets[i].dateOfReport.year.ToString();
-        data["Report Ending:" + reportEnding] = Reception.balanceSheets[i];
+            for (int k = 0; k < Reception.balanceSheets.Count; k++ )
+            {
+                    newList.AddBalanceSheet(Reception.balanceSheets[k]);
+            }
+               
+         
+        }
+        System.Type[] sheet = { typeof(BalanceSheet)};
+        XmlSerializer serializer = new XmlSerializer(typeof(BalanceSheetList), sheet);
+        FileStream fs = new FileStream("BalanceSheetArray.xml", FileMode.Create);
+        serializer.Serialize(fs, newList);
+        fs.Close();
+        newList = null;
 
-		}
-		
-		//Save the data
-        data.Save("C:" + "\\" + "Users" + "\\" + "Leonard" + "\\" + "Desktop" + "\\" + "testSavedData" + "\\" + fileName + ".xml");
-		
-		//Load the data we just saved
-        //data = SaveData.Load("C:" + "\\" + "Users" + "\\" + "Leonard" + "\\" + "Desktop" + "\\" + "testSavedData" + "\\" + fileName + ".xml");
-		*/
+        // Deserialize the xml file back into a balanceSheet list
+        fs = new FileStream("BalanceSheetArray.xml", FileMode.Open);
+        newList = (BalanceSheetList)serializer.Deserialize(fs);
+        Debug.Log(newList.balanceSheetsTest[0].cashAtBank);
+        Debug.Log(newList.balanceSheetsTest[1].cashAtBank);
+        Debug.Log(newList.balanceSheetsTest[2].cashAtBank);
+        Debug.Log(newList.balanceSheetsTest[3].cashAtBank);
+
 
 	}
 	public void OpenInExcel()
 	{
+        //this.Application.Workbooks.OpenXML(@"C:\Test.xml", missing, missing);
 		//Application.OpenURL ("C:"+"\\"+"Users"+"\\"+"Leonard"+"\\"+"Desktop"+"\\"+"testSavedData"+"\\"+"balanceSheet.xml");
         Debug.Log(Reception.balanceSheets[0].cashAtBank);
         Debug.Log(Reception.balanceSheets[0].year);
-        Debug.Log(Reception.balanceSheets[0].day);
+        Debug.Log(Reception.balanceSheets[0].dayOfTheMonth);
         Debug.Log(Reception.balanceSheets[0].month);
         Debug.Log(Reception.balanceSheets[0].accountsPayable);
 	}
@@ -50,12 +58,12 @@ public class Data_BalanceSheet : MonoBehaviour {
         Reception.balanceSheets.Add(loadedFile);
         Debug.Log(loadedFile.cashAtBank);
         Debug.Log(loadedFile.year);
-        Debug.Log(loadedFile.day);
+        Debug.Log(loadedFile.dayOfTheMonth);
         Debug.Log(loadedFile.month);
         Debug.Log(loadedFile.accountsPayable);
         Debug.Log(Reception.balanceSheets[0].cashAtBank);
         Debug.Log(Reception.balanceSheets[0].year);
-        Debug.Log(Reception.balanceSheets[0].day);
+        Debug.Log(Reception.balanceSheets[0].dayOfTheMonth);
         Debug.Log(Reception.balanceSheets[0].month);
         Debug.Log(Reception.balanceSheets[0].accountsPayable);
         /*
