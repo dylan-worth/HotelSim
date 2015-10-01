@@ -24,6 +24,14 @@ public class BankingReport : MonoBehaviour {
 	public float rateMedLoan;
 	[Range(0f,1f)][Tooltip("In percentage, 1 = 100% interest over a year. Rate for shortest Borrowed time. Rate will be lowered by longer loan duration.")]
 	public float rateLargeLoan;
+	[SerializeField][Tooltip("Number of months we multiply the loan duration slider by.")]
+	int numberOfMonths;
+	[SerializeField][Tooltip("Base amount per slider incremment of loan amount.")]
+	int smallLoanBaseAmount;
+	[SerializeField][Tooltip("Base amount per slider incremment of loan amount.")]
+	int mediumLoanBaseAmount;
+	[SerializeField][Tooltip("Base amount per slider incremment of loan amount.")]
+	int largeLoanBaseAmount;
 	//monthly cost per loan.
 	float monthlyRepaymentSmallLoan = 0f;
 	float monthlyRepaymentMedLoan = 0f;
@@ -153,12 +161,12 @@ public class BankingReport : MonoBehaviour {
 	{
 		if(slider.value < 6)//player is editing the amount
 		{
-			borrowed1 = slider.value * 10000f;
+			borrowed1 = slider.value * smallLoanBaseAmount;
 			loan1InputField.text = borrowed1.ToString(); 
 		}
 		else//player is editing the duration.
 		{
-			durationSmallLoan = (int)((slider.value-5) * 12); // add slider value 
+			durationSmallLoan = (int)((slider.value-5) * numberOfMonths); // add slider value 
 			loan1Time.text = durationSmallLoan.ToString(); 
 		}
 		if(loan1InputField.text != "" && loan1Time.text != "")
@@ -177,12 +185,12 @@ public class BankingReport : MonoBehaviour {
 	{
 		if(slider.value < 6)//player is editing the amount
 		{
-			borrowed2 = slider.value * 50000f;
+			borrowed2 = slider.value * mediumLoanBaseAmount;
 			loan2InputField.text = borrowed2.ToString(); 
 		}
 		else//player is editing the duration.
 		{
-			durationMedLoan = (int)((slider.value-5) * 12); // add slider value 
+			durationMedLoan = (int)((slider.value-5) * numberOfMonths); // add slider value 
 			loan2Time.text = durationMedLoan.ToString(); 
 		}
 		if(loan2InputField.text != "" && loan2Time.text != "")
@@ -202,12 +210,12 @@ public class BankingReport : MonoBehaviour {
 	{
 		if(slider.value < 6)//player is editing the amount
 		{
-			borrowed3 = slider.value * 250000f;
+			borrowed3 = slider.value * largeLoanBaseAmount;
 			loan3InputField.text = borrowed3.ToString(); 
 		}
 		else//player is editing the duration.
 		{
-			durationLargeLoan = (int)((slider.value-5) * 12); // add slider value 
+			durationLargeLoan = (int)((slider.value-5) * numberOfMonths); // add slider value 
 			loan3Time.text = durationLargeLoan.ToString(); 
 		}
 		if(loan3InputField.text != "" && loan3Time.text != "")

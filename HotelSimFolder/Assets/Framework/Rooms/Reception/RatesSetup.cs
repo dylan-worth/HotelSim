@@ -13,6 +13,10 @@ public class RatesSetup : MonoBehaviour {
 	public GameObject tabSuite;
 	public GameObject tabMasterSuite;
 
+	[SerializeField][Tooltip("Color of the selected tab.")]
+	Color selectedTabColor;
+	[SerializeField][Tooltip("Color of the by default tab.")]
+	Color defaultTabColor;
 
 	GameObject receptionMenuRef;
 	void Awake(){
@@ -232,43 +236,43 @@ public class RatesSetup : MonoBehaviour {
 		switch(tab)
 		{
 		case 1:
-			receptionMenu.transform.FindChild("btnTabStandard").GetComponent<Button>().image.color = new Color(1f,0f,0f);
-			receptionMenu.transform.FindChild("btnTabDouble").GetComponent<Button>().image.color = new Color(1f,1f,1f);
-			receptionMenu.transform.FindChild("btnTabDeluxe").GetComponent<Button>().image.color = new Color(1f,1f,1f);
-			receptionMenu.transform.FindChild("btnTabSuite").GetComponent<Button>().image.color = new Color(1f,1f,1f);
-			receptionMenu.transform.FindChild("btnTabMasterSuite").GetComponent<Button>().image.color = new Color(1f,1f,1f);
+			receptionMenu.transform.FindChild("btnTabStandard").GetComponent<Button>().image.color = selectedTabColor;
+			receptionMenu.transform.FindChild("btnTabDouble").GetComponent<Button>().image.color = defaultTabColor;
+			receptionMenu.transform.FindChild("btnTabDeluxe").GetComponent<Button>().image.color = defaultTabColor;
+			receptionMenu.transform.FindChild("btnTabSuite").GetComponent<Button>().image.color = defaultTabColor;
+			receptionMenu.transform.FindChild("btnTabMasterSuite").GetComponent<Button>().image.color = defaultTabColor;
 			break;
 			
 		case 2:
-			receptionMenu.transform.FindChild("btnTabStandard").GetComponent<Button>().image.color = new Color(1f,1f,1f);
-			receptionMenu.transform.FindChild("btnTabDouble").GetComponent<Button>().image.color = new Color(1f,0f,0f);
-			receptionMenu.transform.FindChild("btnTabDeluxe").GetComponent<Button>().image.color = new Color(1f,1f,1f);
-			receptionMenu.transform.FindChild("btnTabSuite").GetComponent<Button>().image.color = new Color(1f,1f,1f);
-			receptionMenu.transform.FindChild("btnTabMasterSuite").GetComponent<Button>().image.color = new Color(1f,1f,1f);
+			receptionMenu.transform.FindChild("btnTabStandard").GetComponent<Button>().image.color = defaultTabColor;
+			receptionMenu.transform.FindChild("btnTabDouble").GetComponent<Button>().image.color = selectedTabColor;
+			receptionMenu.transform.FindChild("btnTabDeluxe").GetComponent<Button>().image.color = defaultTabColor;
+			receptionMenu.transform.FindChild("btnTabSuite").GetComponent<Button>().image.color = defaultTabColor;
+			receptionMenu.transform.FindChild("btnTabMasterSuite").GetComponent<Button>().image.color = defaultTabColor;
 			break;
 			
 		case 3:
-			receptionMenu.transform.FindChild("btnTabStandard").GetComponent<Button>().image.color = new Color(1f,1f,1f);
-			receptionMenu.transform.FindChild("btnTabDouble").GetComponent<Button>().image.color = new Color(1f,1f,1f);
-			receptionMenu.transform.FindChild("btnTabDeluxe").GetComponent<Button>().image.color = new Color(1f,0f,0f);
-			receptionMenu.transform.FindChild("btnTabSuite").GetComponent<Button>().image.color = new Color(1f,1f,1f);
-			receptionMenu.transform.FindChild("btnTabMasterSuite").GetComponent<Button>().image.color = new Color(1f,1f,1f);
+			receptionMenu.transform.FindChild("btnTabStandard").GetComponent<Button>().image.color = defaultTabColor;
+			receptionMenu.transform.FindChild("btnTabDouble").GetComponent<Button>().image.color = defaultTabColor;
+			receptionMenu.transform.FindChild("btnTabDeluxe").GetComponent<Button>().image.color = selectedTabColor;
+			receptionMenu.transform.FindChild("btnTabSuite").GetComponent<Button>().image.color = defaultTabColor;
+			receptionMenu.transform.FindChild("btnTabMasterSuite").GetComponent<Button>().image.color = defaultTabColor;
 			break;
 			
 		case 4:
-			receptionMenu.transform.FindChild("btnTabStandard").GetComponent<Button>().image.color = new Color(1f,1f,1f);
-			receptionMenu.transform.FindChild("btnTabDouble").GetComponent<Button>().image.color = new Color(1f,1f,1f);
-			receptionMenu.transform.FindChild("btnTabDeluxe").GetComponent<Button>().image.color = new Color(1f,1f,1f);
-			receptionMenu.transform.FindChild("btnTabSuite").GetComponent<Button>().image.color = new Color(1f,0f,0f);
-			receptionMenu.transform.FindChild("btnTabMasterSuite").GetComponent<Button>().image.color = new Color(1f,1f,1f);
+			receptionMenu.transform.FindChild("btnTabStandard").GetComponent<Button>().image.color = defaultTabColor;
+			receptionMenu.transform.FindChild("btnTabDouble").GetComponent<Button>().image.color = defaultTabColor;
+			receptionMenu.transform.FindChild("btnTabDeluxe").GetComponent<Button>().image.color = defaultTabColor;
+			receptionMenu.transform.FindChild("btnTabSuite").GetComponent<Button>().image.color = selectedTabColor;
+			receptionMenu.transform.FindChild("btnTabMasterSuite").GetComponent<Button>().image.color = defaultTabColor;
 			break;
 			
 		case 5:
-			receptionMenu.transform.FindChild("btnTabStandard").GetComponent<Button>().image.color = new Color(1f,1f,1f);
-			receptionMenu.transform.FindChild("btnTabDouble").GetComponent<Button>().image.color = new Color(1f,1f,1f);
-			receptionMenu.transform.FindChild("btnTabDeluxe").GetComponent<Button>().image.color = new Color(1f,1f,1f);
-			receptionMenu.transform.FindChild("btnTabSuite").GetComponent<Button>().image.color = new Color(1f,1f,1f);
-			receptionMenu.transform.FindChild("btnTabMasterSuite").GetComponent<Button>().image.color = new Color(1f,0f,0f);
+			receptionMenu.transform.FindChild("btnTabStandard").GetComponent<Button>().image.color = defaultTabColor;
+			receptionMenu.transform.FindChild("btnTabDouble").GetComponent<Button>().image.color = defaultTabColor;
+			receptionMenu.transform.FindChild("btnTabDeluxe").GetComponent<Button>().image.color = defaultTabColor;
+			receptionMenu.transform.FindChild("btnTabSuite").GetComponent<Button>().image.color = defaultTabColor;
+			receptionMenu.transform.FindChild("btnTabMasterSuite").GetComponent<Button>().image.color = selectedTabColor;
 			break;
 		}
 	}

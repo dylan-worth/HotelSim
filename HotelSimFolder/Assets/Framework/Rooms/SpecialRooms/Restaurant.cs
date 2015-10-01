@@ -55,7 +55,7 @@ public struct RestaurantBook
 public class Restaurant : MonoBehaviour {
 
 	//overall condition of the restaurant. Based on staff production and use.
-	public float condition = 100f;
+	float condition = 100f;
 	//prices set inside the UI tabs.
 	float foodPrice = 15f;
 	float liquorPrice = 5f;
@@ -64,14 +64,23 @@ public class Restaurant : MonoBehaviour {
 	//amount calculated from sold goods.
 	float dailyFoodSales = 0f;
 	float dailyBeverageSales = 0f;
-	//
+	//base amounts required per drinks or covers.
+	[SerializeField][Tooltip("Amount of work staff has to output to serve 1 meal.")][Range(0f,5f)]
 	float prodRequiredFood = 1f;
+	[SerializeField][Tooltip("Amount of work staff has to output to serve 1 drink.")][Range(0f,1.25f)]
 	float prodRequiredBeverage = 0.25f;
 	//customers lost due to lack of staff or overpriced.
 	int lostCustomers = 0;
 
+	//Arrays of median prices for the restaurant and bar. Can be edited inside the inpector.
+	[SerializeField][Tooltip("Median prices for food at levels 1-5 of Restaurant. " +
+		"I.E. a value of 25 on line 2 give customers no extra insentive or disinsentive to dine on a level 2 restaurant at $25. DO NOT EDIT SIZE")]
 	float[] medianFoodPrice = new float[5]{15f,25f,50f,75f,125f};
+	[SerializeField][Tooltip("Median prices for drinks at levels 1-5 of Bar. " +
+	                         "I.E. a value of 25 on line 2 give customers no extra insentive or disinsentive to have a drink on a level 2 Bar at $25. DO NOT EDIT SIZE")]
 	float[] medianBeveragePrice = new float[5]{5f,6.5f,7.5f,9f,11.5f};
+
+
 	//getters and setters for prices.
 	public float getFoodPrice(){return foodPrice;}
 	public float getLiquorPrice(){return liquorPrice;}

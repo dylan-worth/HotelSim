@@ -10,6 +10,27 @@ public class Refurbishment : MonoBehaviour {
 	float[] barUpgrades = new float[4];
 	[SerializeField][Tooltip("Cost of each individual upgrade to the front desk/reception.")]
 	float[] frontDeskUpgrades = new float[4];
+	[SerializeField][Tooltip("Threshold at which rooms fall into need repairs category.")][Range(0,100)]
+	int disrepairthreshold;
+	[SerializeField][Tooltip("Cost of repair for the restaurant at condition 0.")]
+	float restaurantCostRepair;
+	[SerializeField][Tooltip("Cost of repair for the bar at condition 0.")]
+	float barCostRepair;
+	[SerializeField][Tooltip("Cost of repair for the front Desk at condition 0.")]
+	float frontDeskCostRepair;
+	[SerializeField][Tooltip("Minimum amount to spend on repairing a room. Added No mather what for each rooms.")]
+	float baseCostOfRepairForRoom;
+	[SerializeField][Tooltip("Cost of repair for a single standard room at condition 0.")]
+	float repairCostSTD;
+	[SerializeField][Tooltip("Cost of repair for a single double room at condition 0.")]
+	float repairCostDouble;
+	[SerializeField][Tooltip("Cost of repair for a single deluxe room at condition 0.")]
+	float repairCostDeluxe;
+	[SerializeField][Tooltip("Cost of repair for a single suite at condition 0.")]
+	float repairCostSuite;
+	[SerializeField][Tooltip("Cost of repair for a single master suite at condition 0.")]
+	float repairCostMaster;
+
 
 	GameObject refurbishTab;
 
@@ -90,35 +111,35 @@ public class Refurbishment : MonoBehaviour {
 			{
 			case 1:
 				standardRooms++;
-				if(aBedroom.roomCondition < 50){
+				if(aBedroom.roomCondition < disrepairthreshold){
 					standardNeedRepair++;
 					needOfRepairSTD.Add(aBedroom);
 				}
 				break;
 			case 2:
 				doubleRooms++;
-				if(aBedroom.roomCondition < 50){
+				if(aBedroom.roomCondition < disrepairthreshold){
 					doubleNeedRepair++;
 					needOfRepairDBL.Add(aBedroom);
 				}
 				break;
 			case 3:
 				deluxeRooms++;
-				if(aBedroom.roomCondition < 50){
+				if(aBedroom.roomCondition < disrepairthreshold){
 					deluxeNeedRepair++;
 					needOfRepairDLX.Add(aBedroom);
 				}
 				break;
 			case 4:
 				suites++;
-				if(aBedroom.roomCondition < 50){
+				if(aBedroom.roomCondition < disrepairthreshold){
 					suitesNeedRepair++;
 					needOfRepairSuite.Add(aBedroom);
 				}
 				break;
 			case 5:
 				masterSuites++;
-				if(aBedroom.roomCondition < 50){
+				if(aBedroom.roomCondition < disrepairthreshold){
 					masterNeedRepair++;
 					needOfRepairMaster.Add(aBedroom);
 				}
@@ -207,13 +228,13 @@ public class Refurbishment : MonoBehaviour {
 		switch(type)
 		{
 		case 1://restaurant
-			costOfRepairSpecialRooms = (((100f-MasterReference.restaurantConditionRepair) * 25000f)/100f)*MasterReference.restaurantLevel;
+			costOfRepairSpecialRooms = (((100f-MasterReference.restaurantConditionRepair) * restaurantCostRepair)/100f)*MasterReference.restaurantLevel;
 			break;
 		case 2://bar
-			costOfRepairSpecialRooms = (((100f-MasterReference.barCondition) * 5000f)/100f)*MasterReference.barLevel;
+			costOfRepairSpecialRooms = (((100f-MasterReference.barCondition) * barCostRepair)/100f)*MasterReference.barLevel;
 			break;
 		case 3://front desk
-			costOfRepairSpecialRooms = (((100f-MasterReference.frontDeskCondition) * 500f)/100f)*MasterReference.frontDeskLevel;
+			costOfRepairSpecialRooms = (((100f-MasterReference.frontDeskCondition) * frontDeskCostRepair)/100f)*MasterReference.frontDeskLevel;
 			break;
 		}
 		return costOfRepairSpecialRooms;
@@ -304,35 +325,35 @@ public class Refurbishment : MonoBehaviour {
 			foreach (RoomStats aBedroom in masterList[0])
 			{
 				//basic repair cost when repairing all is 50 instread of 150 to give incentive to repairing multiple at a time.
-				repairCosts += Mathf.Round((50f + 1000f*((100f-aBedroom.roomCondition))/100f));
+				repairCosts += Mathf.Round((baseCostOfRepairForRoom + repairCostSTD*((100f-aBedroom.roomCondition))/100f));
 			}
 			break;
 		case 2://double rooms
 			foreach (RoomStats aBedroom in masterList[1])
 			{
 				//basic repair cost when repairing all is 50 instread of 150 to give incentive to repairing multiple at a time.
-				repairCosts += Mathf.Round((50f + 1000f*((100f-aBedroom.roomCondition))/100f));
+				repairCosts += Mathf.Round((baseCostOfRepairForRoom + repairCostDouble*((100f-aBedroom.roomCondition))/100f));
 			}
 			break;
 		case 3://deluxe rooms
 			foreach (RoomStats aBedroom in masterList[2])
 			{
 				//basic repair cost when repairing all is 50 instread of 150 to give incentive to repairing multiple at a time.
-				repairCosts += Mathf.Round((50f + 1500f*((100f-aBedroom.roomCondition))/100f));
+				repairCosts += Mathf.Round((baseCostOfRepairForRoom + repairCostDeluxe*((100f-aBedroom.roomCondition))/100f));
 			}
 			break;
 		case 4://suites
 			foreach (RoomStats aBedroom in masterList[3])
 			{
 				//basic repair cost when repairing all is 50 instread of 150 to give incentive to repairing multiple at a time.
-				repairCosts += Mathf.Round((50f + 3000f*((100f-aBedroom.roomCondition))/100f));
+				repairCosts += Mathf.Round((baseCostOfRepairForRoom + repairCostSuite*((100f-aBedroom.roomCondition))/100f));
 			}
 			break;
 		case 5://master suites
 			foreach (RoomStats aBedroom in masterList[4])
 			{
 				//basic repair cost when repairing all is 50 instread of 150 to give incentive to repairing multiple at a time.
-				repairCosts += Mathf.Round((50f + 10000f*((100f-aBedroom.roomCondition))/100f));
+				repairCosts += Mathf.Round((baseCostOfRepairForRoom + repairCostMaster*((100f-aBedroom.roomCondition))/100f));
 			}
 			break;
 		}
