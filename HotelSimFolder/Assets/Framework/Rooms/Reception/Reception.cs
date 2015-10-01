@@ -269,7 +269,9 @@ public class Reception : MonoBehaviour
 		newMonthlyReport.numbOtherStaff = Staff.staffOthers.Count;
 		//-------------------------------------------//
 		for (int weeks = 0; weeks < Calendar.getNumberOfWeeksInMonth(); weeks++) {
-			//-------------------------------------------run day by day simulation
+			//once a week degrade our special rooms. 
+			refurbishmentTab.DegradeSpecialRooms();
+			//-------------------------------------------run day by day simulation---------------------------------------------------------//
 
 			//For each of the weekdays (Mon-Thurs inclusive) try to book rooms based on popularity vs cost
 			WeekDays dayOfWeek;
@@ -390,7 +392,7 @@ public class Reception : MonoBehaviour
         newBalanceSheet.month = currentDate.month;
         newBalanceSheet.year = currentDate.year;
         newBalanceSheet.day = currentDate.day;
-        newBalanceSheet.numberOfWeeks = currentDate.numberOfWeeks;
+        newBalanceSheet.numberOfWeeks = Calendar.getNumberOfWeeksInMonth(balanceSheets.Count%12);
 		balanceSheets.Add(newBalanceSheet);
 		//-------------------------------ADD DATA TO MONTHLY REPORT------------------------------------------------//
 		newMonthlyReport.restaurantTake = (newRestaurantBook.totalBeverageSales + newRestaurantBook.totalFoodSales);
@@ -410,7 +412,7 @@ public class Reception : MonoBehaviour
 		newMonthlyReport.expenseOtherStaff = staffCostMonthlyOT;
 		//-----------------------------------ADD AMOUNTS FOR END OF MONTH DATA-------------------------------------//
 		MasterReference.accountsReceivable += (newRestaurantBook.totalBeverageSales + newRestaurantBook.totalFoodSales);
-		MasterReference.accountsPayable += MasterReference.guessComfortMonthlySpending;//cost of guest comfort amunities.
+		MasterReference.accountsPayable += MasterReference.guessComfortMonthlySpending + MasterReference.upgradeCost;//cost of guest comfort amunities.
 		//-----------------------------------ADD Account Payable and Receivable at END OF MONTH--------------------//
 		MasterReference.cashAtBank -= MasterReference.accountsPayable;
 		MasterReference.cashAtBank += MasterReference.accountsReceivable;
@@ -429,6 +431,8 @@ public class Reception : MonoBehaviour
 		//newBSheetTest.
 		//newBSheetTest.Save(Path.Combine(Application.persistentDataPath, "Data_Save_CTNBalanceSheets.xml"));
 		//-------------------------------------END OF SIMULATION LOOP---------------------------------------------//
+		//-------------------------------------RESET SOME DATA----------------------------------------------------//
+		MasterReference.upgradeCost = 0f;
 	}
 	//Used to book group rooms
 	public static void BookRoomSpecial(WeekDays dayOfWeek, specialBookings special)

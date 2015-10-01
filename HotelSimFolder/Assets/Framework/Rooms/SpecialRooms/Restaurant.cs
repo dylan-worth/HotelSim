@@ -107,6 +107,7 @@ public class Restaurant : MonoBehaviour {
 		dailyFoodSales = 0;
 		dailyBeverageSales = 0;
 		dailyTotalProdNeeded = 0;
+		lostCustomers = 0;
 
 		float staffProduction = CalculateProductivity();
 		float foodPriceRatio = medianFoodPrice [MasterReference.restaurantLevel - 1] / foodPrice;
@@ -125,10 +126,11 @@ public class Restaurant : MonoBehaviour {
 			if(condition < 0)
 				condition = 0f;//can't have worst than 0 condition.
 			//.......................
-
+			float rngRatioFood = condition * foodPriceRatio;
+			float rngRatioBeverage = condition * beveragePriceRatio;
 			for (int i = 0; i < numbFOOD; i++) 
 			{
-				if (RandomGenerator (condition * foodPriceRatio)) 
+				if (RandomGenerator (rngRatioFood)) 
 				{
 					dailyFoodSales += foodPrice;
 				} 
@@ -136,7 +138,7 @@ public class Restaurant : MonoBehaviour {
 			}
 			//beverage purchases.
 			for (int j = 0; j < numbDRINK; j++) {
-				if (RandomGenerator (condition * beveragePriceRatio)) 
+				if (RandomGenerator (rngRatioBeverage)) 
 				{
 					dailyBeverageSales += liquorPrice;
 				}

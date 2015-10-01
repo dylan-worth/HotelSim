@@ -33,9 +33,12 @@ public static class MasterReference
 
 	public static float emsModifier = 0f;
 
+	//returns the popularity of the hotel. The front desk condition and level also affects the booking. A max condition max level 
+	//front desk will add 10% to booking numbers.
 	public static float ReturnRegularBookingPop(){
 		float total = 0f;
 		total = hotelPopularity + hotelExposure + emsModifier+ ((hotelCorporateExposure+hotelTourismExposure)/5f);
+		total *= ((frontDeskLevel*2)+(frontDeskCondition/100f));
 		return total;
 	}
 	public static float ReturnGroupBookingPop(){
@@ -55,17 +58,22 @@ public static class MasterReference
 	//Variables (Chance of Booking)
 
 	//StaffingCosts
-	public static float StaffingCosts = 0;
+	public static float StaffingCosts = 0f;
 
 	//Level status of special rooms;
 	public static int restaurantLevel = 1;        //edit inside refurbishment tab.
 	public static int conferenceRoomLevel = 1;
 	public static int barLevel = 1;
 	public static int frontDeskLevel = 1;
+	//condition of the special rooms
+	public static float restaurantConditionRepair = 100f;       //edit inside refurbishment tab.
+	public static float conferenceCondition = 100f;
+	public static float barCondition = 100f;
+	public static float frontDeskCondition = 100f;
 
 	//cost to the hotel for repairs and upgrades.
-	public static float repairCosts = 0;
-	public static float upgradeCost = 0;
+	public static float repairCosts = 0f;
+	public static float upgradeCost = 0f;
 
 	public const float basePayDepartmentHead = 15f;
 	public const float basePayHotelServices = 12f;

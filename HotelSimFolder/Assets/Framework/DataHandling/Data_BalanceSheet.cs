@@ -8,7 +8,7 @@ using System.IO;
 public class Data_BalanceSheet : MonoBehaviour {
 
 	public string fileName = "balanceSheet";
-	private SaveData data;
+
 
 	public void SaveBalanceSheet ()
 	{
