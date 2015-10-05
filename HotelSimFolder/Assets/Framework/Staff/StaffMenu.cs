@@ -112,6 +112,7 @@ public class StaffMenu : MonoBehaviour {
         buttonArray[2] = buttonHolder.transform.FindChild("btn_FrontDesk").gameObject;
         buttonArray[3] = buttonHolder.transform.FindChild("btn_Conference").gameObject;
         buttonArray[4] = buttonHolder.transform.FindChild("btn_Other").gameObject;
+        buttonArray[0].GetComponent<Image>().color = selectedColor;//Set the first Tab as selected.
     }
     void Start()
     {
@@ -247,4 +248,69 @@ public class StaffMenu : MonoBehaviour {
         }
     }
 
+    public void AddStaffMember(int type) 
+    {
+        switch (type) 
+        {
+            case 1:
+               StaffMember newGuyHS = new StaffMember(staffType.HotelServices);
+               Staff.staffHotelServices.Add(newGuyHS);
+                break;
+            case 2:
+                StaffMember newGuyFB = new StaffMember(staffType.FoodAndBeverages);
+               Staff.staffFoodAndBeverages.Add(newGuyFB);
+                break;
+            case 3:
+                StaffMember newGuyFD = new StaffMember(staffType.FrontDesk);
+               Staff.staffFrontDesk.Add(newGuyFD);
+                break;
+            case 4:
+                StaffMember newGuyC = new StaffMember(staffType.Conference);
+               Staff.staffConference.Add(newGuyC);
+                break;
+            case 5:
+                StaffMember newGuyO = new StaffMember(staffType.Others);
+               Staff.staffOthers.Add(newGuyO);
+                break;
+        }
+        RefreshTabs();
+    }
+
+    public void RemoveStaffMember(int type)
+    {
+        switch (type) 
+        {
+            case 1:
+                if (Staff.staffHotelServices.Count > 0)
+                {
+                    Staff.staffHotelServices.RemoveAt(Staff.staffHotelServices.Count - 1);
+                }
+                break;
+            case 2:
+                if (Staff.staffFoodAndBeverages.Count > 0)
+                {
+                    Staff.staffFoodAndBeverages.RemoveAt(Staff.staffFoodAndBeverages.Count - 1);
+                }
+                break;
+            case 3:
+                if (Staff.staffFrontDesk.Count > 0)
+                {
+                    Staff.staffFrontDesk.RemoveAt(Staff.staffFrontDesk.Count - 1);
+                }
+                break;
+            case 4:
+                if (Staff.staffConference.Count > 0)
+                { 
+                    Staff.staffConference.RemoveAt(Staff.staffConference.Count - 1);
+                }
+                break;
+            case 5:
+                if (Staff.staffOthers.Count > 0)
+                {
+                    Staff.staffOthers.RemoveAt(Staff.staffOthers.Count - 1);
+                }
+                break;
+        }
+        RefreshTabs();
+    }
 }
