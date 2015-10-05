@@ -116,19 +116,15 @@ public class Reception : MonoBehaviour
 	//arrays of median costs for room qualities.
 	static float[] medianRoomCostWD = new float[5]{50f,75f,100f,150f,250f};
 	static float[] medianRoomCostWE = new float[5]{65f,90f,130f,180f,350f};
-	//reference to the staffmenu script
-	StaffMenu staffMenu;
-	//reference to refurbishmenttab
-	Refurbishment refurbishmentTab;
-	//reference to bankingtab
-	BankingReport bankingTab;
-	//reference to emsTab.
-	EMSReport emsTab;
-	//refrence to revenue management tab
-	RevenueManagement revenueManagementTab;
 
+    StaffMenu staffMenu;//reference to the staffmenu script
+    Refurbishment refurbishmentTab;//reference to refurbishmenttab
+    BankingReport bankingTab;//reference to bankingtab
+    EMSReport emsTab;//reference to emsTab.
+    RevenueManagement revenueManagementTab;//refrence to revenue management tab
+    RandomEvent randomEvent;//reference to our random event controller.
 	//Variables (Utility)
-	static float debugDayDelay = 0f;
+	static float debugDayDelay = 0.1f;
 
 	public GameObject controller;
 	public static int Days = 0;
@@ -157,6 +153,7 @@ public class Reception : MonoBehaviour
 		bankingTab = controller.transform.FindChild ("BankingController").gameObject.GetComponent<BankingReport>();
 		emsTab = controller.transform.FindChild("EMSController").gameObject.GetComponent<EMSReport>();
 		revenueManagementTab = controller.transform.FindChild("RevenueManagerCTR").GetComponent<RevenueManagement>();
+        randomEvent = controller.transform.FindChild("EventController").GetComponent<RandomEvent>();
 
 		SingletonCheck();
 		if(monthlyReports == null){
@@ -268,11 +265,15 @@ public class Reception : MonoBehaviour
 		newMonthlyReport.numbConferenceStaff = Staff.staffConference.Count;
 		newMonthlyReport.numbOtherStaff = Staff.staffOthers.Count;
 		//-------------------------------------------//
-		for (int weeks = 0; weeks < Calendar.getNumberOfWeeksInMonth(); weeks++) {
+		for (int weeks = 0; weeks < Calendar.getNumberOfWeeksInMonth(); weeks++) 
+        {
+            //Try and generate a random event. 
+            randomEvent.InitiateRandomEvent();
 			//once a week degrade our special rooms. 
 			refurbishmentTab.DegradeSpecialRooms();
 			//-------------------------------------------run day by day simulation---------------------------------------------------------//
 
+            yield return new WaitForSeconds(debugDayDelay);
 			//For each of the weekdays (Mon-Thurs inclusive) try to book rooms based on popularity vs cost
 			WeekDays dayOfWeek;
 			for (dayOfWeek = WeekDays.Monday; dayOfWeek <= WeekDays.Sunday; dayOfWeek++) 
@@ -368,7 +369,7 @@ public class Reception : MonoBehaviour
 			
 				yield return new WaitForSeconds (debugDayDelay);
 			}
-			yield return new WaitForSeconds (debugDayDelay);
+			
 		}
 		//-----------------------------------SIMULATE THE RESTAURANT-----------------------------------------------//
 		//create a new restaurant book with simulated data. 1 month at the time.

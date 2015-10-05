@@ -52,170 +52,111 @@ public class StaffingLog{
 public class StaffMenu : MonoBehaviour {
 
 	public StaffingLog newStaffingLog = new StaffingLog();
-	// Use this for initialization
 
+    //color for selected tab.
+    [SerializeField]
+    [Tooltip("Color of the selected Tab")]
+    Color selectedColor;
+    [SerializeField]
+    [Tooltip("Default color of the tabs")]
+    Color defaultColor;
+    //staffing starting values.
+    [SerializeField]
+    [Range(0, 20)]
+    [Tooltip("Starting number of Hotel service staff.")]
+    int staff_HS_Num;
+    [SerializeField]
+    [Range(0, 20)]
+    [Tooltip("Starting number of Food and Beverage staff.")]
+    int staff_FB_Num;
+    [SerializeField]
+    [Range(0, 20)]
+    [Tooltip("Starting number of Front Desk staff.")]
+    int staff_FD_Num;
+    [SerializeField]
+    [Range(0, 20)]
+    [Tooltip("Starting number of Conference staff.")]
+    int staff_C_Num;
+    [SerializeField]
+    [Range(0, 20)]
+    [Tooltip("Starting number of other staff.")]
+    int staff_O_Num;
 
+    GameObject staffMenuTab;//Staff menu panel.
+    GameObject panelHS;//The 5 difference panles of the staff menu page.
+    GameObject panelFB;
+    GameObject panelFD;
+    GameObject panelC;
+    GameObject panelO;
 
-	void Start () {
-		SetStaffing ();
-	}
-	public void SetStaffing()
-	{
-		GameObject uimenu = GameObject.FindGameObjectWithTag("UI");
-		GameObject staffMenu = uimenu.transform.FindChild("Tabs").transform.FindChild("StaffMenu").gameObject;
-		GameObject inputFields = staffMenu.transform.FindChild("Inputs").gameObject;
-		GameObject departmentHeads = inputFields.transform.FindChild("DepartmentHeads").gameObject;
-		GameObject hotelServices = inputFields.transform.FindChild("HotelServices").gameObject;
-		GameObject foodAndBev = inputFields.transform.FindChild("FoodAndBeverages").gameObject;
-		GameObject frontDesk = inputFields.transform.FindChild("FrontDeskETC").gameObject;
-		GameObject conferences = inputFields.transform.FindChild("ConferenceAndBanqueting").gameObject;
-		GameObject others = inputFields.transform.FindChild("Others").gameObject;
-		if(departmentHeads.transform.FindChild ("Number").GetComponent<InputField>().text != ""){
-			Debug.Log(int.Parse(departmentHeads.transform.FindChild ("Number").GetComponent<InputField>().text));
-		newStaffingLog.departmentHeads = int.Parse(departmentHeads.transform.FindChild ("Number").GetComponent<InputField>().text);
-			if(newStaffingLog.departmentHeads > Staff.staffDepartmentHead.Count)
-			{
-				int tempNum = Staff.staffDepartmentHead.Count;
-				for(int i=0 ; i < newStaffingLog.departmentHeads-tempNum;i++)
-				{
-					StaffMember newGuy = new StaffMember(staffType.DepartmentHead);
-					Staff.staffDepartmentHead.Add(newGuy);
-				}
-			}
-			else if(newStaffingLog.departmentHeads < Staff.staffDepartmentHead.Count)
-			{
-				int tempNum = Staff.staffDepartmentHead.Count;
-				for(int i=0;i<tempNum-newStaffingLog.departmentHeads;i++)
-				{
-					Staff.staffDepartmentHead.RemoveAt(Staff.staffDepartmentHead.Count-1);
-				}
-			}
-		}
-		if(hotelServices.transform.FindChild ("Number").GetComponent<InputField>().text != ""){
-		newStaffingLog.hotelService = int.Parse(hotelServices.transform.FindChild ("Number").GetComponent<InputField>().text);
-			if(newStaffingLog.hotelService > Staff.staffHotelServices.Count)
-			{
-				int tempNum = Staff.staffHotelServices.Count;
-				for(int i=0;i<newStaffingLog.hotelService-tempNum;i++)
-				{
-					StaffMember newGuy = new StaffMember(staffType.HotelServices);
-					Staff.staffHotelServices.Add(newGuy);
-				}
-			}
-			else if(newStaffingLog.hotelService < Staff.staffHotelServices.Count)
-			{
-				int tempNum = Staff.staffHotelServices.Count;
-				for(int i=0;i<tempNum-newStaffingLog.hotelService;i++)
-				{
-					Staff.staffHotelServices.RemoveAt(Staff.staffHotelServices.Count-1);
-				}
-			}
-		}
-		if(foodAndBev.transform.FindChild ("Number").GetComponent<InputField>().text != ""){
-		newStaffingLog.foodAndBev = int.Parse(foodAndBev.transform.FindChild ("Number").GetComponent<InputField>().text);
-			if(newStaffingLog.foodAndBev > Staff.staffFoodAndBeverages.Count)
-			{
-				int tempNum = Staff.staffFoodAndBeverages.Count;
-				for(int i=0;i<newStaffingLog.foodAndBev-tempNum;i++)
-				{
-					StaffMember newGuy = new StaffMember(staffType.FoodAndBeverages);
-					Staff.staffFoodAndBeverages.Add(newGuy);
-				}
-			}
-			else if(newStaffingLog.foodAndBev < Staff.staffFoodAndBeverages.Count)
-			{
-				int tempNum = Staff.staffFoodAndBeverages.Count;
-				for(int i=0;i<tempNum-newStaffingLog.foodAndBev;i++)
-				{
-					Staff.staffFoodAndBeverages.RemoveAt(Staff.staffFoodAndBeverages.Count-1);
-				}
-			}
-		}
-		if(frontDesk.transform.FindChild ("Number").GetComponent<InputField>().text != ""){
-		newStaffingLog.frontDesk = int.Parse(frontDesk.transform.FindChild ("Number").GetComponent<InputField>().text);
-			if(newStaffingLog.frontDesk > Staff.staffFrontDesk.Count)
-			{
-				int tempNum = Staff.staffFrontDesk.Count;
-				for(int i=0;i<newStaffingLog.frontDesk-tempNum;i++)
-				{
-					StaffMember newGuy = new StaffMember(staffType.FrontDesk);
-					Staff.staffFrontDesk.Add(newGuy);
-				}
-			}
-			else if(newStaffingLog.frontDesk < Staff.staffFrontDesk.Count)
-			{
-				int tempNum = Staff.staffFrontDesk.Count;
-				for(int i=0;i<tempNum-newStaffingLog.frontDesk;i++)
-				{
-					Staff.staffFrontDesk.RemoveAt(Staff.staffFrontDesk.Count-1);
-				}
-			}
-		}
-		if(conferences.transform.FindChild ("Number").GetComponent<InputField>().text != ""){
-		newStaffingLog.conferenceAndBanquet = int.Parse(conferences.transform.FindChild ("Number").GetComponent<InputField>().text); 
-			if(newStaffingLog.conferenceAndBanquet > Staff.staffConference.Count)
-			{
-				int tempNum = Staff.staffConference.Count;
-				for(int i=0;i<newStaffingLog.conferenceAndBanquet-tempNum;i++)
-				{
-					StaffMember newGuy = new StaffMember(staffType.Conference);
-					Staff.staffConference.Add(newGuy);
-				}
-			}
-			else if(newStaffingLog.conferenceAndBanquet < Staff.staffConference.Count)
-			{
-				int tempNum = Staff.staffConference.Count;
-				for(int i=0;i<tempNum-newStaffingLog.conferenceAndBanquet;i++)
-				{
-					Staff.staffConference.RemoveAt(Staff.staffConference.Count-1);
-				}
-			}
-		}
-		if(others.transform.FindChild ("Number").GetComponent<InputField>().text != ""){
-		newStaffingLog.others = int.Parse(others.transform.FindChild ("Number").GetComponent<InputField>().text );
-			if(newStaffingLog.others > Staff.staffOthers.Count)
-			{
-				int tempNum = Staff.staffOthers.Count;
-				for(int i=0;i<newStaffingLog.others-tempNum;i++)
-				{
-					StaffMember newGuy = new StaffMember(staffType.Others);
-					Staff.staffOthers.Add(newGuy);
-				}
-			}
-			else if(newStaffingLog.others < Staff.staffOthers.Count)
-			{
-				int tempNum = Staff.staffOthers.Count;
-				for(int i=0;i<tempNum-newStaffingLog.others;i++)
-				{
-					Staff.staffOthers.RemoveAt(Staff.staffOthers.Count-1);
-				}
-			}
-		}
+    GameObject[] panelArray = new GameObject[5];
+    GameObject[] buttonArray = new GameObject[5];
 
-		/*Debug.Log (newStaffingLog.departmentHeads);
-		Debug.Log (newStaffingLog.conferenceAndBanquet);
-		Debug.Log (newStaffingLog.foodAndBev);
-		Debug.Log (newStaffingLog.frontDesk);
-		Debug.Log (newStaffingLog.hotelService);
-		Debug.Log (newStaffingLog.others);
+    void Awake() 
+    {
+        staffMenuTab = GameObject.FindGameObjectWithTag("UI").transform.FindChild("Tabs").transform.FindChild("StaffMenu").gameObject;
+        panelHS = staffMenuTab.transform.FindChild("Panel_HotelServices").gameObject;
+        panelFB = staffMenuTab.transform.FindChild("Panel_FoodAndBeverages").gameObject;
+        panelFD = staffMenuTab.transform.FindChild("Panel_FrontDesk").gameObject;
+        panelC = staffMenuTab.transform.FindChild("Panel_Conference").gameObject;
+        panelO = staffMenuTab.transform.FindChild("Panel_Other").gameObject;
+        panelArray[0] = panelHS;
+        panelArray[1] = panelFB;
+        panelArray[2] = panelFD;
+        panelArray[3] = panelC;
+        panelArray[4] = panelO;
+        //Reference to selection buttons.
+        GameObject buttonHolder = staffMenuTab.transform.FindChild("ButtonHolder").gameObject;
+        buttonArray[0] = buttonHolder.transform.FindChild("btn_HotelServices").gameObject;
+        buttonArray[1] = buttonHolder.transform.FindChild("btn_FoodAndBeverage").gameObject;
+        buttonArray[2] = buttonHolder.transform.FindChild("btn_FrontDesk").gameObject;
+        buttonArray[3] = buttonHolder.transform.FindChild("btn_Conference").gameObject;
+        buttonArray[4] = buttonHolder.transform.FindChild("btn_Other").gameObject;
+    }
+    void Start()
+    {
+        SetFirstRunStaffing();
+    }
+    
+    void SetFirstRunStaffing() 
+    {
+        for (int i = 0; i < staff_HS_Num; i++)
+        {
+            StaffMember newGuy = new StaffMember(staffType.HotelServices);
+            Staff.staffHotelServices.Add(newGuy);
+        }
+        for (int i = 0; i < staff_FB_Num; i++)
+        {
+            StaffMember newGuy = new StaffMember(staffType.FoodAndBeverages);
+            Staff.staffFoodAndBeverages.Add(newGuy);
+        }
+        for (int i = 0; i < staff_FD_Num; i++)
+        {
+            StaffMember newGuy = new StaffMember(staffType.FrontDesk);
+            Staff.staffFrontDesk.Add(newGuy);
+        }
+        for (int i = 0; i < staff_C_Num; i++)
+        {
+            StaffMember newGuy = new StaffMember(staffType.Conference);
+            Staff.staffConference.Add(newGuy);
+        }
+        for (int i = 0; i < staff_O_Num; i++)
+        {
+            StaffMember newGuy = new StaffMember(staffType.Others);
+            Staff.staffOthers.Add(newGuy);
+        }
+    }
 
-		Debug.Log (Staff.staffOthers.Count);
-		Debug.Log (Staff.staffHotelServices.Count);
-		Debug.Log (Staff.staffFrontDesk.Count);
-		Debug.Log (Staff.staffFoodAndBeverages.Count);
-		Debug.Log (Staff.staffConference.Count);
-		Debug.Log (Staff.staffDepartmentHead.Count);*/
-
-		//need to add the payband lvl dropdown menu. set as a float for now.
-		/*
-		newStaffingLog.departmentHeadsP = float.Parse(departmentHeads.transform.FindChild ("PayBand").GetComponent<InputField>().text); 
-		newStaffingLog.hotelServiceP = float.Parse(hotelServices.transform.FindChild ("PayBand").GetComponent<InputField>().text );
-		newStaffingLog.foodAndBevP = float.Parse(foodAndBev.transform.FindChild ("PayBand").GetComponent<InputField>().text );
-		newStaffingLog.frontDeskP = float.Parse(frontDesk.transform.FindChild ("PayBand").GetComponent<InputField>().text );
-		newStaffingLog.conferenceAndBanquetP = float.Parse(conferences.transform.FindChild ("PayBand").GetComponent<InputField>().text);
-		newStaffingLog.othersP = float.Parse(others.transform.FindChild ("PayBand").GetComponent<InputField>().text );
-*/
-	}
+    public void RefreshTabs()
+    {
+        Debug.Log( Staff.staffHotelServices.Count);
+        List<List<StaffMember>> staffList = Staff.GetStaffingList();
+        for (int i = 0; i < panelArray.Length; i++)
+        {
+            panelArray[i].transform.FindChild("Input_NumberOfStaff").GetComponent<InputField>().text = staffList[i + 1].Count.ToString();
+        }
+    }
+	
 	public float[] ReturnCostPerDay ()
 	{
 
@@ -290,61 +231,20 @@ public class StaffMenu : MonoBehaviour {
 		return actualProd;
 	
 	}
-	public void SetPay(Slider slider)
-	{
-		switch(slider.name)
-		{
-		case "PayBandSlider1":
-			newStaffingLog.departmentHeadsP = (payBandEnum)slider.value;
-			slider.GetComponentInChildren<Text>().text = "Tier " + slider.value;
-			foreach (StaffMember aMember in Staff.staffDepartmentHead)
-			{
-				aMember.SetPay(newStaffingLog.departmentHeadsP);
-			}
-			break;
-		case "PayBandSlider2":
-			newStaffingLog.hotelServiceP = (payBandEnum)slider.value;
-			slider.GetComponentInChildren<Text>().text = "Tier " + slider.value;
-			foreach (StaffMember aMember in Staff.staffHotelServices)
-			{
-				aMember.SetPay(newStaffingLog.hotelServiceP );
-			}
-			break;
-		case "PayBandSlider3":
-			newStaffingLog.foodAndBevP = (payBandEnum)slider.value;
-			slider.GetComponentInChildren<Text>().text = "Tier " + slider.value;
-			foreach (StaffMember aMember in Staff.staffFoodAndBeverages)
-			{
-				aMember.SetPay(newStaffingLog.foodAndBevP);
-			}
-			break;
-		case "PayBandSlider4":
-			newStaffingLog.frontDeskP = (payBandEnum)slider.value;
-			slider.GetComponentInChildren<Text>().text = "Tier " + slider.value;
-			foreach (StaffMember aMember in Staff.staffFrontDesk)
-			{
-				aMember.SetPay(newStaffingLog.frontDeskP);
-			}
-			break;
-		case "PayBandSlider5":
-			newStaffingLog.conferenceAndBanquetP = (payBandEnum)slider.value;
-			slider.GetComponentInChildren<Text>().text = "Tier " + slider.value;
-			foreach (StaffMember aMember in Staff.staffConference)
-			{
-				aMember.SetPay(newStaffingLog.conferenceAndBanquetP);
-			}
-			break;
-		case "PayBandSlider6":
-			newStaffingLog.othersP = (payBandEnum)slider.value;
-			slider.GetComponentInChildren<Text>().text = "Tier " + slider.value;
-			foreach (StaffMember aMember in Staff.staffOthers)
-			{
-				aMember.SetPay(newStaffingLog.othersP);
-			}
-			break;
-		}
 
-	}
-
+    public void TabSelection(int selected) 
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            if (i == selected)
+            {
+                buttonArray[i].GetComponent<Image>().color = selectedColor;
+            }
+            else
+            {
+                buttonArray[i].GetComponent<Image>().color = defaultColor;
+            }
+        }
+    }
 
 }
