@@ -4,6 +4,11 @@ using System.Collections;
 
 public class RatesSetup : MonoBehaviour {
 	
+	[SerializeField][Tooltip("Array of median costs during weekdays. Values for standard room to master suites. DO NOT CHANGE SIZE!")]
+	public float[] medianRoomCostWD = new float[5]{50f,75f,100f,150f,250f};
+	[SerializeField][Tooltip("Array of median costs during weekdays. Values for standard room to master suites. DO NOT CHANGE SIZE!")]
+	public float[] medianRoomCostWE = new float[5]{65f,90f,130f,180f,350f};
+
 
 	public ReceptionLog newReceptionLog = new ReceptionLog();
 

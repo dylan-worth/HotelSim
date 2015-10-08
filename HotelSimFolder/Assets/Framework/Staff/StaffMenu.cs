@@ -340,19 +340,15 @@ public class StaffMenu : MonoBehaviour {
     }
 	public void TrainStaff()//Adds one week of training to each staff members and removes one week of non-training. 
 	{
-		Debug.LogError("StartTraining");
+
 		foreach(StaffMember aMember in Staff.staffHotelServices)
 		{
 			if(trainingAllocation[0] > 0)
 			{
-				Debug.LogError("training");
-
 				aMember.baseProductivity += trainingAllocation[0]*trainingBonusToProductivity;
-				Debug.LogError(aMember.baseProductivity);
 			}
 			else
 			{
-				Debug.LogError("Decay");
 				if(aMember.baseProductivity > 51)
 					aMember.baseProductivity -= trainingEffectDecay;
 			}

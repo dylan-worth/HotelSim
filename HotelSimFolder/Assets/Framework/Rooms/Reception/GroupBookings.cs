@@ -17,7 +17,9 @@ public struct specialBookings{
 		this.type = type;
 	}
 }
+/*
 static public class GroupBookings {
+
 
 	static public float smallGroupChance = 60f;
 	static public float mediumGroupChance = 30f;
@@ -89,4 +91,4 @@ static public class GroupBookings {
 		specialBookings booking = new specialBookings(numberOfRooms,numberOfDays,type);
 		return booking;
 	}
-}
+}*/

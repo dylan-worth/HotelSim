@@ -145,6 +145,8 @@ public class Reception : MonoBehaviour
 	RestaurantBook newRestaurantBook;
 	ReceptionLog currentLog;
 	StaffingLog currentLogStaff;
+	RatesSetup rateSetup;
+	GroupBookController groupController;
 
 	void Awake()
 	{
@@ -154,6 +156,8 @@ public class Reception : MonoBehaviour
 		emsTab = controller.transform.FindChild("EMSController").gameObject.GetComponent<EMSReport>();
 		revenueManagementTab = controller.transform.FindChild("RevenueManagerCTR").GetComponent<RevenueManagement>();
         randomEvent = controller.transform.FindChild("EventController").GetComponent<RandomEvent>();
+		rateSetup = controller.transform.FindChild("RatesSetUp").GetComponent<RatesSetup>();
+		groupController = controller.transform.FindChild("GroupBooking").GetComponent<GroupBookController>();
 
 		SingletonCheck();
 		if(monthlyReports == null){
@@ -176,6 +180,9 @@ public class Reception : MonoBehaviour
 		}
 		GenerateNewMonthReports ();
 		firstGeneration = true;
+
+		medianRoomCostWD = rateSetup.medianRoomCostWD;
+		medianRoomCostWE = rateSetup.medianRoomCostWE;
 	}
 
 	//Ensures a singleton is set
@@ -484,8 +491,8 @@ public class Reception : MonoBehaviour
 	{
 		int chanceToBook = (int)(MasterReference.ReturnGroupBookingPop ()*0.2f);
 		if (BoolGen (chanceToBook)) {
-			specialBookings special = GroupBookings.bookSpecial ();
-			return special;
+			specialBookings newBooking = groupController.BookSpecial();
+			return newBooking;
 		} 
 		else 
 		{

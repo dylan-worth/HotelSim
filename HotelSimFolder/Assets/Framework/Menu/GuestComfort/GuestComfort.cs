@@ -10,6 +10,7 @@ public class GuestComfort : MonoBehaviour {
 	public InputField popularity;
 
 	public float monthlyCosts = 0;
+
 	int compLevel=0;
 	int entLevel=0;
 	void OnEnable()
