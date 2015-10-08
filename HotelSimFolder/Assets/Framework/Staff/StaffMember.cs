@@ -11,13 +11,12 @@ public class StaffMember
 	//public int Age;
 	public float PayRate;
 	public float Happiness;
-	public float Productivity;
 	public float Overtime;
 	public float HoursWorked;
 	public int Benefits;
 	public int Experience=0;
 
-	int baseProductivity = 50;
+	public float baseProductivity = 50;
 
 	public StaffMember (staffType newType,
 	                    float newTraining = 1,
@@ -33,36 +32,36 @@ public class StaffMember
 		Benefits = newBenefits;
 		Experience = newExperience;
 		Happiness = newHappiness;
-		Productivity = newProductivity;
+		baseProductivity = newProductivity;
 	}
 
 
 	public float CalculateProd ()
 	{
-		Productivity = (baseProductivity * Training)*Happiness/100;
+		float Productivity = (baseProductivity * Training)*Happiness/100;
 		return Productivity;
 	}
-	public void SetPay(payBandEnum payBand)
+	public void SetPay(float payBand)
 	{
 		switch(Type)
 		{
 		case staffType.DepartmentHead:
-			PayRate = MasterReference.basePayDepartmentHead * (((float)payBand/10)+1);
+			PayRate = MasterReference.payScales[0];
 			break;
 		case staffType.HotelServices:
-			PayRate = MasterReference.basePayHotelServices * (((float)payBand/10)+1);
+			PayRate = MasterReference.payScales[1];
 			break;
 		case staffType.FoodAndBeverages:
-			PayRate = MasterReference.basePayFoodAndBeverages * (((float)payBand/10)+1);
+			PayRate = MasterReference.payScales[2];
 			break;
 		case staffType.FrontDesk:
-			PayRate = MasterReference.basePayFrontDesk * (((float)payBand/10)+1);
+			PayRate = MasterReference.payScales[3];
 			break;
 		case staffType.Conference:
-			PayRate = MasterReference.basePayConference * (((float)payBand/10)+1);
+			PayRate = MasterReference.payScales[4];
 			break;
 		case staffType.Others:
-			PayRate = MasterReference.basePayOthers * (((float)payBand/10)+1);
+			PayRate = MasterReference.payScales[5];
 			break;
 		}
 	}

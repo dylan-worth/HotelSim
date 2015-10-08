@@ -74,13 +74,13 @@ public static class MasterReference
 	//cost to the hotel for repairs and upgrades.
 	public static float repairCosts = 0f;
 	public static float upgradeCost = 0f;
-
-	public const float basePayDepartmentHead = 15f;
-	public const float basePayHotelServices = 12f;
-	public const float basePayFoodAndBeverages = 12f;
-	public const float basePayFrontDesk = 13f;
-	public const float basePayConference = 13f;
-	public const float basePayOthers = 14f;
+	//current level of pay selected in staffing menu.
+	public static float[] payScales = new float[6];
+	public static int payBandHS;
+	public static int payBandFB;
+	public static int payBandFD;
+	public static int payBandConference;
+	public static int payBandOthers;
 
 	//number of rooms in the hotel.
 	public static int standardRooms = 15;

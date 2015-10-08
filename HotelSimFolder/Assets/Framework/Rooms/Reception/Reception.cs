@@ -231,11 +231,11 @@ public class Reception : MonoBehaviour
 		currentLog.month = receptionLogs.Count;
 		//--------------------------------------staffing log
 		//adds the staffing log to staffing log list.
-		currentLogStaff = new StaffingLog();
-		currentLogStaff = GameObject.FindGameObjectWithTag("StaffingController").GetComponent<StaffMenu>().newStaffingLog.DeepCopy();
+		//currentLogStaff = new StaffingLog();
+		//currentLogStaff = GameObject.FindGameObjectWithTag("StaffingController").GetComponent<StaffMenu>().newStaffingLog.DeepCopy();
 		//add staff log to log list
-		staffingLogs.Add(currentLogStaff);
-		currentLogStaff.month = staffingLogs.Count;
+		//staffingLogs.Add(currentLogStaff);
+		//currentLogStaff.month = staffingLogs.Count;
 
 
 	}
@@ -267,8 +267,10 @@ public class Reception : MonoBehaviour
 		//-------------------------------------------//
 		for (int weeks = 0; weeks < Calendar.getNumberOfWeeksInMonth(); weeks++) 
         {
-            //Try and generate a random event. 
+            //Try and generate a random event each week. 
             randomEvent.InitiateRandomEvent();
+			//runs the stafftraining function to increase or decrease staff training.
+			staffMenu.TrainStaff();
 			//once a week degrade our special rooms. 
 			refurbishmentTab.DegradeSpecialRooms();
 			//-------------------------------------------run day by day simulation---------------------------------------------------------//

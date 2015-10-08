@@ -3,26 +3,36 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-public enum payBandEnum {nonePay, PayBandOne , PayBandTwo, PayBandThree }
-
 public class StaffingLog{
 
 	public int departmentHeads = 0;
-	public payBandEnum departmentHeadsP = payBandEnum.PayBandOne;
+	public float departmentHeadsP;
 	public int hotelService = 0;
-	public payBandEnum hotelServiceP = payBandEnum.PayBandOne;
+	public float hotelServiceP;
 	public int foodAndBev = 0;
-	public payBandEnum foodAndBevP = payBandEnum.PayBandOne;
+	public float foodAndBevP ;
 	public int frontDesk = 0;
-	public payBandEnum frontDeskP = payBandEnum.PayBandOne;
+	public float frontDeskP;
 	public int conferenceAndBanquet = 0;
-	public payBandEnum conferenceAndBanquetP = payBandEnum.PayBandOne;
+	public float conferenceAndBanquetP;
 	public int others = 0;
-	public payBandEnum othersP = payBandEnum.PayBandOne;
+	public float othersP;
 
+	public int month;
+
+	public StaffingLog(){}
+	public StaffingLog(float dh, float hs, float fb, float fd, float c, float o)
+	{
+		this.departmentHeadsP = dh;
+		this.hotelServiceP = hs;
+		this.foodAndBevP = fb;
+		this.frontDeskP = fd;
+		this.conferenceAndBanquetP = c;
+		this.othersP = o;
+	}
 
 	
-	public int month;
+
 
 	public StaffingLog DeepCopy()
 	{
@@ -81,9 +91,30 @@ public class StaffMenu : MonoBehaviour {
     [Range(0, 20)]
     [Tooltip("Starting number of other staff.")]
     int staff_O_Num;
+	[SerializeField][Tooltip("Cost of each Department head per hours.")]
+	float payDepartmentHead;
+	[SerializeField][Tooltip("Pay levels of hotel services staff. DO NOT CHANGE SIZE!")]
+	float[] payBandHotelServices = new float[4];
+	[SerializeField][Tooltip("Pay levels of food and beverage staff. DO NOT CHANGE SIZE!")]
+	float[] payBandFoodAndBeverages = new float[4];
+	[SerializeField][Tooltip("Pay levels of front desk staff. DO NOT CHANGE SIZE!")]
+	float[] payBandFrontDesk = new float[4];
+	[SerializeField][Tooltip("Pay levels of conference staff. DO NOT CHANGE SIZE!")]
+	float[] payBandConference = new float[4];
+	[SerializeField][Tooltip("Pay levels of other staff. DO NOT CHANGE SIZE!")]
+	float[] payBandOther = new float[4];
+	[SerializeField][Tooltip("Effect of training per hour per week. StaffMember has 50 base productivity and get this bonus each week for each hours.")][Range(0f,2f)]
+	float trainingBonusToProductivity;
+	[SerializeField][Tooltip("Effect of not training a staffMember for one week. Base productivity is 50 and cannot get lower.")][Range(0f,2f)]
+	float trainingEffectDecay;
+
+	int[] trainingAllocation = new int[5]{0,0,0,0,0};//array holding weekly hours of training for all department.
+
+
+
 
     GameObject staffMenuTab;//Staff menu panel.
-    GameObject panelHS;//The 5 difference panles of the staff menu page.
+    GameObject panelHS;//The 5 difference panels of the staff menu page.
     GameObject panelFB;
     GameObject panelFD;
     GameObject panelC;
@@ -116,9 +147,55 @@ public class StaffMenu : MonoBehaviour {
     }
     void Start()
     {
+		SetPayBandInMaster();
         SetFirstRunStaffing();
+		SetPayScale();
+
     }
-    
+	void SetPayBandInMaster()
+	{
+		MasterReference.payScales[0]= payDepartmentHead;
+		MasterReference.payScales[1]= payBandHotelServices[0];
+		MasterReference.payScales[2]= payBandFoodAndBeverages[0];
+		MasterReference.payScales[3]= payBandFrontDesk[0];
+		MasterReference.payScales[4]= payBandConference[0];
+		MasterReference.payScales[5]= payBandOther[0];
+		MasterReference.payBandHS = 0;
+		MasterReference.payBandFB = 0;
+		MasterReference.payBandFD = 0;
+		MasterReference.payBandConference = 0;
+		MasterReference.payBandOthers = 0;
+
+	}
+
+
+	void SetPayScale()//Sets everyone's pay one by one from the masterReferences value.
+	{
+		foreach (StaffMember aMember in Staff.staffDepartmentHead)
+		{
+			aMember.PayRate = MasterReference.payScales[0];
+		}
+		foreach (StaffMember aMember in Staff.staffHotelServices)
+		{
+			aMember.PayRate = MasterReference.payScales[1];
+		}
+		foreach (StaffMember aMember in Staff.staffFoodAndBeverages)
+		{
+			aMember.PayRate = MasterReference.payScales[2];
+		}
+		foreach (StaffMember aMember in Staff.staffFrontDesk)
+		{
+			aMember.PayRate = MasterReference.payScales[3];
+		}
+		foreach (StaffMember aMember in Staff.staffConference)
+		{
+			aMember.PayRate = MasterReference.payScales[4];
+		}
+		foreach (StaffMember aMember in Staff.staffOthers)
+		{
+			aMember.PayRate = MasterReference.payScales[5];
+		}
+	}
     void SetFirstRunStaffing() 
     {
         for (int i = 0; i < staff_HS_Num; i++)
@@ -150,11 +227,25 @@ public class StaffMenu : MonoBehaviour {
 
     public void RefreshTabs()
     {
-        Debug.Log( Staff.staffHotelServices.Count);
+       
         List<List<StaffMember>> staffList = Staff.GetStaffingList();
         for (int i = 0; i < panelArray.Length; i++)
         {
+			float totalProd = 0;
+			int count = 0;
+			foreach(StaffMember aMember in staffList[i + 1])
+			{
+				totalProd += aMember.CalculateProd();
+				count++;
+			}
             panelArray[i].transform.FindChild("Input_NumberOfStaff").GetComponent<InputField>().text = staffList[i + 1].Count.ToString();
+			panelArray[i].transform.FindChild("Input_Payscale").GetComponent<InputField>().text = "$"+ MasterReference.payScales[i+1].ToString();
+			panelArray[i].transform.FindChild("Input_Training").GetComponent<InputField>().text = trainingAllocation[i].ToString() + " H/Week";
+			panelArray[i].transform.FindChild("Input_TrainingCost").GetComponent<InputField>().text = 
+				"$"+(trainingAllocation[i]*staffList[i + 1].Count*MasterReference.payScales[i+1]).ToString();
+			panelArray[i].transform.FindChild("Input_WeeklyCost").GetComponent<InputField>().text = 
+				"$" + (staffList[i + 1].Count*MasterReference.payScales[i+1]*40).ToString();
+			panelArray[i].transform.FindChild("Input_Productivity").GetComponent<InputField>().text = (Mathf.Round(totalProd/count)).ToString();
         }
     }
 	
@@ -164,68 +255,68 @@ public class StaffMenu : MonoBehaviour {
 		float[] returnValue = new float[6]{0,0,0,0,0,0};
 		foreach (StaffMember aMember in Staff.staffDepartmentHead)
 		{
-			returnValue[0] += aMember.PayRate*8;
+			returnValue[0] += aMember.PayRate*5.7f;
 		}
 		foreach (StaffMember aMember in Staff.staffHotelServices)
 		{
-			returnValue[1] += aMember.PayRate*8;
+			returnValue[1] += aMember.PayRate*5.7f;
 		}
 		foreach (StaffMember aMember in Staff.staffFoodAndBeverages)
 		{
-			returnValue[2] += aMember.PayRate*8;
+			returnValue[2] += aMember.PayRate*5.7f;
 		}
 		foreach (StaffMember aMember in Staff.staffFrontDesk)
 		{
-			returnValue[3] += aMember.PayRate*8;
+			returnValue[3] += aMember.PayRate*5.7f;
 		}
 		foreach (StaffMember aMember in Staff.staffConference)
 		{
-			returnValue[4] += aMember.PayRate*8;
+			returnValue[4] += aMember.PayRate*5.7f;
 		}
 		foreach (StaffMember aMember in Staff.staffOthers)
 		{
-			returnValue[5] += aMember.PayRate*8;
+			returnValue[5] += aMember.PayRate*5.7f;
 		}
 
 		return returnValue;
 	}
 	public float returnActualProduction (float ProductionNeeded)
 	{
-		float actualProd = 0;
+		float actualProd = 0f;
 		foreach (StaffMember aMember in Staff.staffDepartmentHead)
 		{
-			actualProd += aMember.CalculateProd()*8;
-			aMember.HoursWorked = 8;
+			actualProd += aMember.CalculateProd()*5.7f;
+			aMember.HoursWorked = 5.7f;
 			aMember.Experience++;
 		}
 		foreach (StaffMember aMember in Staff.staffHotelServices)
 		{
-			actualProd += aMember.CalculateProd()*8;
-			aMember.HoursWorked = 8;
+			actualProd += aMember.CalculateProd()*5.7f;
+			aMember.HoursWorked = 5.7f;
 			aMember.Experience++;
 		}
 		foreach (StaffMember aMember in Staff.staffFoodAndBeverages)
 		{
-			actualProd += aMember.CalculateProd()*8;
-			aMember.HoursWorked = 8;
+			actualProd += aMember.CalculateProd()*5.7f;
+			aMember.HoursWorked = 5.7f;
 			aMember.Experience++;
 		}
 		foreach (StaffMember aMember in Staff.staffFrontDesk)
 		{
-			actualProd += aMember.CalculateProd()*8;
-			aMember.HoursWorked = 8;
+			actualProd += aMember.CalculateProd()*5.7f;
+			aMember.HoursWorked = 5.7f;
 			aMember.Experience++;
 		}
 		foreach (StaffMember aMember in Staff.staffConference)
 		{
-			actualProd += aMember.CalculateProd()*8;
-			aMember.HoursWorked = 8;
+			actualProd += aMember.CalculateProd()*5.7f;
+			aMember.HoursWorked = 5.7f;
 			aMember.Experience++;
 		}
 		foreach (StaffMember aMember in Staff.staffOthers)
 		{
-			actualProd += aMember.CalculateProd()*8;
-			aMember.HoursWorked = 8;
+			actualProd += aMember.CalculateProd()*5.7f;
+			aMember.HoursWorked = 5.7f;
 			aMember.Experience++;
 		}
 
@@ -247,6 +338,122 @@ public class StaffMenu : MonoBehaviour {
             }
         }
     }
+	public void TrainStaff()//Adds one week of training to each staff members and removes one week of non-training. 
+	{
+		Debug.LogError("StartTraining");
+		foreach(StaffMember aMember in Staff.staffHotelServices)
+		{
+			if(trainingAllocation[0] > 0)
+			{
+				Debug.LogError("training");
+
+				aMember.baseProductivity += trainingAllocation[0]*trainingBonusToProductivity;
+				Debug.LogError(aMember.baseProductivity);
+			}
+			else
+			{
+				Debug.LogError("Decay");
+				if(aMember.baseProductivity > 51)
+					aMember.baseProductivity -= trainingEffectDecay;
+			}
+		}
+		foreach(StaffMember aMember in Staff.staffFoodAndBeverages)
+		{
+			if(trainingAllocation[1] > 0)
+			{
+				aMember.baseProductivity += trainingAllocation[1]*trainingBonusToProductivity;
+			}
+			else
+			{
+				if(aMember.baseProductivity > 51)
+					aMember.baseProductivity -= trainingEffectDecay;
+			}
+		}
+		foreach(StaffMember aMember in Staff.staffFrontDesk)
+		{
+			if(trainingAllocation[2] > 0)
+			{
+				aMember.baseProductivity += trainingAllocation[2]*trainingBonusToProductivity;
+			}
+			else
+			{
+				if(aMember.baseProductivity > 51)
+					aMember.baseProductivity -= trainingEffectDecay;
+			}
+		}
+		foreach(StaffMember aMember in Staff.staffConference)
+		{
+			if(trainingAllocation[3] > 0)
+			{
+				aMember.baseProductivity += trainingAllocation[3]*trainingBonusToProductivity;
+			}
+			else
+			{
+				if(aMember.baseProductivity > 51)
+					aMember.baseProductivity -= trainingEffectDecay;
+			}
+		}
+		foreach(StaffMember aMember in Staff.staffOthers)
+		{
+			if(trainingAllocation[4] > 0)
+			{
+				aMember.baseProductivity += trainingAllocation[4]*trainingBonusToProductivity;
+			}
+			else
+			{
+				if(aMember.baseProductivity > 51)
+					aMember.baseProductivity -= trainingEffectDecay;
+			}
+		}
+	}
+	public void IncreasePay(int type)
+	{
+		switch (type) 
+		{
+		case 1:
+			MasterReference.payBandHS++;
+			MasterReference.payScales[1] = payBandHotelServices[MasterReference.payBandHS];
+			break;
+		case 2:
+			MasterReference.payBandFB++;
+			MasterReference.payScales[2] = payBandFoodAndBeverages[MasterReference.payBandFB];
+			break;
+		case 3:
+			MasterReference.payBandFD++;
+			MasterReference.payScales[3] = payBandFrontDesk[MasterReference.payBandFD];
+			break;
+		case 4:
+			MasterReference.payBandConference++;
+			MasterReference.payScales[4] = payBandConference[MasterReference.payBandConference];
+			break;
+		case 5:
+			MasterReference.payBandOthers++;
+			MasterReference.payScales[5] = payBandOther[MasterReference.payBandOthers];
+			break;
+		}
+		if(MasterReference.payBandHS >= 3)//disables the plus buttons once we reach the maximum number of pay increase.
+		{
+			panelArray[0].transform.FindChild("btn_PayIncrease").GetComponent<Button>().interactable = false;
+		}
+		if(MasterReference.payBandFB >= 3)
+		{
+			panelArray[1].transform.FindChild("btn_PayIncrease").GetComponent<Button>().interactable = false;
+		}
+		if(MasterReference.payBandFD >= 3)
+		{
+			panelArray[2].transform.FindChild("btn_PayIncrease").GetComponent<Button>().interactable = false;
+		}
+		if(MasterReference.payBandConference >= 3)
+		{
+			panelArray[3].transform.FindChild("btn_PayIncrease").GetComponent<Button>().interactable = false;
+		}
+		if(MasterReference.payBandOthers >= 3)
+		{
+			panelArray[4].transform.FindChild("btn_PayIncrease").GetComponent<Button>().interactable = false;
+		}
+		SetPayScale();
+		RefreshTabs();
+	}
 
     public void AddStaffMember(int type) 
     {
@@ -313,4 +520,78 @@ public class StaffMenu : MonoBehaviour {
         }
         RefreshTabs();
     }
+	public void ModifyTrainingHours(int type)
+	{
+		switch(Mathf.Abs(type))
+		{
+		case 1:
+			if(type > 0)
+			{
+				trainingAllocation[0]++;
+			}
+			else
+			{
+				trainingAllocation[0]--;
+			}
+			break;
+		case 2:
+			if(type > 0)
+			{
+				trainingAllocation[1]++;
+			}
+			else
+			{
+				trainingAllocation[1]--;
+			}
+			break;
+		case 3:
+			if(type > 0)
+			{
+				trainingAllocation[2]++;
+			}
+			else
+			{
+				trainingAllocation[2]--;
+			}
+			break;
+		case 4:
+			if(type > 0)
+			{
+				trainingAllocation[3]++;
+			}
+			else
+			{
+				trainingAllocation[3]--;
+			}
+			break;
+		case 5:
+			if(type > 0)
+			{
+				trainingAllocation[4]++;
+			}
+			else
+			{
+				trainingAllocation[4]--;
+			}
+			break;
+		}
+		if(trainingAllocation[Mathf.Abs(type)-1] <= 0)
+		{
+			panelArray[Mathf.Abs(type)-1].transform.FindChild("btn_TrainingDecrease").GetComponent<Button>().interactable = false;
+		}
+		else
+		{
+			panelArray[Mathf.Abs(type)-1].transform.FindChild("btn_TrainingDecrease").GetComponent<Button>().interactable = true;
+		}
+		if (trainingAllocation[Mathf.Abs(type)-1] >= 20)
+		{
+			panelArray[Mathf.Abs(type)-1].transform.FindChild("btn_TrainingIncrease").GetComponent<Button>().interactable = false;
+		}
+		else
+		{
+			panelArray[Mathf.Abs(type)-1].transform.FindChild("btn_TrainingIncrease").GetComponent<Button>().interactable = true;
+		}
+		RefreshTabs();
+	}
+
 }
