@@ -38,7 +38,7 @@ public static class BedroomBehaviour
 					//check if this is a special booking
 					if(aRoom.typeRented == groupType.noneBooked)
 					{
-						Debug.Log(Reception.monthlyReports.Count);
+						
 						roomCosts roomType = new roomCosts();//assign the correct list of prices and discount.
 						switch(aRoom.roomQuality)
 						{

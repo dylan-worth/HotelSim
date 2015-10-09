@@ -204,7 +204,7 @@ public class Reception : MonoBehaviour
 	public static void RunSimulation(int numberOfWeeks)
 	{
 		singleton.StackedWeeklySimTrigger(numberOfWeeks);
-		print ("Call");
+		//print ("Call");
 	}
 
 	//Wrapper used to trigger IEnumerator (eventually switch to void I guess?)
@@ -300,7 +300,7 @@ public class Reception : MonoBehaviour
 				//check if enought ppl show up to trigger overbooking.
 				if((roomsToBook-specialBooked.numberOfRooms)/(BedroomBehaviour.allBedrooms.Count-specialBooked.numberOfRooms) > 0.9 && revenueManagementTab.GetOverbooked())
 				{
-					Debug.LogWarning("overbooking");
+					//Debug.LogWarning("overbooking");
 					roomsToBook += (roomsToBook/revenueManagementTab.GetOverbooking());
 
 					int overbookedCustomer = ((roomsToBook+specialBooked.numberOfRooms) - BedroomBehaviour.allBedrooms.Count);
@@ -308,18 +308,19 @@ public class Reception : MonoBehaviour
 					{
 						for(int i = 0; i < overbookedCustomer; i++)
 						{
-							Debug.LogWarning("Customer overbooked! Cost to relocate: $300. Lost reputation!");
+							//Debug.LogWarning("Customer overbooked! Cost to relocate: $300. Lost reputation!");
 							MasterReference.accountsPayable += 300f;
 							MasterReference.hotelExposure--;
 						}
 					}
 				}
 			
-				//this is only for display. Will remove in later versions.
+				
+                /*//this is only for display. Will remove in later versions.
 				if (dayOfWeek <= WeekDays.Thursday)
 					Debug.Log ("Day "+Days+" Booking " + roomsToBook + " on weekday " + dayOfWeek);
 				else 
-					Debug.Log ("Day "+Days+" Booking " + roomsToBook + " on weekend day " + dayOfWeek);
+					Debug.Log ("Day "+Days+" Booking " + roomsToBook + " on weekend day " + dayOfWeek);*/
 				//*****************************************************//
 
 				//Try to book specialgroups Rooms.---------------
@@ -328,17 +329,17 @@ public class Reception : MonoBehaviour
 				{
 					//check for price ratio here.
 					if(CheckGroupCost(specialBooked)){
-					Debug.LogError("Special Group Booked for "+ specialBooked.numberOfDays + " Days for "+ specialBooked.numberOfRooms + "rooms for a "+ specialBooked.type);
+					//Debug.LogError("Special Group Booked for "+ specialBooked.numberOfDays + " Days for "+ specialBooked.numberOfRooms + "rooms for a "+ specialBooked.type);
 					for(int i = 0; i < specialBooked.numberOfRooms; i++)
 					BookRoomSpecial(dayOfWeek, specialBooked);
 					}
 					else
 					{
-						print ("Prices too expensive, " + (specialBooked.numberOfRooms) + "Customers Lost");
+						//print ("Prices too expensive, " + (specialBooked.numberOfRooms) + "Customers Lost");
 					}
 				}
 				else {
-					print ("Not enought rooms available, " + (specialBooked.numberOfRooms) + "Customers Lost");
+					//print ("Not enought rooms available, " + (specialBooked.numberOfRooms) + "Customers Lost");
 					//break;
 				}
 				//-----------------------------------------------
@@ -350,7 +351,7 @@ public class Reception : MonoBehaviour
 					if (BedroomBehaviour.roomsAvailable > 0) {
 						BookRoom (dayOfWeek, occupancyDiscount);
 					} else {
-						print ("No Rooms Available, " + (roomsToBook - j) + "Customers Lost");
+						//print ("No Rooms Available, " + (roomsToBook - j) + "Customers Lost");
 						//break;
 					}
 				}
@@ -361,7 +362,7 @@ public class Reception : MonoBehaviour
 				float ProdReq = BedroomBehaviour.ProdRequired;
 				float StaffProduction = staffMenu.returnActualProduction(ProdReq);
 				BedroomBehaviour.CleanRooms (StaffProduction);
-				print (ProdReq + ", " +StaffProduction);
+				//print (ProdReq + ", " +StaffProduction);
 
 				float[] dailyCost = staffMenu.ReturnCostPerDay();
 				staffCostMonthlyDP += dailyCost[0];
@@ -386,8 +387,7 @@ public class Reception : MonoBehaviour
 			GameObject.FindGameObjectWithTag("Restaurant").GetComponent<Restaurant>().SimulateMonth (newMonthlyReport.totalBookings()
 			                                                                                        , 7*Calendar.getNumberOfWeeksInMonth());
 		restaurantBooks.Add (newRestaurantBook);//creates a new log for the restaurant numbers. stored inside a list.
-		for(int i = 0; i < restaurantBooks.Count; i++){
-			Debug.Log(restaurantBooks[i].startDate.day);}
+		
 		//--------------------------------ASSIGN VALUE OF NEW BALANCE SHEET----------------------------------------//
 		BalanceSheet newBalanceSheet = 
 			new BalanceSheet(Calendar.getDate(), MasterReference.cashAtBank, MasterReference.accountsReceivable,
@@ -449,7 +449,7 @@ public class Reception : MonoBehaviour
 	{
 		RoomStats aRoom = BedroomBehaviour.GetNextAvailableRoom();
 		aRoom.Book (special.numberOfDays);
-		Debug.Log("Room booked for " + special.numberOfDays + " days for special event!");
+		//Debug.Log("Room booked for " + special.numberOfDays + " days for special event!");
 	}
 	//Used to try to book a room at this hotel
 	public static void BookRoom(WeekDays dayOfWeek, float occupancyDiscount)
@@ -473,12 +473,12 @@ public class Reception : MonoBehaviour
 			aRoom.discount3Days = discount3Days;
 			aRoom.discountNoBreakfast = BoolGen (40);
 			aRoom.discountNoCancel = BoolGen (30);
-			Debug.Log ("Room booked for " + numberOfDays + " days!");
+			//Debug.Log ("Room booked for " + numberOfDays + " days!");
 		} 
 		else 
 		{
 			//add to monthly report the number of customer lost here.
-			Debug.Log ("Room too expensive, customer lost.");
+			//Debug.Log ("Room too expensive, customer lost.");
 		}
 	}
 	//Random bool generator. Receives the probability of true outcome. 50/50 default.
