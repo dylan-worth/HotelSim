@@ -8,7 +8,9 @@ public class TooltipController : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
 	public string title;
 	public string info;
-
+	public Color backgroundColor = new Color(1f,1f,1f,1f);
+	public Color titleFontColor = new Color(0f,0f,0f,1f);
+	public Color infoFontColor = new Color(0f,0f,0f,1f);
 	public float delay = 0.75f;
 	float timer;
 	GameObject tooltip;
@@ -27,9 +29,13 @@ public class TooltipController : MonoBehaviour, IPointerEnterHandler, IPointerEx
 		Debug.Log(Screen.width);
 		Debug.Log(tooltip.GetComponent<RectTransform>().sizeDelta.x);
 		float sizingFactor = Screen.width/800f;
-		
+		tooltip.GetComponent<Image>().color = backgroundColor;
+
 		tooltip.transform.FindChild("name").gameObject.GetComponent<Text>().text = title;
+		tooltip.transform.FindChild("name").gameObject.GetComponent<Text>().color = titleFontColor;
 		tooltip.transform.FindChild("info").gameObject.GetComponent<Text>().text = info;
+		tooltip.transform.FindChild("info").gameObject.GetComponent<Text>().color = infoFontColor;
+
 		if(info == "")
 		{
 			float panelWidth = title.Length * 9f;

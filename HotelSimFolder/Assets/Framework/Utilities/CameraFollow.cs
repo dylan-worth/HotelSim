@@ -6,13 +6,11 @@ public class CameraFollow : MonoBehaviour{
 
 	
 	public float dampTime = 0.15f;
-	public Transform target;
 
-	public Transform lvl1;
-	public Transform lvl2;
-	public Transform lvl3;
-	public Transform lvl4;
-	public Transform lvl5;
+
+	Vector3 target;
+	[SerializeField][Tooltip("Coordinates of the centered view point.")]
+	Vector3 centeredView = new Vector3(12f,10f,12.273f);
 
 	public Transform rotationPoint;
 
@@ -21,18 +19,21 @@ public class CameraFollow : MonoBehaviour{
 
 	public bool rLeft = false;
 	public bool rRight = false;
+	[SerializeField][Range(0f,20f)][Tooltip("Base height of the camera at start.")]
+	float startingHeight = 10f;
+	float currentHeight = 10f;
+	Vector3 targetPosition = new Vector3(12f,10f,12.273f);
 	bool isResetting = false;
 
 	float startTime;
 	float journeyLength;
 	Quaternion orinigalRotation;
 
-	//int camPOS = 6;
 
 	void Start()
 	{
 		orinigalRotation = transform.rotation;
-		target = lvl5;
+		target = centeredView;
 	}
 
 	void Update ()
@@ -43,27 +44,29 @@ public class CameraFollow : MonoBehaviour{
 
 			float distCovered = (Time.time - startTime) * 7f;
 			float fracJourney = distCovered / journeyLength;
-			transform.position = Vector3.Lerp (transform.position, target.position, fracJourney);
+			transform.position = Vector3.Lerp (transform.position, target, fracJourney);
 		}
 		else
 		{
-				transform.position = Vector3.Lerp (transform.position, new Vector3(transform.position.x,target.position.y,transform.position.z)
+				transform.position = Vector3.Lerp (transform.position, new Vector3(transform.position.x,currentHeight,transform.position.z)
                                                            , smoothing * Time.deltaTime);
 		}
 		if(rLeft || Input.GetAxis("Horizontal") < -0.5f)
 		{
+			if(!isResetting)
 			RotateAroundCenter(1f);
 		}
 		else if(rRight || Input.GetAxis("Horizontal") > 0.5f)
 		{
+			if(!isResetting)
 			RotateAroundCenter(-1f);
 		}
 	}
 	public void CenterView()
 	{
-		target = lvl5;
+		target =  centeredView;
 		startTime = Time.time;
-		journeyLength = Vector3.Distance(transform.position, target.position);
+		journeyLength = Vector3.Distance(transform.position, target);
 		isResetting = true;
 		StartCoroutine(ViewReset());
 	}
@@ -71,7 +74,6 @@ public class CameraFollow : MonoBehaviour{
 	{
 		yield return new WaitForSeconds(4f);
 		isResetting = false;
-		Debug.Log("stop");
 	}
 
 	public void RotateAroundCenter(float direction)
@@ -81,32 +83,8 @@ public class CameraFollow : MonoBehaviour{
 
 	public void ResetView(int pos)
 	{
-		//camPOS = pos;
-		switch(pos)
-		{
-		case 1:
-			target = lvl1;
-			break;
-			
-		case 2:
-			target = lvl2;
-			break;
-			
-		case 3:
-			target = lvl3;
-			break;
-			
-		case 4:
-			target = lvl4;
-			break;
-				
-		case 5:
-			target = lvl5;
-			break;
-
-		case 6:
-			target = lvl5;
-			break;
-		}
+		currentHeight = 5f+pos;
+	
 	}
+
 }
