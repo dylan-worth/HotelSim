@@ -65,6 +65,11 @@ public class GeneratedEvent
     public float AmountOverTime_Opt_3;
     [Tooltip("Duration of payments caused by choosing option 3.")][Range(0,60)]
     public int payementDuration_Opt_3;
+    //For events that will be randomed.
+    [Tooltip("Months during which this event can happen. 0 = January & 11 = December. EDIT SIZE TO ADD MORE MONTHS.")]
+    public int[] probableMonths;
+
+
 
     public GeneratedEvent() { }
     

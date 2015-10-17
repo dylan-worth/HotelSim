@@ -8,11 +8,14 @@ public class CalendarController : MonoBehaviour {
     GameObject calendarTab;
     GameObject[] monthsHolder = new GameObject[12];
     GameObject datePopup;
+    GameObject eventController;
+
+
     [SerializeField][Tooltip("Array of images for each months to display. DO NOT CHANGE SIZE VALUE!")]
     Sprite[] ImagesOfMonth = new Sprite[12];
 	// Use this for initialization
 	void Start () {
-
+        eventController = transform.parent.transform.FindChild("EventController").gameObject;
         datePopup = GameObject.FindGameObjectWithTag("UI").transform.FindChild("Popups").transform.FindChild("Calendar_Popup").gameObject;
 
         calendarTab = GameObject.FindGameObjectWithTag("UI").transform.FindChild("Tabs").transform.FindChild("Calendar").gameObject;
@@ -38,8 +41,8 @@ public class CalendarController : MonoBehaviour {
         date currentDate =  Calendar.getDate().deepCopy();
         int[] numberOfdaysPerMonths = new int[12]{31,28,31,30,31,30,31,31,30,31,30,31};
 
-        
 
+        int dateAtCycle = 0;
 
         //12 months
         for (int i = 0; i < 12; i++)
@@ -65,10 +68,20 @@ public class CalendarController : MonoBehaviour {
             {
                 if (j <= numberOfdaysPerMonths[i]+firstDay-1)
                 {
+                    dateAtCycle++;
                     int month = i;
                     int day = (j-firstDay)+1;
+                    int dateOfTheYear = dateAtCycle;
+                    bool hasEvent = false;
                     monthsHolder[i].transform.FindChild(j.ToString()).transform.FindChild("Text").GetComponent<Text>().text = ((j - firstDay)+1).ToString();
-                    monthsHolder[i].transform.FindChild(j.ToString()).GetComponent<Button>().onClick.AddListener(() => Display(month,day));
+                    if (CheckForEvent(dateAtCycle))//check if we have a special event for this date.
+                    {
+                        hasEvent = true;
+                        monthsHolder[i].transform.FindChild(j.ToString()).GetComponent<Image>().color = Color.red;
+                    }
+                    //add a listener on each button with the values of month,day,day of the year and a bool if we have special event.
+
+                    monthsHolder[i].transform.FindChild(j.ToString()).GetComponent<Button>().onClick.AddListener(() => Display(month, day, dateOfTheYear, hasEvent));
                     if (!monthsHolder[i].transform.FindChild(j.ToString()).gameObject.activeInHierarchy) 
                     {
                         monthsHolder[i].transform.FindChild(j.ToString()).gameObject.SetActive(true);
@@ -95,10 +108,31 @@ public class CalendarController : MonoBehaviour {
         }
     }
     //activates the Popup for date display. 
-    public void Display(int month, int day) 
+    public void Display(int month, int day, int dateInTheYear, bool hasEvent) 
     {
         datePopup.SetActive(true);
-        datePopup.transform.FindChild("txtDate").GetComponent<Text>().text = ((months)month).ToString() + " " + day.ToString();
-        datePopup.transform.FindChild("IMG_Month").GetComponent<Image>().sprite = ImagesOfMonth[month];
+        
+        if (hasEvent)
+        {
+            Debug.Log(dateInTheYear);
+            GeneratedEvent currentEvent = eventController.GetComponent<PreRandomedEvents>().GetEvent(dateInTheYear);
+            datePopup.transform.FindChild("txtDate").GetComponent<Text>().text = ((months)month).ToString() + " " + day.ToString() + currentEvent.title;
+            datePopup.transform.FindChild("IMG_Month").GetComponent<Image>().sprite = currentEvent.image;
+            datePopup.transform.FindChild("Description_Panel").transform.FindChild("Text").GetComponent<Text>().text = currentEvent.description;
+        }
+        else 
+        {
+            datePopup.transform.FindChild("txtDate").GetComponent<Text>().text = ((months)month).ToString() + " " + day.ToString();
+            datePopup.transform.FindChild("IMG_Month").GetComponent<Image>().sprite = ImagesOfMonth[month];
+            datePopup.transform.FindChild("Description_Panel").transform.FindChild("Text").GetComponent<Text>().text = "No special events today.";
+        }
+    }
+
+    bool CheckForEvent(int date) 
+    {
+        if(eventController.GetComponent<PreRandomedEvents>().GetEvent(date) != null)
+        return true;
+        else
+            return false;
     }
 }
