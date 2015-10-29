@@ -36,11 +36,12 @@ public class PreRandomedEvents : MonoBehaviour {
         listOfEvents.Add(eventFour); listOfEvents.Add(eventFive); listOfEvents.Add(eventSix);
         listOfEvents.Add(eventSeven); listOfEvents.Add(eventEight); listOfEvents.Add(eventNine);
         listOfEvents.Add(eventTen);
+        RandomizeEvent();
     }
 
     void Start() 
     {
-        RandomizeEvent();
+        
     }
 
     void RandomizeEvent() 

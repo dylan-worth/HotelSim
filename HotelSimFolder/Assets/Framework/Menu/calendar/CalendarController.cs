@@ -78,6 +78,7 @@ public class CalendarController : MonoBehaviour {
                     {
                         hasEvent = true;
                         monthsHolder[i].transform.FindChild(j.ToString()).GetComponent<Image>().color = Color.red;
+                       
                     }
                     //add a listener on each button with the values of month,day,day of the year and a bool if we have special event.
 
@@ -116,7 +117,7 @@ public class CalendarController : MonoBehaviour {
         {
             Debug.Log(dateInTheYear);
             GeneratedEvent currentEvent = eventController.GetComponent<PreRandomedEvents>().GetEvent(dateInTheYear);
-            datePopup.transform.FindChild("txtDate").GetComponent<Text>().text = ((months)month).ToString() + " " + day.ToString() + currentEvent.title;
+            datePopup.transform.FindChild("txtDate").GetComponent<Text>().text = ((months)month).ToString() + " " + day.ToString() + " " + currentEvent.title;
             datePopup.transform.FindChild("IMG_Month").GetComponent<Image>().sprite = currentEvent.image;
             datePopup.transform.FindChild("Description_Panel").transform.FindChild("Text").GetComponent<Text>().text = currentEvent.description;
         }
