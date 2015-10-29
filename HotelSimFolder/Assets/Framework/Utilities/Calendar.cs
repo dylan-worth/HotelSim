@@ -34,6 +34,8 @@ public struct date
 public static class Calendar {
 
 	private static date currentDate = new date(2017, 1,WeekDays.Sunday, months.January, getNumberOfWeeksInMonth());
+	private static int dayOfTheYear = 1;
+
 	public static void addDay()
 	{
         if (currentDate.day < WeekDays.Sunday)
@@ -89,22 +91,30 @@ public static class Calendar {
 	static void checkMonth(int numDays){
 		if (currentDate.dayOfTheMonth == numDays && currentDate.month != months.December) {
 			currentDate.month++;
+			dayOfTheYear++;
 			currentDate.dayOfTheMonth = 1;
 		}
 		else if (currentDate.dayOfTheMonth == numDays && currentDate.month == months.December) {
 			currentDate.month = months.January;
 			currentDate.dayOfTheMonth = 1;
 			currentDate.year++;
+			dayOfTheYear = 1;
 		}
 		else
+		{
 			currentDate.dayOfTheMonth++;
+			dayOfTheYear++;
+		}
 	}
 
 	public static date getDate()
 	{
 		return currentDate;
 	}
-  
+	public static int GetDayOfTheYear()
+	{
+		return dayOfTheYear;
+	}
     //returns the number of weeks in the current month.
 	public static int getNumberOfWeeksInMonth()
 	{

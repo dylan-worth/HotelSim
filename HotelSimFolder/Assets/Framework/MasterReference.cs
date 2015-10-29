@@ -83,7 +83,7 @@ public static class MasterReference
 	public static int payBandOthers;
 
 	//number of rooms in the hotel.
-	public static int standardRooms = 15;
+	public static int standardRooms = 56;
 	public static int doubleRooms = 0;
 	public static int deluxeRooms = 0;
 	public static int suites = 0;

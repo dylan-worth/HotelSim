@@ -10,11 +10,60 @@ public class CalendarController : MonoBehaviour {
     GameObject datePopup;
     GameObject eventController;
 
+	[SerializeField][Tooltip("Range of seasonal inquiry for given month. MIN and MAX value are editable.")]
+	float[] a_Jan = new float[2];
+	[SerializeField][Tooltip("Range of seasonal inquiry for given month. MIN and MAX value are editable.")]
+	float[] a_Feb = new float[2];
+	[SerializeField][Tooltip("Range of seasonal inquiry for given month. MIN and MAX value are editable.")]
+	float[] a_Mar = new float[2];
+	[SerializeField][Tooltip("Range of seasonal inquiry for given month. MIN and MAX value are editable.")]
+	float[] a_Apr = new float[2];
+	[SerializeField][Tooltip("Range of seasonal inquiry for given month. MIN and MAX value are editable.")]
+	float[] a_May = new float[2];
+	[SerializeField][Tooltip("Range of seasonal inquiry for given month. MIN and MAX value are editable.")]
+	float[] a_Jun = new float[2];
+	[SerializeField][Tooltip("Range of seasonal inquiry for given month. MIN and MAX value are editable.")]
+	float[] a_Jul = new float[2];
+	[SerializeField][Tooltip("Range of seasonal inquiry for given month. MIN and MAX value are editable.")]
+	float[] a_Aug = new float[2];
+	[SerializeField][Tooltip("Range of seasonal inquiry for given month. MIN and MAX value are editable.")]
+	float[] a_Sep = new float[2];
+	[SerializeField][Tooltip("Range of seasonal inquiry for given month. MIN and MAX value are editable.")]
+	float[] a_Oct = new float[2];
+	[SerializeField][Tooltip("Range of seasonal inquiry for given month. MIN and MAX value are editable.")]
+	float[] a_Nov = new float[2];
+	[SerializeField][Tooltip("Range of seasonal inquiry for given month. MIN and MAX value are editable.")]
+	float[] a_Dec = new float[2];
+
+	float[][] monthsArray = new float[12][];
+
+	[System.NonSerialized]
+	public float[] seasonalTrends = new float[366]; 
+
+	int[] numberOfdaysPerMonths = new int[12]{31,28,31,30,31,30,31,31,30,31,30,31};
 
     [SerializeField][Tooltip("Array of images for each months to display. DO NOT CHANGE SIZE VALUE!")]
     Sprite[] ImagesOfMonth = new Sprite[12];
+	void Awake()
+	{
+		monthsArray[0] = a_Jan;
+		monthsArray[1] = a_Feb;
+		monthsArray[2] = a_Mar;
+		monthsArray[3] = a_Apr;
+		monthsArray[4] = a_May;
+		monthsArray[5] = a_Jun;
+		monthsArray[6] = a_Jul;
+		monthsArray[7] = a_Aug;
+		monthsArray[8] = a_Sep;
+		monthsArray[9] = a_Oct;
+		monthsArray[10] = a_Nov;
+		monthsArray[11] = a_Dec;
+
+	}
+
 	// Use this for initialization
 	void Start () {
+		SetSeasonal();
         eventController = transform.parent.transform.FindChild("EventController").gameObject;
         datePopup = GameObject.FindGameObjectWithTag("UI").transform.FindChild("Popups").transform.FindChild("Calendar_Popup").gameObject;
 
@@ -33,13 +82,25 @@ public class CalendarController : MonoBehaviour {
         monthsHolder[11] = calendarTab.transform.FindChild("LayoutHolder").transform.FindChild("December").transform.FindChild("DayHolder").gameObject;
         SetCalendar(2017, 1);
 	}
+	void SetSeasonal()
+	{
+		int current = 0;
+		for(int i = 0; i < monthsArray.Length; i++)
+		{
+			for(int j = 0; j < numberOfdaysPerMonths[i]; j++)
+			{
+				seasonalTrends[current] = Random.Range(monthsArray[i][0],monthsArray[i][1]);;
+				current++;
+			}
+		}
+	}
     //function that displays all the dates base on the year.
     void SetCalendar(int year, int firstDay) 
     {
         //Sets the displayed year at the top of the tab. 
         calendarTab.transform.FindChild("txtYear").GetComponent<Text>().text = year.ToString();
         date currentDate =  Calendar.getDate().deepCopy();
-        int[] numberOfdaysPerMonths = new int[12]{31,28,31,30,31,30,31,31,30,31,30,31};
+        
 
 
         int dateAtCycle = 0;
@@ -119,13 +180,16 @@ public class CalendarController : MonoBehaviour {
             GeneratedEvent currentEvent = eventController.GetComponent<PreRandomedEvents>().GetEvent(dateInTheYear);
             datePopup.transform.FindChild("txtDate").GetComponent<Text>().text = ((months)month).ToString() + " " + day.ToString() + " " + currentEvent.title;
             datePopup.transform.FindChild("IMG_Month").GetComponent<Image>().sprite = currentEvent.image;
-            datePopup.transform.FindChild("Description_Panel").transform.FindChild("Text").GetComponent<Text>().text = currentEvent.description;
+            datePopup.transform.FindChild("Description_Panel").transform.FindChild("Text").GetComponent<Text>().text = currentEvent.description + " Expected bookings for the day: " + 
+				(Mathf.Round((seasonalTrends[dateInTheYear]*BedroomBehaviour.allBedrooms.Count)/10f)*10f);
+			//datePopup.transform.FindChild("IF_LYInquiry").transform.FindChild("Text").GetComponent<Text>().text = last yea numbers;
         }
         else 
         {
             datePopup.transform.FindChild("txtDate").GetComponent<Text>().text = ((months)month).ToString() + " " + day.ToString();
             datePopup.transform.FindChild("IMG_Month").GetComponent<Image>().sprite = ImagesOfMonth[month];
-            datePopup.transform.FindChild("Description_Panel").transform.FindChild("Text").GetComponent<Text>().text = "No special events today.";
+            datePopup.transform.FindChild("Description_Panel").transform.FindChild("Text").GetComponent<Text>().text = "No special events today." + " Expected bookings for the day: " + 
+				(Mathf.Round((seasonalTrends[dateInTheYear]*BedroomBehaviour.allBedrooms.Count)/10f)*10f);
         }
     }
 

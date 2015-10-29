@@ -245,7 +245,15 @@ public class StaffMenu : MonoBehaviour {
 				"$"+(trainingAllocation[i]*staffList[i + 1].Count*MasterReference.payScales[i+1]).ToString();
 			panelArray[i].transform.FindChild("Input_WeeklyCost").GetComponent<InputField>().text = 
 				"$" + (staffList[i + 1].Count*MasterReference.payScales[i+1]*40).ToString();
-			panelArray[i].transform.FindChild("Input_Productivity").GetComponent<InputField>().text = (Mathf.Round(totalProd/count)).ToString();
+			if(count > 0)
+			{
+				panelArray[i].transform.FindChild("Input_Productivity").GetComponent<InputField>().text = (Mathf.Round(totalProd/count)).ToString();
+			}
+			else
+			{
+				panelArray[i].transform.FindChild("Input_Productivity").GetComponent<InputField>().text = "NA";
+			}
+			panelArray[i].transform.FindChild("Input_TotalProductivity").GetComponent<InputField>().text = totalProd.ToString();
         }
     }
 	

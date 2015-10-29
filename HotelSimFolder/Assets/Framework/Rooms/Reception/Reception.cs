@@ -147,6 +147,7 @@ public class Reception : MonoBehaviour
 	StaffingLog currentLogStaff;
 	RatesSetup rateSetup;
 	GroupBookController groupController;
+	CalendarController calendarController;
 
 	void Awake()
 	{
@@ -158,6 +159,7 @@ public class Reception : MonoBehaviour
         randomEvent = controller.transform.FindChild("EventController").GetComponent<RandomEvent>();
 		rateSetup = controller.transform.FindChild("RatesSetUp").GetComponent<RatesSetup>();
 		groupController = controller.transform.FindChild("GroupBooking").GetComponent<GroupBookController>();
+		calendarController = controller.transform.FindChild("CalendarController").GetComponent<CalendarController>();
 
 		SingletonCheck();
 		if(monthlyReports == null){
@@ -295,7 +297,7 @@ public class Reception : MonoBehaviour
 				//Determine how many rooms we will try to book:
 
 
-				int roomsToBook = (int)((BedroomBehaviour.allBedrooms.Count-specialBooked.numberOfRooms) * 
+				int roomsToBook = (int)((calendarController.seasonalTrends[Calendar.GetDayOfTheYear()]-specialBooked.numberOfRooms) * 
 				                        (MasterReference.ReturnRegularBookingPop() / 100f));
 				//check if enought ppl show up to trigger overbooking.
 				if((roomsToBook-specialBooked.numberOfRooms)/(BedroomBehaviour.allBedrooms.Count-specialBooked.numberOfRooms) > 0.9 && revenueManagementTab.GetOverbooked())
@@ -335,12 +337,11 @@ public class Reception : MonoBehaviour
 					}
 					else
 					{
-						//print ("Prices too expensive, " + (specialBooked.numberOfRooms) + "Customers Lost");
+						//twitter feed, prices too expensive, group decided to look elsewhere
 					}
 				}
 				else {
-					//print ("Not enought rooms available, " + (specialBooked.numberOfRooms) + "Customers Lost");
-					//break;
+					//twiiter feed, no room for group to book.
 				}
 				//-----------------------------------------------
 				float occupancyDiscount =  controller.transform.FindChild ("RevenueManagerCTR").gameObject.GetComponent<RevenueManagement>().discountOnOccupancy();
