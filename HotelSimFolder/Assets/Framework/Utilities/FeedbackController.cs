@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Xml;
+using System.Xml.Serialization;
+using System.IO;
 
 [System.Serializable]
 public class FeedBack
@@ -29,8 +32,49 @@ public class FeedbackController : MonoBehaviour {
 	[SerializeField]
 	FeedBack one;
 
+	string[] nameArray = new string[1000];
+
+	XmlTextReader reader = new XmlTextReader ("Names.xml");
+
+	public void SetNamingArray()
+	{
 
 
+		int i = 0;
+		int j = 0;
+		while (reader.Read()) 
+		{
+
+			switch (reader.NodeType) 
+			{
+			case XmlNodeType.Element: // The node is an element.
+				while (reader.MoveToNextAttribute()) // Read the attributes.
+
+				if(j < 2)
+				{
+					nameArray[i] += reader.Value + " ";
+					j++;
+				}
+				else
+				{
+					j = 1;
+					nameArray[i+1] += reader.Value + " ";
+					i++;
+				}
+
+				break;
+			case XmlNodeType.Text: //Display the text in each element.
+				break;
+			case XmlNodeType.EndElement: //Display the end of the element.
+				break;
+			}
+
+		}
+	}
+	void Start()
+	{
+		//SetNamingArray();set the name array.
+	}
 	FeedBack GenerateFeedBack(string reason)
 	{
 		switch(reason)
