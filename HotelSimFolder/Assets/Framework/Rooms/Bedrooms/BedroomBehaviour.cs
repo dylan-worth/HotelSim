@@ -27,7 +27,14 @@ public static class BedroomBehaviour
 		foreach(RoomStats aRoom in allBedrooms)
 		{
 			if(aRoom.daysUnderConstruction > 0)
-				aRoom.daysUnderConstruction--;//Decrease days under construction
+			{
+
+				--aRoom.daysUnderConstruction;//Decrease days under construction
+				if(aRoom.daysUnderConstruction == 0)
+				{
+					aRoom.RemoveIcon("RepairUpgrade");
+				}
+			}
 			else
 			{
 				aRoom.DegradeRoom ();
@@ -179,16 +186,18 @@ public static class BedroomBehaviour
 	{
 		int track  = 0;
 		roomsAvailable = 0;
+
 		//Iterate through each room, stepping our count if the room isn't occupied or under construction
 		foreach(RoomStats aBedroom in allBedrooms)
 		{
 			track++;
-			if(!aBedroom.inUse && aBedroom.roomCleanliness >= 50 && aBedroom.roomCondition > 10)
+			if(!aBedroom.inUse && aBedroom.roomCleanliness >= 50 && aBedroom.roomCondition > 10 && aBedroom.daysUnderConstruction <= 0)
 			{
 				//print (" Passed");
 				roomsAvailable++;
 			}
 		}
+
 		//print ("NumCheck "+track+". NumRooms Availabe " + roomsAvailable + ", TotalRooms " + allBedrooms.Count +".\n First Room Degridation "+allBedrooms[0].roomDegradation +", Cleanliness "+allBedrooms[0].Cleanliness+", daysUnderConstruction "+allBedrooms[0].daysUnderConstruction+ ", and daysOccupied "+allBedrooms[0].daysOccupied);
 	}
 	
@@ -198,7 +207,7 @@ public static class BedroomBehaviour
 		//Iterate through all rooms until suitable one is found
 		foreach(RoomStats aRoom in allBedrooms)
 		{
-			if(!aRoom.inUse && aRoom.roomCleanliness >= 50 && aRoom.roomCondition > 10)
+			if(!aRoom.inUse && aRoom.roomCleanliness >= 50 && aRoom.roomCondition > 10 && aRoom.daysUnderConstruction <= 0)
 				return aRoom;
 		}
 		

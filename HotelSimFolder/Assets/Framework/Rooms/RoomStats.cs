@@ -28,6 +28,8 @@ public class RoomStats : RoomBehaviour
 
 	private Vector3 lastestPOS = new Vector3(0f,0f,0f);
 
+	Refurbishment refurbCTR;
+
 	public void Awake ()
 	{
 		if (TxtDaysOccupied == null)
@@ -47,6 +49,8 @@ public class RoomStats : RoomBehaviour
 			print ("Set Text Box");
 		}
 		BedroomBehaviour.AddToRoomList(this);
+
+		refurbCTR = GameObject.Find("RefurbishmentCTR").GetComponent<Refurbishment>();
 	}
 
 	//Handles filling in the menu
@@ -107,7 +111,19 @@ public class RoomStats : RoomBehaviour
 		btnUpgrade4.interactable = upg4;
 		btnUpgrade5.interactable = upg5;
 	}
+	public void RemoveIcon(string icon)
+	{
+		switch (icon)
+		{
+		case "RepairUpgrade":
+			if(transform.FindChild("Icon_Repair(Clone)") != null)
+				Destroy(transform.FindChild("Icon_Repair(Clone)").gameObject);
+			if(transform.FindChild("Icon_Upgrade(Clone)") != null)
+				Destroy(transform.FindChild("Icon_Upgrade(Clone)").gameObject);
 
+			break;
+		}
+	}
 
 	public void DegradeRoom ()
 	{
@@ -141,9 +157,21 @@ public class RoomStats : RoomBehaviour
 	{
 		MasterReference.accountsPayable += Mathf.Round((150 + 1000*((100-roomCondition))/100));
 		Reception.monthlyReports[Reception.monthlyReports.Count-1].expenseRepairCost += Mathf.Round((150 + 1000*((100-roomCondition))/100));
+
+		this.GetComponent<Renderer>().material.color = Color.white;
+
+		daysUnderConstruction += Mathf.CeilToInt(refurbCTR.maxRepairTime[roomQuality-1]*((100f-roomCondition)/100f));
+		if(daysUnderConstruction == 0)//minimum repair time 1 day.
+		{
+			daysUnderConstruction = 1;
+		}
+		Debug.Log(roomCondition);
+		Debug.Log(daysUnderConstruction);
 		roomCondition = 100;
 		roomCleanliness = 100;
-		this.GetComponent<Renderer>().material.color = Color.white;
+		GameObject repairIcon = Instantiate(refurbCTR.repairIcon, gameObject.transform.parent.position, Quaternion.identity) as GameObject;
+		repairIcon.transform.SetParent(transform);
+
 		HandleMenu(lastestPOS);
 	}
 	//upgrade room quality
@@ -157,11 +185,19 @@ public class RoomStats : RoomBehaviour
 		Reception.monthlyReports[Reception.monthlyReports.Count-1].expenseUpgradeCost += cost;
 		if(level > 1)
 		{
-			GameObject upgradeEffect = GameObject.Find("/GameController/PrefabHolder").GetComponent<MainHolderScript>().UpgradeSmokePrefab;
-			GameObject bedToAdd = gameObject.transform.parent.FindChild("SingleBed (1)").gameObject;
-			bedToAdd.SetActive(true);
-			Instantiate(upgradeEffect, bedToAdd.transform.position, Quaternion.identity);
+			//GameObject upgradeEffect = GameObject.Find("/GameController/PrefabHolder").GetComponent<MainHolderScript>().UpgradeSmokePrefab;
+			for(int i = 0; i < refurbCTR.upgradeList[level-2].Length; i++)
+			{
+				GameObject addOn = Instantiate(refurbCTR.upgradeList[level-2][i], transform.parent.position, Quaternion.identity) as GameObject;
+				addOn.transform.SetParent(transform);
+				addOn.transform.localScale = transform.parent.localScale;
+			}
+			//Instantiate(upgradeEffect, bedToAdd.transform.position, Quaternion.identity);
 		}
+
+		GameObject upgradeIcon = Instantiate(refurbCTR.upgradeIcon, gameObject.transform.parent.position, Quaternion.identity) as GameObject;
+		upgradeIcon.transform.SetParent(gameObject.transform);
+		daysUnderConstruction += refurbCTR.roomUpgradeTime[level-2];
 		HandleMenu(lastestPOS);
 	}
 

@@ -4,6 +4,8 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class Refurbishment : MonoBehaviour {
+
+
 	[SerializeField][Tooltip("Cost of each individual upgrade to the restaurant.")]
 	float[] restaurantUpgrades = new float[4];
 	[SerializeField][Tooltip("Cost of each individual upgrade to the bar.")]
@@ -31,6 +33,27 @@ public class Refurbishment : MonoBehaviour {
 	[SerializeField][Tooltip("Cost of repair for a single master suite at condition 0.")]
 	float repairCostMaster;
 
+	[Tooltip("Array of Elements to swap to double rooms. DO NOT EDIT SIZE!")]
+	public GameObject[] doubleUpgrade = new GameObject[5];
+	[Tooltip("Array of Elements to swap to deluxe rooms. DO NOT EDIT SIZE!")]
+	public GameObject[] deluxeUpgrade = new GameObject[5];
+	[Tooltip("Array of Elements to swap to suite. DO NOT EDIT SIZE!")]
+	public GameObject[] suiteUpgrade = new GameObject[5];
+	[Tooltip("Array of Elements to swap to master suite. DO NOT EDIT SIZE!")]
+	public GameObject[] masterSuiteUpgrade = new GameObject[5];
+
+	public GameObject[][] upgradeList = new GameObject[4][];
+
+	[Tooltip("Icon for repairing rooms.")]
+	public GameObject repairIcon;
+	[Tooltip("Icon for repairing rooms.")]
+	public GameObject upgradeIcon;
+
+	[Tooltip("Repair max time in days for each types of rooms starting with standard. Actual repair time as a percent of this value. " +
+		"I.E. if room condition is at 25% and max repair time is 20 days. Actual repair time will be 15 days.")]
+	public int[] maxRepairTime  = new int[5];
+	[Tooltip("Upgrade time in days for each type of room upgrade, starting from double ending at master suites.")]
+	public int[] roomUpgradeTime = new int[4];
 
 	GameObject refurbishTab;
 
@@ -76,6 +99,11 @@ public class Refurbishment : MonoBehaviour {
 		roomTypes [3] = suites;
 		roomTypes [4] = masterSuites;
 		refreshTabs ();
+
+		upgradeList[0] = doubleUpgrade;
+		upgradeList[1] = deluxeUpgrade;
+		upgradeList[2] = suiteUpgrade;
+		upgradeList[3] = masterSuiteUpgrade;
 
 	}
 
