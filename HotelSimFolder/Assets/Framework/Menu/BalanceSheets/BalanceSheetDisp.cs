@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 
 
-public class BalanceSheetDisp : MonoBehaviour {
+public class BalanceSheetDisp : MonoBehaviour {//Displays the balense sheet numbers on the screen inside a String.
 
 	public GameObject toolbar;
 	public GUIStyle styledText;

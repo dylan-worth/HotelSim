@@ -1,18 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DestroyedByTime : MonoBehaviour {
+public class DestroyedByTime : MonoBehaviour {//Add to a gameobject to remove after timer duration.
 
-	public float timer = 2f;
+	public float timer = 2f;//delay before deleting the gamobject.
 
 	// Use this for initialization
 	void Start () {
-		StartCoroutine(RemoveFromTheGame());
+		Destroy(gameObject, timer);
 	}
-	IEnumerator RemoveFromTheGame()
-	{
-		yield return new WaitForSeconds(timer);
-		Destroy(gameObject);
-	}
+
 
 }

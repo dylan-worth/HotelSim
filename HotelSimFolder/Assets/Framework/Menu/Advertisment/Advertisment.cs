@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-public class Advertisment : MonoBehaviour {
+public class Advertisment : MonoBehaviour {//Handles the expenses and effect of advertissement.
 
 
 
 
 	float costOfAdvert = 0f;
-	public void RunAdvert(Button type)
+	public void RunAdvert(Button type)//Based on the button pressed.
 	{
 		costOfAdvert = 0f;
 		switch(type.name)
@@ -52,6 +52,6 @@ public class Advertisment : MonoBehaviour {
 			type.interactable = false;
 			break;
 		}
-		MasterReference.accountsPayable += costOfAdvert;
+		MasterReference.accountsPayable += costOfAdvert;//Add the costs directly to accountsPayable. Should add to a new variable so we can track.
 	}
 }
