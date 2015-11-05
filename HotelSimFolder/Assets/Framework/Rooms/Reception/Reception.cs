@@ -311,6 +311,7 @@ public class Reception : MonoBehaviour
 						for(int i = 0; i < overbookedCustomer; i++)
 						{
 							//Debug.LogWarning("Customer overbooked! Cost to relocate: $300. Lost reputation!");
+
 							MasterReference.accountsPayable += 300f;
 							MasterReference.hotelExposure--;
 						}
