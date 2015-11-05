@@ -148,6 +148,7 @@ public class Reception : MonoBehaviour
 	RatesSetup rateSetup;
 	GroupBookController groupController;
 	CalendarController calendarController;
+	FeedbackController feedbackController;
 
 	void Awake()
 	{
@@ -160,6 +161,7 @@ public class Reception : MonoBehaviour
 		rateSetup = controller.transform.FindChild("RatesSetUp").GetComponent<RatesSetup>();
 		groupController = controller.transform.FindChild("GroupBooking").GetComponent<GroupBookController>();
 		calendarController = controller.transform.FindChild("CalendarController").GetComponent<CalendarController>();
+		feedbackController = controller.transform.FindChild("FeedBackController").GetComponent<FeedbackController>();
 
 		SingletonCheck();
 		if(monthlyReports == null){
@@ -249,7 +251,7 @@ public class Reception : MonoBehaviour
 
 	}
 
-
+	#region Simulation Loop
 	//Runs (simulates) the reception desk for one month.
 	public IEnumerator RunWeeklySimulation()
 	{
@@ -302,7 +304,7 @@ public class Reception : MonoBehaviour
 				//check if enought ppl show up to trigger overbooking.
 				if((roomsToBook-specialBooked.numberOfRooms)/(BedroomBehaviour.allBedrooms.Count-specialBooked.numberOfRooms) > 0.9 && revenueManagementTab.GetOverbooked())
 				{
-					//Debug.LogWarning("overbooking");
+
 					roomsToBook += (roomsToBook/revenueManagementTab.GetOverbooking());
 
 					int overbookedCustomer = ((roomsToBook+specialBooked.numberOfRooms) - BedroomBehaviour.allBedrooms.Count);
@@ -310,7 +312,7 @@ public class Reception : MonoBehaviour
 					{
 						for(int i = 0; i < overbookedCustomer; i++)
 						{
-							//Debug.LogWarning("Customer overbooked! Cost to relocate: $300. Lost reputation!");
+							feedbackController.TryGenFeedBack("OverBooked",70f);//70% chance an overbooked customer will complain.
 
 							MasterReference.accountsPayable += 300f;
 							MasterReference.hotelExposure--;
@@ -319,12 +321,7 @@ public class Reception : MonoBehaviour
 				}
 			
 				
-                /*//this is only for display. Will remove in later versions.
-				if (dayOfWeek <= WeekDays.Thursday)
-					Debug.Log ("Day "+Days+" Booking " + roomsToBook + " on weekday " + dayOfWeek);
-				else 
-					Debug.Log ("Day "+Days+" Booking " + roomsToBook + " on weekend day " + dayOfWeek);*/
-				//*****************************************************//
+                
 
 				//Try to book specialgroups Rooms.---------------
 				BedroomBehaviour.GetNumberOfRoomsAvailable();
@@ -338,11 +335,11 @@ public class Reception : MonoBehaviour
 					}
 					else
 					{
-						//twitter feed, prices too expensive, group decided to look elsewhere
+						feedbackController.TryGenFeedBack("Expensive",30f);//30% chance customoer will complain for overpriced.
 					}
 				}
 				else {
-					//twiiter feed, no room for group to book.
+					feedbackController.TryGenFeedBack("Full",10f);//10% chance customer will complain due to full capacity.
 				}
 				//-----------------------------------------------
 				float occupancyDiscount =  controller.transform.FindChild ("RevenueManagerCTR").gameObject.GetComponent<RevenueManagement>().discountOnOccupancy();
@@ -353,8 +350,7 @@ public class Reception : MonoBehaviour
 					if (BedroomBehaviour.roomsAvailable > 0) {
 						BookRoom (dayOfWeek, occupancyDiscount);
 					} else {
-						//print ("No Rooms Available, " + (roomsToBook - j) + "Customers Lost");
-						//break;
+						feedbackController.TryGenFeedBack("Full",10f);//10% chance customer will complain due to full capacity.
 					}
 				}
 				//set the price for current occupancy
@@ -437,15 +433,12 @@ public class Reception : MonoBehaviour
 		MasterReference.currentMonthInt++;
 		isSimulating = false;
 		MasterReference.accountsPayable = 0f;
-		//---------------------------------------------SAVE DATA---------------------------------------------------//
-		//currently adding everytime you save creating HUGE files.
-		//var newBSheetTest = Data_Save_CTNBalanceSheet.Load(Path.Combine(Application.persistentDataPath, "Data_Save_CTNBalanceSheets.xml"));
-		//newBSheetTest.
-		//newBSheetTest.Save(Path.Combine(Application.persistentDataPath, "Data_Save_CTNBalanceSheets.xml"));
+
 		//-------------------------------------END OF SIMULATION LOOP---------------------------------------------//
 		//-------------------------------------RESET SOME DATA----------------------------------------------------//
 		MasterReference.upgradeCost = 0f;
 	}
+	#endregion
 	//Used to book group rooms
 	public static void BookRoomSpecial(WeekDays dayOfWeek, specialBookings special)
 	{
@@ -479,8 +472,7 @@ public class Reception : MonoBehaviour
 		} 
 		else 
 		{
-			//add to monthly report the number of customer lost here.
-			//Debug.Log ("Room too expensive, customer lost.");
+			//room too expensive.
 		}
 	}
 	//Random bool generator. Receives the probability of true outcome. 50/50 default.
@@ -555,6 +547,7 @@ public class Reception : MonoBehaviour
 		{
 			percentChance =  (int)((medianRoomCostWE[roomQuality-1]/(currentCost*occupancyDiscount/100f))*0.75f*100f);
 		}
+
 		return BoolGen (percentChance);
 	}
 	static bool CheckGroupCost(specialBookings group)

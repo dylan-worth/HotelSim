@@ -99,7 +99,7 @@ public class CalendarController : MonoBehaviour {
     {
         //Sets the displayed year at the top of the tab. 
         calendarTab.transform.FindChild("txtYear").GetComponent<Text>().text = year.ToString();
-        date currentDate =  Calendar.getDate().deepCopy();
+
         
 
 

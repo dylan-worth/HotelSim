@@ -98,8 +98,7 @@ public class PreRandomedEvents : MonoBehaviour {
             }
             //if event has 0 for size it will not be added to the calendar.
         }
-        for (int h = 0; h < eventDates.Length; h++)
-        { Debug.Log(eventDates[h]); }
+     
            
     }
 

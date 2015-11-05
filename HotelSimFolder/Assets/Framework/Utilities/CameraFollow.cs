@@ -19,10 +19,9 @@ public class CameraFollow : MonoBehaviour{
 
 	public bool rLeft = false;
 	public bool rRight = false;
-	[SerializeField][Range(0f,20f)][Tooltip("Base height of the camera at start.")]
-	float startingHeight = 10f;
+
 	float currentHeight = 10f;
-	Vector3 targetPosition = new Vector3(12f,10f,12.273f);
+
 	bool isResetting = false;
 
 	float startTime;

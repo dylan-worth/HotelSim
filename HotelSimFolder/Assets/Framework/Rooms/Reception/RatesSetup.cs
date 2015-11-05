@@ -223,14 +223,6 @@ public class RatesSetup : MonoBehaviour {
 			
 		if(events.transform.FindChild ("DiscountWeekEnd").GetComponent<InputField>().text != "")
 			newReceptionLog.eventWeekEndDiscount = float.Parse(events.transform.FindChild ("DiscountWeekEnd").GetComponent<InputField>().text);
-			
-
-	
-
-		Debug.Log (newReceptionLog.standardRoom.weekdayRoomCost);
-		Debug.Log (newReceptionLog.deluxeRoom.weekdayRoomCost);
-		Debug.Log (newReceptionLog.doubleRoom.weekdayRoomCost);
-		Debug.Log (newReceptionLog.suiteRoom.weekdayRoomCost);
 
 
 	}

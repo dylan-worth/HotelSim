@@ -19,7 +19,7 @@ public class FeedBack
 	public string person;
 	[Tooltip("Actual content of the review.")]
 	public string content;
-	[Range(0f,100f)][Tooltip("Review grade out of 100.")]
+	[Range(0f,5f)][Tooltip("Review grade out of 5.")]
 	public float rating;
 
 	public FeedBack(){}
@@ -38,7 +38,9 @@ public class FeedBack
 public class FeedbackController : MonoBehaviour {
 
 
-	List<GameObject> listOfFeedbacks = new List<GameObject>();
+	List<GameObject> listOfFeedbacks = new List<GameObject>();//Active List on screen.
+	List<FeedBack> archivedListOfFeedbacks = new List<FeedBack>();//List of all previous feedback.
+
 
 	[SerializeField]
 	FeedBack one;
@@ -72,7 +74,7 @@ public class FeedbackController : MonoBehaviour {
 
 		Destroy(pop);
 	}
-	void GenerateFeedBack(string reason)//Generates a FeedBack based on a reason param.
+	void GenerateFeedBack(string reason)//Generates a FeedBack based on a reason parameter. It then instantiate a window to display it.
 	{
 		FeedBack fb = new FeedBack();
 		switch(reason)
@@ -108,20 +110,33 @@ public class FeedbackController : MonoBehaviour {
 			fb.content = "Don't know yet what to use this for.";
 			break;
 		}
-
+		float sizingFactor = Screen.width/800f;
 		fb.person = nameArray[Random.Range(0,1000)];
 		//Instatiate a new popup with the comment infos.
 		GameObject newFeedback = new GameObject();
-		newFeedback = Instantiate(feedBackPrefab, new Vector3(Screen.width-240, 220f + (listOfFeedbacks.Count * 120f), 0f), Quaternion.identity) as GameObject;
+		newFeedback = Instantiate(feedBackPrefab, new Vector3(0f, 0f, 0f), Quaternion.identity) as GameObject;
 		newFeedback.transform.SetParent(GameObject.FindGameObjectWithTag("UI").transform);
+
+		newFeedback.transform.position = new Vector3(Screen.width-( newFeedback.GetComponent<RectTransform>().sizeDelta.x/2f*sizingFactor),
+		                                             200f + (listOfFeedbacks.Count * newFeedback.GetComponent<RectTransform>().sizeDelta.y *2f), 0f);
 		newFeedback.transform.FindChild("txt_Name").GetComponent<Text>().text = fb.person;
 		newFeedback.transform.FindChild("txt_Comment").GetComponent<Text>().text = fb.content;
 		newFeedback.transform.FindChild("Img_Rating").GetComponent<Image>().sprite = stars[Mathf.RoundToInt((fb.rating/5f)*10)];
 		newFeedback.GetComponent<Button>().onClick.AddListener(() => { DeleteOnClick(newFeedback); }); 
 		newFeedback.transform.localScale = new Vector3(1f,1f,1f);
 
-		listOfFeedbacks.Add(newFeedback);
+		listOfFeedbacks.Add(newFeedback);//Added to list of active feedback on the screen.
+		archivedListOfFeedbacks.Add(fb);//Added to archived list. Saved so we can access at a later time.
+	}
 
+	public void TryGenFeedBack(string reason, float percentChance )
+	{
+
+		bool genBool = (Random.Range(0f,100f) < percentChance);
+		if(genBool)
+		{
+			GenerateFeedBack(reason);
+		}
 	}
 
 	#region OnStart

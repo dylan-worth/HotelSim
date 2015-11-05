@@ -26,8 +26,6 @@ public class TooltipController : MonoBehaviour, IPointerEnterHandler, IPointerEx
 		coroutine = Activate(tooltip);
 		StartCoroutine(coroutine);
 
-		Debug.Log(Screen.width);
-		Debug.Log(tooltip.GetComponent<RectTransform>().sizeDelta.x);
 		float sizingFactor = Screen.width/800f;
 		tooltip.GetComponent<Image>().color = backgroundColor;
 

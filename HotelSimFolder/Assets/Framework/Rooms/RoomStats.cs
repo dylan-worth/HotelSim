@@ -46,7 +46,7 @@ public class RoomStats : RoomBehaviour
 			btnUpgrade3  = BedroomMenu.transform.FindChild("btn_Upgrade3").GetComponent<Button>();
 			btnUpgrade4  = BedroomMenu.transform.FindChild("btn_Upgrade4").GetComponent<Button>();
 			btnUpgrade5  = BedroomMenu.transform.FindChild("btn_Upgrade5").GetComponent<Button>();
-			print ("Set Text Box");
+
 		}
 		BedroomBehaviour.AddToRoomList(this);
 
