@@ -98,6 +98,7 @@ public class RoomStats : RoomBehaviour
 			SetPopUpStatus("Master Suite:", false, false, false, false);
 			break;
 		}
+        BedroomMenu.transform.FindChild("txtDaysOutOfService").GetComponent<Text>().text = daysUnderConstruction.ToString();
 		TxtDaysOccupied.text = daysOccupied.ToString();
 		TxtCondition.text = roomCondition.ToString("F0") + "%";
 		IM.setupStars((int)((roomCleanliness/100) * 6) );
@@ -186,12 +187,12 @@ public class RoomStats : RoomBehaviour
 		if(level > 1)
 		{
 			//GameObject upgradeEffect = GameObject.Find("/GameController/PrefabHolder").GetComponent<MainHolderScript>().UpgradeSmokePrefab;
-			for(int i = 0; i < refurbCTR.upgradeList[level-2].Length; i++)
+			/*for(int i = 0; i < refurbCTR.upgradeList[level-2].Length; i++)
 			{
 				GameObject addOn = Instantiate(refurbCTR.upgradeList[level-2][i], transform.parent.position, Quaternion.identity) as GameObject;
 				addOn.transform.SetParent(transform);
 				addOn.transform.localScale = transform.parent.localScale;
-			}
+			}*/
 			//Instantiate(upgradeEffect, bedToAdd.transform.position, Quaternion.identity);
 		}
 
