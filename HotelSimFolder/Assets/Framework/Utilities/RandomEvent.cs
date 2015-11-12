@@ -69,7 +69,15 @@ public class GeneratedEvent
     [Tooltip("Months during which this event can happen. 0 = January & 11 = December. EDIT SIZE TO ADD MORE MONTHS.")]
     public int[] probableMonths;
 
-
+	string response;
+	public string GetResponse()
+	{
+		return response;
+	}
+	public void SetResponse(string resp)
+	{
+		response = resp;
+	}
 
     public GeneratedEvent() { }
     
@@ -116,6 +124,7 @@ public class RandomEvent : MonoBehaviour {
         listOfEvents.Add(eventSeven); listOfEvents.Add(eventEight); listOfEvents.Add(eventNine);
         listOfEvents.Add(eventTen);
         eventPanel = GameObject.FindWithTag("UI").transform.FindChild("Popups").transform.FindChild("EventPanel").gameObject;
+
     }
     
     public void InitiateRandomEvent() 

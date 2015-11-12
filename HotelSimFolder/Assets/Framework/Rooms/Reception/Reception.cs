@@ -299,8 +299,9 @@ public class Reception : MonoBehaviour
 				//Determine how many rooms we will try to book:
 
 
-				int roomsToBook = (int)((calendarController.seasonalTrends[Calendar.GetDayOfTheYear()]-specialBooked.numberOfRooms) * 
+				int roomsToBook = (int)((calendarController.seasonalTrends[Calendar.GetDayOfTheYear()]) * 
 				                        (MasterReference.ReturnRegularBookingPop() / 100f));
+
 				//check if enought ppl show up to trigger overbooking.
 				if((roomsToBook-specialBooked.numberOfRooms)/(BedroomBehaviour.allBedrooms.Count-specialBooked.numberOfRooms) > 0.9 && revenueManagementTab.GetOverbooked())
 				{
@@ -328,28 +329,37 @@ public class Reception : MonoBehaviour
 				if(BedroomBehaviour.roomsAvailable > specialBooked.numberOfRooms && specialBooked.numberOfRooms != 0)
 				{
 					//check for price ratio here.
-					if(CheckGroupCost(specialBooked)){
-					//Debug.LogError("Special Group Booked for "+ specialBooked.numberOfDays + " Days for "+ specialBooked.numberOfRooms + "rooms for a "+ specialBooked.type);
-					for(int i = 0; i < specialBooked.numberOfRooms; i++)
-					BookRoomSpecial(dayOfWeek, specialBooked);
+					if(CheckGroupCost(specialBooked))
+					{
+						//Debug.LogError("Special Group Booked for "+ specialBooked.numberOfDays + " Days for "+ specialBooked.numberOfRooms + "rooms for a "+ specialBooked.type);
+						for(int i = 0; i < specialBooked.numberOfRooms; i++)
+						BookRoomSpecial(dayOfWeek, specialBooked);
 					}
 					else
 					{
 						feedbackController.TryGenFeedBack("Expensive",30f);//30% chance customoer will complain for overpriced.
 					}
 				}
-				else {
+				else if(specialBooked.numberOfRooms != 0)
+				{
+					//need to provide feedback to the player that a group tryed to book rooms but hotel didn't have capacity.
 					feedbackController.TryGenFeedBack("Full",10f);//10% chance customer will complain due to full capacity.
 				}
+
 				//-----------------------------------------------
 				float occupancyDiscount =  controller.transform.FindChild ("RevenueManagerCTR").gameObject.GetComponent<RevenueManagement>().discountOnOccupancy();
 			
 				//Try to book that many rooms:
-				for (int j = 0; j < roomsToBook; j++) {
+				for (int j = 0; j < roomsToBook; j++) 
+				{
 					BedroomBehaviour.GetNumberOfRoomsAvailable ();
-					if (BedroomBehaviour.roomsAvailable > 0) {
+					if (BedroomBehaviour.roomsAvailable > 0) 
+					{
 						BookRoom (dayOfWeek, occupancyDiscount);
-					} else {
+					} 
+					else 
+					{
+						Debug.Log("no rooms");
 						feedbackController.TryGenFeedBack("Full",10f);//10% chance customer will complain due to full capacity.
 					}
 				}
@@ -484,7 +494,8 @@ public class Reception : MonoBehaviour
 	public specialBookings SpecialBookingRun()
 	{
 		int chanceToBook = (int)(MasterReference.ReturnGroupBookingPop ()*0.2f);
-		if (BoolGen (chanceToBook)) {
+		if (BoolGen (chanceToBook)) 
+		{
 			specialBookings newBooking = groupController.BookSpecial();
 			return newBooking;
 		} 

@@ -1,6 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum groupType{conference, group, specialEvent, noneBooked}
+
+public struct specialBookings{
+	
+	
+	public int numberOfRooms, numberOfDays;
+	public groupType type;
+	
+	
+	public specialBookings(int numRooms, int numDays, groupType type)
+	{
+		this.numberOfDays = numDays;
+		this.numberOfRooms = numRooms;
+		this.type = type;
+	}
+}
+
 public class GroupBookController : MonoBehaviour {
 
 	[SerializeField][Tooltip("Chance a small group gets booked.")]

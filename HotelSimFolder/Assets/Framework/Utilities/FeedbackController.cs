@@ -1,5 +1,4 @@
-﻿#define ENABLE_TESTING 
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
@@ -42,6 +41,7 @@ public class FeedbackController : MonoBehaviour {
 	List<FeedBack> archivedListOfFeedbacks = new List<FeedBack>();//List of all previous feedback.
 
 
+
 	[SerializeField]
 	FeedBack one;
 
@@ -51,16 +51,49 @@ public class FeedbackController : MonoBehaviour {
 
 	//xml name file gets assign to a string array for random names.
 	string[] nameArray = new string[1000];
-	XmlTextReader reader = new XmlTextReader ("Names.xml");
+	XmlTextReader readerNames  = new XmlTextReader ("Names.xml");
+
+	//xml file gets assign to array of string array.
+	List<List<string>> comments = new List<List<string>>();
+	XmlTextReader readerComments  = new XmlTextReader ("Comments.xml");
 
 	[SerializeField][Tooltip("Array of sprites holding the start ratings.")]
 	Sprite[] stars = new Sprite[11];
 
 	public GameObject feedBackPrefab;
 
+
+
+	void Awake()
+	{
+
+	}
+
 	void Start()
 	{
 		SetNamingArray();//set the name array.
+		//Lists of all the different comments
+		List<string> Expensive = new List<string>();
+		List<string> Dirty = new List<string>();
+		List<string> Full = new List<string>();
+		List<string> Overbooked = new List<string>();
+		List<string> Great = new List<string>();
+		List<string> Special = new List<string>();
+		comments.Add(Expensive);
+		comments.Add(Dirty);
+		comments.Add(Full);
+		comments.Add(Overbooked);
+		comments.Add(Great);
+		comments.Add(Special);
+
+
+		SetCommentsArray();
+
+		for(int i = 0; i < comments.Count; i++)
+		{
+			for (int j = 0; j < comments[i].Count; j++)
+				Debug.Log(comments[i][j]);
+		}
 	}
 
 	void DeleteOnClick(GameObject pop)
@@ -82,32 +115,32 @@ public class FeedbackController : MonoBehaviour {
 		case "Expensive":
 			fb.rating = Random.Range(rangesOfRatings[0],rangesOfRatings[1]);
 			fb.feedbackType = 2;
-			fb.content = "The room was too expensive for my taste.";
+			fb.content = comments[0][Random.Range(0,comments[0].Count)];
 			break;
 		case "Dirty":
 			fb.rating = Random.Range(rangesOfRatings[2],rangesOfRatings[3]);
 			fb.feedbackType = 2;
-			fb.content = "The cleanliness of this establishment is very poor.";
+			fb.content = comments[1][Random.Range(0,comments[1].Count)];
 			break;
 		case "Full":
 			fb.rating = Random.Range(rangesOfRatings[4],rangesOfRatings[5]);
 			fb.feedbackType = 2;
-			fb.content = "Tyred to get a reservation but it was fully booked.";
+			fb.content = comments[2][Random.Range(0,comments[2].Count)];
 			break;
 		case "OverBooked":
 			fb.rating = Random.Range(rangesOfRatings[6],rangesOfRatings[7]);
 			fb.feedbackType = 2;
-			fb.content = "Even though we phoned ahead of time and booked reservation we were told the hotel was fully booked once we arrived.";
+			fb.content = comments[3][Random.Range(0,comments[3].Count)];
 			break;
 		case "Great":
 			fb.rating = Random.Range(rangesOfRatings[8],rangesOfRatings[9]);
 			fb.feedbackType = 1;
-			fb.content = "Had a nice stay.";
+			fb.content = comments[4][Random.Range(0,comments[4].Count)];
 			break;
 		case "Special":
 			fb.rating = Random.Range(rangesOfRatings[10],rangesOfRatings[11]);
 			fb.feedbackType = 3;
-			fb.content = "Don't know yet what to use this for.";
+			fb.content = comments[5][Random.Range(0,comments[5].Count)];
 			break;
 		}
 		float sizingFactor = Screen.width/800f;
@@ -133,6 +166,7 @@ public class FeedbackController : MonoBehaviour {
 	{
 
 		bool genBool = (Random.Range(0f,100f) < percentChance);
+	
 		if(genBool)
 		{
 			GenerateFeedBack(reason);
@@ -140,26 +174,26 @@ public class FeedbackController : MonoBehaviour {
 	}
 
 	#region OnStart
-	public void SetNamingArray()//create an array of anmes with 1000 entries.
+	public void SetNamingArray()//create an array of names with 1000 entries.
 	{
 		int i = 0;
 		int j = 0;
-		while (reader.Read()) 
+		while (readerNames.Read()) 
 		{
-			switch (reader.NodeType) 
+			switch (readerNames.NodeType) 
 			{
 			case XmlNodeType.Element: // The node is an element.
-				while (reader.MoveToNextAttribute()) // Read the attributes.
+				while (readerNames.MoveToNextAttribute()) // Read the attributes.
 					
-					if(j < 2)
+				if(j < 2)
 				{
-					nameArray[i] += reader.Value + " ";
+					nameArray[i] += readerNames.Value + " ";
 					j++;
 				}
 				else
 				{
 					j = 1;
-					nameArray[i+1] += reader.Value + " ";
+					nameArray[i+1] += readerNames.Value + " ";
 					i++;
 				}
 				
@@ -171,31 +205,46 @@ public class FeedbackController : MonoBehaviour {
 			}
 		}
 	}
-	#endregion
-#if ENABLE_TESTING
-	public void Test()
+	public void SetCommentsArray()
 	{
-		int testrnd = Random.Range(1,6);
-		string testreason = "";
-		switch(testrnd)
+
+		int arrayLoc = 0;
+		while (readerComments.Read()) 
 		{
-		case 1:
-			testreason = "Expensive";
-			break;
-		case 2:
-			testreason = "Dirty";
-			break;
-		case 3:
-			testreason = "Full";
-			break;
-		case 4:testreason = "OverBooked";
-			break;
-		case 5:testreason = "Great";
-			break;
-		case 6:testreason = "Special";
-			break;
+			switch (readerComments.NodeType) 
+			{
+			case XmlNodeType.Element: // The node is an element.
+				switch(readerComments.LocalName)
+				{
+				case "Expensive":
+					arrayLoc = 0;
+					break;
+				case "Dirty":
+					arrayLoc = 1;
+					break;
+				case "Full":
+					arrayLoc = 2;
+					break;
+				case "Overbooked":
+					arrayLoc = 3;
+					break;
+				case "Great":
+					arrayLoc = 4;
+					break;
+				case "Special":
+					arrayLoc = 5;
+					break;
+				}
+				break;
+			case XmlNodeType.Text: //Display the text in each element.
+				comments[arrayLoc].Add(readerComments.Value);
+
+				break;
+			case XmlNodeType.EndElement: //Display the end of the element.
+				break;
+			}
 		}
-		GenerateFeedBack(testreason);
 	}
-#endif
+	#endregion
+
 }

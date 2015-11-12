@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+	
+		<Expensive>Too expensive1</Expensive>
+		<Expensive>Too crappy1</Expensive>
+		<Expensive>Too not good1</Expensive>
+		<Expensive>Cost too high1</Expensive>
+		<Expensive>Too sadface1</Expensive>
+		<Expensive>Too sorry1</Expensive>
+		<Expensive>Too mucho bad1</Expensive>
+
+		<Full>Too expensive2</Full>
+		<Full>Too crappy2</Full>
+		<Full>Too not good2</Full>
+		<Full>Cost too high2</Full>
+		<Full>Too sadface2</Full>
+		<Full>Too sorry2</Full>
+		<Full>Too mucho bad2</Full>
+
+		<Great>Too expensive3</Great>
+		<Great>Too crappy3</Great>
+		<Great>Too not good3</Great>
+		<Great>Cost too high3</Great>
+		<Great>Too sadface3</Great>
+		<Great>Too sorry3</Great>
+		<Great>Too mucho bad3</Great>
+	
+		<Overbooked>Too expensive4</Overbooked>
+		<Overbooked>Too crappy4</Overbooked>
+		<Overbooked>Too not good4</Overbooked>
+		<Overbooked>Cost too high4</Overbooked>
+		<Overbooked>Too sadface4</Overbooked>
+		<Overbooked>Too sorry4</Overbooked>
+		<Overbooked>Too mucho bad4</Overbooked>
+
+		<Dirty>Too expensive</Dirty>
+		<Dirty>Too crappy</Dirty>
+		<Dirty>Too not good</Dirty>
+		<Dirty>Cost too high</Dirty>
+		<Dirty>Too sadface</Dirty>
+		<Dirty>Too sorry</Dirty>
+		<Dirty>Too mucho bad</Dirty>
+	
+		<Special>Too expensive</Special>
+		<Special>Too crappy</Special>
+		<Special>Too not good</Special>
+		<Special>Cost too high</Special>
+		<Special>Too sadface</Special>
+		<Special>Too sorry</Special>
+		<Special>Too mucho bad</Special>
+	
+</dataset>
