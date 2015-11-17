@@ -6,8 +6,6 @@ using System.Xml.Serialization;
 using System.IO;
 using UnityEngine.UI;
 
-
-
 #region Feedback Class
 [System.Serializable]
 public class FeedBack
@@ -71,13 +69,15 @@ public class FeedbackController : MonoBehaviour {
 
 	void Start()
 	{
+
 		SetNamingArray();//set the name array.
+
 		//Lists of all the different comments
 		List<string> Expensive = new List<string>();
-		List<string> Dirty = new List<string>();
-		List<string> Full = new List<string>();
-		List<string> Overbooked = new List<string>();
-		List<string> Great = new List<string>();
+		List<string> Dirty = new List<string>();                        //Comments are listed in comments.xml file.
+		List<string> Full = new List<string>();                         //Can be edited by adding/removing lines in the file.
+        List<string> Overbooked = new List<string>();                   //I.E. <Expensive>We found the hotel too expensive.</Expensive>
+        List<string> Great = new List<string>();                        //This would had "We found the hotel too expensive." comments to the expensive list.
 		List<string> Special = new List<string>();
 		comments.Add(Expensive);
 		comments.Add(Dirty);
@@ -85,15 +85,9 @@ public class FeedbackController : MonoBehaviour {
 		comments.Add(Overbooked);
 		comments.Add(Great);
 		comments.Add(Special);
+		SetCommentsArray();//Sets the list of list of comments.
 
-
-		SetCommentsArray();
-
-		for(int i = 0; i < comments.Count; i++)
-		{
-			for (int j = 0; j < comments[i].Count; j++)
-				Debug.Log(comments[i][j]);
-		}
+		
 	}
 
 	void DeleteOnClick(GameObject pop)

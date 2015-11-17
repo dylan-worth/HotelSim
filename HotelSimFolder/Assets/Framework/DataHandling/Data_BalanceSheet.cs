@@ -14,6 +14,7 @@ public class Data_BalanceSheet : MonoBehaviour {
 	{
         //saves the list of balanceSheets to xml file.
         BalanceSheetList newList = new BalanceSheetList();
+        newList.Listname = fileName;
         if (Reception.balanceSheets.Count != 0)
         {
 
@@ -32,16 +33,29 @@ public class Data_BalanceSheet : MonoBehaviour {
         fs.Close();
         newList = null;
 
-        // Deserialize the xml file back into a balanceSheet list
-        fs = new FileStream("BalanceSheetArray.xml", FileMode.Open);
-        newList = (BalanceSheetList)serializer.Deserialize(fs);
-        Debug.Log(newList.balanceSheetsTest[0].cashAtBank);
-        Debug.Log(newList.balanceSheetsTest[1].cashAtBank);
-        Debug.Log(newList.balanceSheetsTest[2].cashAtBank);
-        Debug.Log(newList.balanceSheetsTest[3].cashAtBank);
+      
 
 
 	}
+    public void Deserialize() 
+    {
+
+
+        XmlSerializer serializer = 
+        new XmlSerializer(typeof(BalanceSheetList));
+        // To read the file, create a FileStream.
+        FileStream fs = 
+        new FileStream("BalanceSheetArray.xml", FileMode.Open);
+        // Call the Deserialize method and cast to the object type.
+        BalanceSheetList loadedlist = (BalanceSheetList)serializer.Deserialize(fs);
+
+
+         Debug.Log(loadedlist.balanceSheetList[0].cashAtBank);
+         Debug.Log(loadedlist.balanceSheetList[1].cashAtBank);
+         Debug.Log(loadedlist.balanceSheetList[2].cashAtBank);
+         Debug.Log(loadedlist.balanceSheetList[3].cashAtBank);
+    }
+
 	public void OpenInExcel()
 	{
         //this.Application.Workbooks.OpenXML(@"C:\Test.xml", missing, missing);

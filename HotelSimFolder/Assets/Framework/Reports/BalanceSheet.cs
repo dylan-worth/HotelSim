@@ -11,8 +11,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class BalanceSheetList
 {
     [XmlArray("BalanceSheetArray")]
-    [XmlArrayItem("BalanceSheetObject")]
-    public List<BalanceSheet> balanceSheetsTest = new List<BalanceSheet>();
+    public List<BalanceSheet> balanceSheetList = new List<BalanceSheet>();
 
     [XmlElement("Listname")]
     public string Listname { get; set; }
@@ -27,11 +26,11 @@ public class BalanceSheetList
 
     public void AddBalanceSheet(BalanceSheet balanceSheet)
     {
-        balanceSheetsTest.Add(balanceSheet);
+        balanceSheetList.Add(balanceSheet);
     }
 }
 [System.Serializable]
-[XmlType("BalanceSheet")]
+[XmlRoot("BalanceSheet")]
 public class BalanceSheet{
 
 
