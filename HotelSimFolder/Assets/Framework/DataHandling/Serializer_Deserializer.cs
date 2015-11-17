@@ -56,9 +56,14 @@ public class Serializer_Deserializer : MonoBehaviour {
 
     void BalanceSheet_Load() 
     {
+        if (!File.Exists(balanceSheetPath))
+        {
+            Debug.LogError("FILE " + balanceSheetPath +" NOT FOUND!");
+            return;
+        }
         XmlSerializer serializer = new XmlSerializer(typeof(BalanceSheetList));
         // To read the file, create a FileStream.
-        FileStream fs = new FileStream("BalanceSheetArray.xml", FileMode.Open);
+        FileStream fs = new FileStream(balanceSheetPath, FileMode.Open);
         // Call the Deserialize method and cast to the object type.
         BalanceSheetList loadedlist = (BalanceSheetList)serializer.Deserialize(fs);
 

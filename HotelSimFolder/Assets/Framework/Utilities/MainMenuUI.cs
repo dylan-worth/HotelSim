@@ -38,6 +38,19 @@ public class MainMenuUI : MonoBehaviour {
 
       
     }
+    public void SetLoadFile(int i)
+    {
+        switch (i)
+        {
+            case 1: Saved_Slot.singleton.SetCurrent(1);
+                break;
+            case 2: Saved_Slot.singleton.SetCurrent(2);
+                break;
+            case 3: Saved_Slot.singleton.SetCurrent(3);
+                break;
+        }
+    }
+
 }
 
 

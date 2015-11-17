@@ -8,7 +8,7 @@ using System.IO;
 public class Data_BalanceSheet : MonoBehaviour {
 
 	public string fileName = "balanceSheet";
-
+    string savedPath = "Assets/Save/";
 
 	public void SaveBalanceSheet ()
 	{
@@ -19,16 +19,16 @@ public class Data_BalanceSheet : MonoBehaviour {
         {
 
 
-            for (int k = 0; k < Reception.balanceSheets.Count; k++ )
+            for (int i = 0; i < Reception.balanceSheets.Count; i++ )
             {
-                    newList.AddBalanceSheet(Reception.balanceSheets[k]);
+                    newList.AddBalanceSheet(Reception.balanceSheets[i]);
             }
                
          
         }
         System.Type[] sheet = { typeof(BalanceSheet)};
         XmlSerializer serializer = new XmlSerializer(typeof(BalanceSheetList), sheet);
-        FileStream fs = new FileStream("BalanceSheetArray.xml", FileMode.Create);
+        FileStream fs = new FileStream(savedPath +"BalanceSheetArray.xml", FileMode.Create);
         serializer.Serialize(fs, newList);
         fs.Close();
         newList = null;
@@ -68,37 +68,8 @@ public class Data_BalanceSheet : MonoBehaviour {
 	}
     public void LoadBalanceSheets() 
     {
-        BalanceSheet loadedFile = BalanceSheet.LoadFromFile("savedBalanceSheet.xml");
-        Reception.balanceSheets.Add(loadedFile);
-        Debug.Log(loadedFile.cashAtBank);
-        Debug.Log(loadedFile.year);
-        Debug.Log(loadedFile.dayOfTheMonth);
-        Debug.Log(loadedFile.month);
-        Debug.Log(loadedFile.accountsPayable);
-        Debug.Log(Reception.balanceSheets[0].cashAtBank);
-        Debug.Log(Reception.balanceSheets[0].year);
-        Debug.Log(Reception.balanceSheets[0].dayOfTheMonth);
-        Debug.Log(Reception.balanceSheets[0].month);
-        Debug.Log(Reception.balanceSheets[0].accountsPayable);
-        /*
-        data = SaveData.Load("C:" + "\\" + "Users" + "\\" + "Leonard" + "\\" + "Desktop" + "\\" + "testSavedData" + "\\" + fileName + ".xml");
 
-        int period = 0;
-        bool loopBool = true;
-        while (loopBool)
-        {
-            date endOfPeriod = Calendar.GetEndOfPeriodDate(period);
-            string reportEnding = endOfPeriod.month.ToString()+endOfPeriod.day.ToString()+endOfPeriod.year.ToString();
-            if (data.HasKey("Report Ending:" + reportEnding))
-            {
-                Debug.Log("Period : " + period + "Date Sorted: " + data.GetValue<string>("Report Ending:" + reportEnding));
-            }
-            else
-            {
-                loopBool = false;
-            }
-            period++;
-        }*/
+        Application.LoadLevel("MainMenu");
     }
    /* public void DeserializeBalanceSheets()
     {
