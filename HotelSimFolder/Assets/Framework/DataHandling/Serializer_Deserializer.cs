@@ -17,6 +17,30 @@ public class Serializer_Deserializer : MonoBehaviour {
     [SerializeField][Tooltip("DO NOT EDIT UNLESS INSTRUCTED.")]
     string restaurantPath = "RestaurantArray.xml";
 
+    string currentSavedSlot;
+    string fullPath;
+
+    void Start() 
+    {
+       currentSavedSlot = GetSavedSlot();
+       SetPath();
+    }
+    string GetSavedSlot() 
+    {
+        if (Saved_Slot.singleton.GetSlot() != null)
+        {
+            return Saved_Slot.singleton.GetSlot();
+        }
+        else 
+        {
+            return "SaveOne/";
+        }
+    }
+    void SetPath() 
+    {
+        fullPath = savedPath+currentSavedSlot;
+    }
+
     public void SaveGame() //Calls all save functions.
     {
         BalanceSheet_Save();
@@ -48,7 +72,7 @@ public class Serializer_Deserializer : MonoBehaviour {
 
         System.Type[] sheet = { typeof(BalanceSheet) };
         XmlSerializer serializer = new XmlSerializer(typeof(BalanceSheetList), sheet);
-        FileStream fs = new FileStream("BalanceSheetArray.xml", FileMode.Create);
+        FileStream fs = new FileStream(fullPath + "BalanceSheetArray.xml", FileMode.Create);
         serializer.Serialize(fs, newList);
         fs.Close();
         newList = null;
@@ -56,14 +80,14 @@ public class Serializer_Deserializer : MonoBehaviour {
 
     void BalanceSheet_Load() 
     {
-        if (!File.Exists(balanceSheetPath))
+        if (!File.Exists(fullPath + "BalanceSheetArray.xml"))
         {
-            Debug.LogError("FILE " + balanceSheetPath +" NOT FOUND!");
+            Debug.LogError("FILE " + fullPath + "BalanceSheetArray.xml" + " NOT FOUND!");
             return;
         }
         XmlSerializer serializer = new XmlSerializer(typeof(BalanceSheetList));
         // To read the file, create a FileStream.
-        FileStream fs = new FileStream(balanceSheetPath, FileMode.Open);
+        FileStream fs = new FileStream(fullPath + "BalanceSheetArray.xml", FileMode.Open);
         // Call the Deserialize method and cast to the object type.
         BalanceSheetList loadedlist = (BalanceSheetList)serializer.Deserialize(fs);
 

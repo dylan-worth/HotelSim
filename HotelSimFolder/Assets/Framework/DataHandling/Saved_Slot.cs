@@ -41,8 +41,6 @@ public class Saved_Slot : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-       
-        
     }
    
 

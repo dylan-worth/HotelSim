@@ -149,6 +149,7 @@ public class Reception : MonoBehaviour
 	GroupBookController groupController;
 	CalendarController calendarController;
 	FeedbackController feedbackController;
+    Serializer_Deserializer dataProcessor;
 
 	void Awake()
 	{
@@ -162,6 +163,8 @@ public class Reception : MonoBehaviour
 		groupController = controller.transform.FindChild("GroupBooking").GetComponent<GroupBookController>();
 		calendarController = controller.transform.FindChild("CalendarController").GetComponent<CalendarController>();
 		feedbackController = controller.transform.FindChild("FeedBackController").GetComponent<FeedbackController>();
+        dataProcessor = GameObject.Find("DataCollection").GetComponent<Serializer_Deserializer>();
+
 
 		SingletonCheck();
 		if(monthlyReports == null){
@@ -445,6 +448,8 @@ public class Reception : MonoBehaviour
 		MasterReference.accountsPayable = 0f;
 
 		//-------------------------------------END OF SIMULATION LOOP---------------------------------------------//
+        //------------------------------------------AUTO SAVE-----------------------------------------------------//
+        dataProcessor.SaveGame();
 		//-------------------------------------RESET SOME DATA----------------------------------------------------//
 		MasterReference.upgradeCost = 0f;
 	}
