@@ -8,7 +8,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 [XmlRoot("BalanceSheets")]
 [XmlInclude(typeof(BalanceSheet))] // include type class BalanceSheet
-public class BalanceSheetList
+public class BalanceSheetList       //Class holding a list of balancesheet. Used to storing and loading purposes.
 {
     [XmlArray("BalanceSheetArray")]
     public List<BalanceSheet> balanceSheetList = new List<BalanceSheet>();
@@ -32,9 +32,6 @@ public class BalanceSheetList
 [System.Serializable]
 [XmlRoot("BalanceSheet")]
 public class BalanceSheet{
-
-
-    
 
 	//saved for every months. Last day of Period
     [XmlIgnoreAttribute]//To remove the data.

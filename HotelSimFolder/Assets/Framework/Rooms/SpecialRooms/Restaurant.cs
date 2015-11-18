@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 
-public struct RestaurantBook
+public class RestaurantBook
 {
 	public date startDate;
 	public int numbOfDays;
@@ -25,7 +25,8 @@ public struct RestaurantBook
 
 	public int lostCustomers;
 	public float staffCost;
-	public float GetRevenue(){
+	public float GetRevenue()
+    {
 		float total = totalFoodSales+totalBeverageSales;
 		return total;
 	}
@@ -53,6 +54,8 @@ public struct RestaurantBook
 
 
 public class Restaurant : MonoBehaviour {
+
+    Reception reception;
 
 	//overall condition of the restaurant. Based on staff production and use.
 	float condition = 100f;
@@ -100,7 +103,8 @@ public class Restaurant : MonoBehaviour {
 
 	void Start()
 	{
-		if(Reception.restaurantBooks.Count !=0)
+        reception = GameObject.FindGameObjectWithTag("Reception").GetComponent<Reception>();
+        if (reception.restaurantBooks.Count != 0)
 		{
 			setTab();
 		}
@@ -190,17 +194,17 @@ public class Restaurant : MonoBehaviour {
 		restaurant.transform.FindChild ("Txt_AmountStaff").gameObject.transform.FindChild("OutPut").gameObject.GetComponent<InputField>().text 
 			= Staff.staffFoodAndBeverages.Count.ToString();
 
-		restaurant.transform.FindChild ("Txt_LatestMonth").gameObject.transform.FindChild ("OutPut").gameObject.GetComponent<InputField> ().text = 
-			"$" + Reception.restaurantBooks [Reception.restaurantBooks.Count - 1].GetRevenue ().ToString ();
+		restaurant.transform.FindChild ("Txt_LatestMonth").gameObject.transform.FindChild ("OutPut").gameObject.GetComponent<InputField> ().text =
+            "$" + reception.restaurantBooks[reception.restaurantBooks.Count - 1].GetRevenue().ToString();
 		//latest staffing costs.
-		restaurant.transform.FindChild ("Txt_MonthCost").gameObject.transform.FindChild("OutPut").gameObject.GetComponent<InputField>().text = 
-			"$"+ (Reception.restaurantBooks[Reception.restaurantBooks.Count - 1].staffCost).ToString();
+		restaurant.transform.FindChild ("Txt_MonthCost").gameObject.transform.FindChild("OutPut").gameObject.GetComponent<InputField>().text =
+            "$" + (reception.restaurantBooks[reception.restaurantBooks.Count - 1].staffCost).ToString();
 	
 		restaurant.transform.FindChild ("Txt_YTD").gameObject.transform.FindChild("OutPut").gameObject.GetComponent<InputField>().text
 			= "$"+YTDRevenue().ToString();
 		//YTD staffing costs.
 		float ytdStaffTotal = 0;
-		foreach (RestaurantBook rb in Reception.restaurantBooks) 
+        foreach (RestaurantBook rb in reception.restaurantBooks) 
 		{
 			ytdStaffTotal += rb.staffCost;
 		}
@@ -208,9 +212,9 @@ public class Restaurant : MonoBehaviour {
 			= "$"+ytdStaffTotal.ToString();
 		//total customer lost.
 		restaurant.transform.FindChild ("Txt_LostCustomersMonth").gameObject.transform.FindChild("OutPut").gameObject.GetComponent<InputField>().text
-			= Reception.restaurantBooks[Reception.restaurantBooks.Count-1].lostCustomers.ToString();
+            = reception.restaurantBooks[reception.restaurantBooks.Count - 1].lostCustomers.ToString();
 		float ytdTotal = 0;
-		foreach (RestaurantBook rb in Reception.restaurantBooks) 
+        foreach (RestaurantBook rb in reception.restaurantBooks) 
 		{
 			ytdTotal += rb.lostCustomers;
 		}
@@ -229,7 +233,7 @@ public class Restaurant : MonoBehaviour {
 	}
 	float YTDRevenue(){
 		float totals = 0f;
-		foreach (RestaurantBook rb in Reception.restaurantBooks) 
+        foreach (RestaurantBook rb in reception.restaurantBooks) 
 		{
 			totals += rb.GetRevenue();
 		}

@@ -17,26 +17,20 @@ public class Serializer_Deserializer : MonoBehaviour {
     [SerializeField][Tooltip("DO NOT EDIT UNLESS INSTRUCTED.")]
     string restaurantPath = "RestaurantArray.xml";
 
-    string currentSavedSlot;
-    string fullPath;
+    string currentSavedSlot;//selected path from main menu.
+    string fullPath;//concatenated path from savedPath and currentsavedSlot.
 
     void Start() 
     {
        currentSavedSlot = GetSavedSlot();
        SetPath();
     }
-    string GetSavedSlot() 
-    {
-        if (Saved_Slot.singleton.GetSlot() != null)
-        {
-            return Saved_Slot.singleton.GetSlot();
-        }
-        else 
-        {
-            return "SaveOne/";
-        }
+
+    string GetSavedSlot() //restrieve the saved slot from Saved_Slot singleton.
+    {  
+       return Saved_Slot.singleton.GetSlot();  
     }
-    void SetPath() 
+    void SetPath() //contatenates the path.
     {
         fullPath = savedPath+currentSavedSlot;
     }
@@ -56,7 +50,9 @@ public class Serializer_Deserializer : MonoBehaviour {
         Feedback_Load();
         Restaurant_Load();
     }
-    //Balance Sheet
+
+    #region Save/Load Methods
+    //Balance Sheet----------------------------------------------------------------------//
     void BalanceSheet_Save() 
     {
         BalanceSheetList newList = new BalanceSheetList();
@@ -101,38 +97,38 @@ public class Serializer_Deserializer : MonoBehaviour {
             Reception.balanceSheets.Add(loadedlist.balanceSheetList[i]);
         }
     }
-    //Monthly Report
+    //Monthly Report------------------------------------------------------------------------//
     void MonthlyReport_Save() 
     {
-    
+         //Can duplicate methods from balance sheet once we set up the classes proprely. 
     }
 
     void MonthlyReport_Load() 
     {
-    
+        //Can duplicate methods from balance sheet once we set up the classes proprely. 
     }
-    //Feedback
+    //Feedback-------------------------------------------------------------------------------//
     void Feedback_Save() 
     {
-    
+        //Can duplicate methods from balance sheet once we set up the classes proprely. 
     }
 
     void Feedback_Load() 
     {
-    
+        //Can duplicate methods from balance sheet once we set up the classes proprely. 
     }
-    //Restaurant report
+    //Restaurant report----------------------------------------------------------------------//
     void Restaurant_Save() 
     {
-    
+        //Can duplicate methods from balance sheet once we set up the classes proprely. 
     }
 
     void Restaurant_Load() 
     {
-    
+        //Can duplicate methods from balance sheet once we set up the classes proprely. 
     }
 
 
-
+    #endregion
 
 }

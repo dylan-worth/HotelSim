@@ -7,114 +7,18 @@
       <year>2017</year>
       <day>Sunday</day>
       <numberOfWeeks>4</numberOfWeeks>
-      <cashAtBank>213823.734</cashAtBank>
-      <accountsReceivable>17657.4434</accountsReceivable>
+      <cashAtBank>208758.156</cashAtBank>
+      <accountsReceivable>13676.8555</accountsReceivable>
       <inventories>13757</inventories>
-      <totalCurrentAssets>231414.438</totalCurrentAssets>
+      <totalCurrentAssets>227433.859</totalCurrentAssets>
       <propretyAndEquipment>5200641</propretyAndEquipment>
-      <totalAssets>5432055.5</totalAssets>
+      <totalAssets>5428075</totalAssets>
       <accountsPayable>10493.7012</accountsPayable>
       <carbonOffsetReceipts>0</carbonOffsetReceipts>
       <incomeTaxPayable>0</incomeTaxPayable>
       <dividendOwed>0</dividendOwed>
       <currentMaturityofLongtermDebt>0</currentMaturityofLongtermDebt>
       <totalCurrentLiabilities>10493.7012</totalCurrentLiabilities>
-      <longTermDebt>0</longTermDebt>
-      <shareCapital>4750000</shareCapital>
-      <retainedEarnings>136295</retainedEarnings>
-      <ownersEquity>4886295</ownersEquity>
-      <totalLiabilitiesAndOwnersEquity>5487819</totalLiabilitiesAndOwnersEquity>
-    </BalanceSheet>
-    <BalanceSheet>
-      <dayOfTheMonth>26</dayOfTheMonth>
-      <month>February</month>
-      <year>2017</year>
-      <day>Sunday</day>
-      <numberOfWeeks>4</numberOfWeeks>
-      <cashAtBank>220565.375</cashAtBank>
-      <accountsReceivable>12255.3438</accountsReceivable>
-      <inventories>13757</inventories>
-      <totalCurrentAssets>239836.078</totalCurrentAssets>
-      <propretyAndEquipment>5200641</propretyAndEquipment>
-      <totalAssets>5440477</totalAssets>
-      <accountsPayable>10493.7012</accountsPayable>
-      <carbonOffsetReceipts>0</carbonOffsetReceipts>
-      <incomeTaxPayable>0</incomeTaxPayable>
-      <dividendOwed>0</dividendOwed>
-      <currentMaturityofLongtermDebt>0</currentMaturityofLongtermDebt>
-      <totalCurrentLiabilities>10493.7012</totalCurrentLiabilities>
-      <longTermDebt>0</longTermDebt>
-      <shareCapital>4750000</shareCapital>
-      <retainedEarnings>136295</retainedEarnings>
-      <ownersEquity>4886295</ownersEquity>
-      <totalLiabilitiesAndOwnersEquity>5487819</totalLiabilitiesAndOwnersEquity>
-    </BalanceSheet>
-    <BalanceSheet>
-      <dayOfTheMonth>2</dayOfTheMonth>
-      <month>April</month>
-      <year>2017</year>
-      <day>Sunday</day>
-      <numberOfWeeks>5</numberOfWeeks>
-      <cashAtBank>220993.6</cashAtBank>
-      <accountsReceivable>9645.34</accountsReceivable>
-      <inventories>13757</inventories>
-      <totalCurrentAssets>243967.719</totalCurrentAssets>
-      <propretyAndEquipment>5200641</propretyAndEquipment>
-      <totalAssets>5444608.5</totalAssets>
-      <accountsPayable>13117.1289</accountsPayable>
-      <carbonOffsetReceipts>0</carbonOffsetReceipts>
-      <incomeTaxPayable>0</incomeTaxPayable>
-      <dividendOwed>0</dividendOwed>
-      <currentMaturityofLongtermDebt>0</currentMaturityofLongtermDebt>
-      <totalCurrentLiabilities>13117.1289</totalCurrentLiabilities>
-      <longTermDebt>0</longTermDebt>
-      <shareCapital>4750000</shareCapital>
-      <retainedEarnings>136295</retainedEarnings>
-      <ownersEquity>4886295</ownersEquity>
-      <totalLiabilitiesAndOwnersEquity>5487819</totalLiabilitiesAndOwnersEquity>
-    </BalanceSheet>
-    <BalanceSheet>
-      <dayOfTheMonth>30</dayOfTheMonth>
-      <month>April</month>
-      <year>2017</year>
-      <day>Sunday</day>
-      <numberOfWeeks>4</numberOfWeeks>
-      <cashAtBank>226049.188</cashAtBank>
-      <accountsReceivable>11109.2959</accountsReceivable>
-      <inventories>13757</inventories>
-      <totalCurrentAssets>245859.891</totalCurrentAssets>
-      <propretyAndEquipment>5200641</propretyAndEquipment>
-      <totalAssets>5446501</totalAssets>
-      <accountsPayable>10493.7012</accountsPayable>
-      <carbonOffsetReceipts>0</carbonOffsetReceipts>
-      <incomeTaxPayable>0</incomeTaxPayable>
-      <dividendOwed>0</dividendOwed>
-      <currentMaturityofLongtermDebt>0</currentMaturityofLongtermDebt>
-      <totalCurrentLiabilities>10493.7012</totalCurrentLiabilities>
-      <longTermDebt>0</longTermDebt>
-      <shareCapital>4750000</shareCapital>
-      <retainedEarnings>136295</retainedEarnings>
-      <ownersEquity>4886295</ownersEquity>
-      <totalLiabilitiesAndOwnersEquity>5487819</totalLiabilitiesAndOwnersEquity>
-    </BalanceSheet>
-    <BalanceSheet>
-      <dayOfTheMonth>4</dayOfTheMonth>
-      <month>June</month>
-      <year>2017</year>
-      <day>Sunday</day>
-      <numberOfWeeks>5</numberOfWeeks>
-      <cashAtBank>245601.156</cashAtBank>
-      <accountsReceivable>23244.0918</accountsReceivable>
-      <inventories>13757</inventories>
-      <totalCurrentAssets>263050.281</totalCurrentAssets>
-      <propretyAndEquipment>5200641</propretyAndEquipment>
-      <totalAssets>5463691.5</totalAssets>
-      <accountsPayable>13117.1289</accountsPayable>
-      <carbonOffsetReceipts>0</carbonOffsetReceipts>
-      <incomeTaxPayable>0</incomeTaxPayable>
-      <dividendOwed>0</dividendOwed>
-      <currentMaturityofLongtermDebt>0</currentMaturityofLongtermDebt>
-      <totalCurrentLiabilities>13117.1289</totalCurrentLiabilities>
       <longTermDebt>0</longTermDebt>
       <shareCapital>4750000</shareCapital>
       <retainedEarnings>136295</retainedEarnings>

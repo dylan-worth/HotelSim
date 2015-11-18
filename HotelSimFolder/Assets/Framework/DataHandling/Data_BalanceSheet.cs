@@ -18,13 +18,11 @@ public class Data_BalanceSheet : MonoBehaviour {
         if (Reception.balanceSheets.Count != 0)
         {
 
-
             for (int i = 0; i < Reception.balanceSheets.Count; i++ )
             {
                     newList.AddBalanceSheet(Reception.balanceSheets[i]);
             }
-               
-         
+
         }
         System.Type[] sheet = { typeof(BalanceSheet)};
         XmlSerializer serializer = new XmlSerializer(typeof(BalanceSheetList), sheet);
@@ -33,10 +31,8 @@ public class Data_BalanceSheet : MonoBehaviour {
         fs.Close();
         newList = null;
 
-      
-
-
 	}
+
     public void Deserialize() 
     {
 

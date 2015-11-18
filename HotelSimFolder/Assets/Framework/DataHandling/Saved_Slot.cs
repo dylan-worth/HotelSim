@@ -16,7 +16,15 @@ public class Saved_Slot : MonoBehaviour {
 
     public string GetSlot()
     {
-        return currentSlot;
+        if (currentSlot != null)
+        {
+            return currentSlot;
+        }
+        else
+        {
+            Debug.LogError("NO Saved_Slot selected. Set to slot one default.");
+            return "slot_One/";
+        }
     }
     public void SetCurrent(int i) //sets the string path to saved folder.
     {
