@@ -7,6 +7,8 @@ public class FeedbackController : MonoBehaviour {
 
 
 	List<GameObject> listOfFeedbacks = new List<GameObject>();//Active List on screen.
+
+    [System.NonSerialized]
 	public List<FeedBack> archivedListOfFeedbacks = new List<FeedBack>();//List of all previous feedback.
 
 	[SerializeField]

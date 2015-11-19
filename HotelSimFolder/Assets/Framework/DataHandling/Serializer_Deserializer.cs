@@ -26,7 +26,7 @@ public class Serializer_Deserializer : MonoBehaviour {
         currentSavedSlot = GetSavedSlot();
         SetPath();
 
-       // LoadGame();
+       // LoadGame(); Needs fixing a bit.
        
     }
 
