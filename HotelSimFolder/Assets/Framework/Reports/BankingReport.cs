@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class BankingReport : MonoBehaviour {
 	
@@ -71,10 +72,71 @@ public class BankingReport : MonoBehaviour {
 	public InputField loan3InputField;
 	public InputField loan3Time; 
 	public InputField loan3Interest; 
-	public InputField loan3Payback; 
+	public InputField loan3Payback;
 
-	//getters for accounts payables
-	public float GetLoanRepayments()
+    //-----------------------------------------------------------------------------------------new stuff---------------------------------------------------//
+    //nothing connected yet. Will rebuild everything then enable.
+    GameObject bankingTab;
+    [System.NonSerialized]
+    public List<BankLoan> loanList = new List<BankLoan>();
+
+    [Range(0f, 1f)]
+    [SerializeField]
+    [Tooltip("In percentage, 1 = 100% interest over a year. Rate for shortest Borrowed time.")]
+    float rateShortTerm;
+
+    [Range(3, 24)]
+    [SerializeField]
+    [Tooltip("Duration in months.")]
+    int shortDuration;
+
+    [Range(0f, 1f)]
+    [SerializeField]
+    [Tooltip("In percentage, 1 = 100% interest over a year. Rate for shortest Borrowed time.")]
+    float rateMediumTerm;
+
+    [Range(6, 60)]
+    [SerializeField]
+    [Tooltip("Duration in months.")]
+    int mediumDuration;
+
+    [Range(0f, 1f)]
+    [SerializeField]
+    [Tooltip("In percentage, 1 = 100% interest over a year. Rate for shortest Borrowed time.")]
+    float rateLongTerm;
+
+    [Range(12, 120)]
+    [SerializeField]
+    [Tooltip("Duration in months.")]
+    int longDuration;
+
+    void Awake()
+    {
+        bankingTab = GameObject.FindGameObjectWithTag("UI").transform.FindChild("Tabs").FindChild("BankingMenu").gameObject;
+        SetTab();
+    }
+
+    public void SetTab()
+    {
+        
+    }
+
+    void TakeLoan(string reason, float sum)//sum most likely should be predetermined.
+    {
+        BankLoan newLoan = new BankLoan(Calendar.GetDate(), shortDuration ,sum , rateShortTerm, reason);
+    }
+
+    public void TickLoansDown()//removes one month from each loan in the list.
+    {
+        for (int i = 0; i < loanList.Count; i++)
+        {
+            loanList[i].remainingDuration--;   
+        }
+    }
+    //-----------------------------------------------------------------------------------------new stuff---------------------------------------------------//
+
+    //getters for accounts payables
+    public float GetLoanRepayments()
 	{
 		return (monthlyRepaymentSmallLoan+monthlyRepaymentMedLoan+monthlyRepaymentLargeLoan);
 	}
