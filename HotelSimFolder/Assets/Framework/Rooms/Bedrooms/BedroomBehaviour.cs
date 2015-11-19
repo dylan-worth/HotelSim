@@ -45,8 +45,8 @@ public static class BedroomBehaviour
 					//check if this is a special booking
 					if(aRoom.typeRented == groupType.noneBooked)
 					{
-						
-						roomCosts roomType = new roomCosts();//assign the correct list of prices and discount.
+
+                        RoomCost roomType = new RoomCost();//assign the correct list of prices and discount.
 						switch(aRoom.roomQuality)
 						{
 						case 1:roomType = currentLog.standardRoom;

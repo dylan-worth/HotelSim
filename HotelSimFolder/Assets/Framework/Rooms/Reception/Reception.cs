@@ -5,112 +5,6 @@ using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 
-//Holds all information pertaining to reception behaviour's for a single week
-//NOTE: these need default values for starting or something to setup first time use
-public struct roomCosts{
-	public float weekdayRoomCost;				//Cost of renting a room on a weekday (mon - thurs)
-	public float weekendRoomCost;				//Cost of a room on weekends (fri/sat/sun)
-	public float weekday3NightDiscount;		//Discount for a weekday room if rented for three nights
-	public float weekend3NightDiscount;		//Discount for a weekend room if rented for three nights
-	public float weekdayNoBreakfastDiscount;	//Discount for a weekday room if no breakfast 
-	public float weekendNoBreakfastDiscount;	//Discount for a weekend room if no breakfast
-	public float weekdayNoCancelDiscount;		//Discount for a weekday room if there's no cancellation return
-	public float weekendNoCancelDiscount;		//Discount for a weekend room if there's no cancellation return
-	roomCosts(float wDR, float wER, float wD3, float wE3, float wDB, float wEB, float wDC, float wEC )
-	{
-		weekdayRoomCost = wDR;				//Cost of renting a room on a weekday (mon - thurs)
-		weekendRoomCost = wER;				//Cost of a room on weekends (fri/sat/sun)
-		weekday3NightDiscount = wD3;		//Discount for a weekday room if rented for three nights
-		weekend3NightDiscount = wE3;		//Discount for a weekend room if rented for three nights
-		weekdayNoBreakfastDiscount = wDB;	//Discount for a weekday room if no breakfast 
-		weekendNoBreakfastDiscount = wEB;	//Discount for a weekend room if no breakfast
-		weekdayNoCancelDiscount = wDC;		//Discount for a weekday room if there's no cancellation return
-		weekendNoCancelDiscount = wEC;		//Discount for a weekend room if there's no cancellation return
-	}
-	public roomCosts DeepCopy()
-	{
-		roomCosts other = new roomCosts();
-		other.weekdayRoomCost = this.weekdayRoomCost;				
-		other.weekendRoomCost = this.weekendRoomCost;				
-		other.weekday3NightDiscount = this.weekday3NightDiscount;		
-		other.weekend3NightDiscount = this.weekend3NightDiscount;		
-		other.weekdayNoBreakfastDiscount = this.weekdayNoBreakfastDiscount;	
-		other.weekendNoBreakfastDiscount = this.weekendNoBreakfastDiscount;	
-		other.weekdayNoCancelDiscount = this.weekdayNoCancelDiscount;		
-		other.weekendNoCancelDiscount = this.weekendNoCancelDiscount;	
-		return other;
-	}
-}
-public class ReceptionLog
-{
-	//Variables (Standard)
-	public int month;	//Which week this data is for
-	//Variables (Costs)
-	//standard rooms
-	public roomCosts standardRoom = new roomCosts();
-	//double rooms
-	public roomCosts doubleRoom = new roomCosts();
-	//Deluxe rooms
-	public roomCosts deluxeRoom = new roomCosts();
-	//suite
-	public roomCosts suiteRoom = new roomCosts();
-	//master suites
-	public roomCosts masterSuiteRoom = new roomCosts();
-
-
-	public float conferenceHeadCost=50; 			//Conference shit, worry about this later
-	public float conferenceWeekendDiscount;		//Conference shit, worry about this later
-	public float conferenceRoomsDiscount;       //conference variable not yet in use.
-	public float groupHeadCost = 50;                 //group variable not used yet.
-	public float groupRoomsDiscount;            //groupd variable not yet in use.
-	public float eventsCost=50;                    //event booking variable not in use.
-	public float conferenceRevenueSplitFood;    //not in use
-	public float groupRevenueSplitFood;         //not in use
-	public float eventRevenueSplitFood;         //not in use.
-	public float conferenceConfRoomsDiscount;   //not in use
-	public float eventConfRoomsDiscount; 		//not in use.
-	public float eventWeekEndDiscount;          //not in use.
-
-	//Variables (Results)
-	public int roomsAvailable;		//How many rooms the hotel had this week
-	public int weekdayRoomsBooked;	//How many rooms were booked during the week
-	public int weekendRoomsBooked;	//How many rooms were booked during the weekend
-
-
-	public ReceptionLog DeepCopy()
-	{
-		ReceptionLog other = new ReceptionLog(); 
-
-		other.month = this.month;
-		
-		other.standardRoom = this.standardRoom.DeepCopy();
-		other.doubleRoom = this.doubleRoom.DeepCopy();
-		other.deluxeRoom = this.deluxeRoom.DeepCopy();
-		other.suiteRoom = this.suiteRoom.DeepCopy();
-		other.masterSuiteRoom = this.masterSuiteRoom.DeepCopy();
-
-		other.conferenceHeadCost= this.conferenceHeadCost; 			
-		other.conferenceWeekendDiscount= this.conferenceWeekendDiscount;		
-		other.conferenceRoomsDiscount= this.conferenceRoomsDiscount;      
-		other.groupHeadCost= this.groupHeadCost;                 
-		other.groupRoomsDiscount= this.groupRoomsDiscount;           
-		other.eventsCost= this.eventsCost;                  
-		other.conferenceRevenueSplitFood= this.conferenceRevenueSplitFood;  
-		other.groupRevenueSplitFood= this.groupRevenueSplitFood;        
-		other.eventRevenueSplitFood= this.eventRevenueSplitFood;       
-		other.conferenceConfRoomsDiscount= this.conferenceConfRoomsDiscount;   
-		other.eventConfRoomsDiscount= this.eventConfRoomsDiscount; 		
-		other.eventWeekEndDiscount= this.eventWeekEndDiscount;        
-		
-
-		other.roomsAvailable= this.roomsAvailable;		
-		other.weekdayRoomsBooked= this.weekdayRoomsBooked;	
-		other.weekendRoomsBooked= this.weekendRoomsBooked;	
-		return other;
-	}
-}
-
-//This handles all information on renting rooms
 public class Reception : MonoBehaviour 
 { 
 	//arrays of median costs for room qualities.
@@ -241,17 +135,7 @@ public class Reception : MonoBehaviour
 		currentLog = GameObject.FindGameObjectWithTag("RatesInput").GetComponent<RatesSetup>().newReceptionLog.DeepCopy();
 		//Adds a new ReceptionLog to the list and Reference to the log we're currently editing.
 		receptionLogs.Add (currentLog);
-		//ReceptionLog currentLog = receptionLogs [receptionLogs.Count - 1];
 		currentLog.month = receptionLogs.Count;
-		//--------------------------------------staffing log
-		//adds the staffing log to staffing log list.
-		//currentLogStaff = new StaffingLog();
-		//currentLogStaff = GameObject.FindGameObjectWithTag("StaffingController").GetComponent<StaffMenu>().newStaffingLog.DeepCopy();
-		//add staff log to log list
-		//staffingLogs.Add(currentLogStaff);
-		//currentLogStaff.month = staffingLogs.Count;
-
-
 	}
 
 	#region Simulation Loop
@@ -592,7 +476,5 @@ public class Reception : MonoBehaviour
 		}
 	
 		return BoolGen (ratioPrice);
-
-	
 	}
 }

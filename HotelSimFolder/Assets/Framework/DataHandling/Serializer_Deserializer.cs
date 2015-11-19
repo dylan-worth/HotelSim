@@ -43,7 +43,7 @@ public class Serializer_Deserializer : MonoBehaviour {
         Restaurant_Save();
     }
 
-    public void LoadGame() //Load all available data.
+    public void LoadGame() //Load all available data into reception.
     {
         BalanceSheet_Load();
         MonthlyReport_Load();
