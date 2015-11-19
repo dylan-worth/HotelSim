@@ -108,6 +108,10 @@ public static class Calendar {
 	{
 		return currentDate;
 	}
+    public static void SetDate(date newDate)
+    {
+        currentDate = newDate;
+    }
 	public static int GetDayOfTheYear()
 	{
 		return dayOfTheYear;

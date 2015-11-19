@@ -25,6 +25,9 @@ public class Serializer_Deserializer : MonoBehaviour {
 		gameController = GameObject.FindGameObjectWithTag("GameController");
         currentSavedSlot = GetSavedSlot();
         SetPath();
+
+       // LoadGame();
+       
     }
 
     string GetSavedSlot() //restrieve the saved slot from Saved_Slot singleton.
@@ -50,6 +53,14 @@ public class Serializer_Deserializer : MonoBehaviour {
         MonthlyReport_Load();
         Feedback_Load();
         Restaurant_Load();
+
+        SetGameState();
+       
+    }
+
+    void SetGameState() //need to set date at current loaded.
+    {
+        Calendar.SetDate(Reception.monthlyReports[Reception.monthlyReports.Count - 1].currentMonth);
     }
 
     #region Save/Load Methods

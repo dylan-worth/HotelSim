@@ -2,7 +2,7 @@
 
 public class Saved_Slot : MonoBehaviour {
 
-    public static Saved_Slot singleton;	//create in mainmenu scene. Stays on scene transition.
+    public static Saved_Slot singleton;	//created in mainmenu scene. Stays on scene transition.
 
     [SerializeField]
     string slot_One;
@@ -12,6 +12,8 @@ public class Saved_Slot : MonoBehaviour {
     string slot_Three;
 
     string currentSlot = null;
+
+    bool isLoaded = false;
 
     public string GetSlot()
     {
@@ -37,11 +39,13 @@ public class Saved_Slot : MonoBehaviour {
                 break;
         }
     }
+
     void Awake()
     {
         if (singleton == null)
         {
             singleton = this;
+            isLoaded = true;
             DontDestroyOnLoad(transform.gameObject);
         }
         else 
@@ -49,6 +53,19 @@ public class Saved_Slot : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-   
+
+    void LoadSaved()
+    {
+        
+    }
+
+    void OnLevelWasLoaded(int level)
+    {
+        if (level == 1 && isLoaded)
+        {
+            //calls the loading function.
+        }
+
+    }
 
 }
