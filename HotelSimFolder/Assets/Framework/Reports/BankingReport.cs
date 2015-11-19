@@ -55,9 +55,7 @@ public class BankingReport : MonoBehaviour {
 	int smallLoanRemaining = 0;
 	int medLoanremaining = 0;
 	int largeLoanRemaining = 0;
-	//Totals
-	//float totalAmountBorrowed = 0f; 
-	//float totalMonthlyRepayment = 0f; 
+
 
 	//references to the tab inputs.
 	public InputField allAmountBorrowed; 

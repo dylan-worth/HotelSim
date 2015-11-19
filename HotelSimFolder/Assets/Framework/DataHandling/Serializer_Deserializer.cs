@@ -45,6 +45,17 @@ public class Serializer_Deserializer : MonoBehaviour {
         MonthlyReport_Save();
         Feedback_Save();
         Restaurant_Save();
+        //missing data that needs saving.
+        //Banking loans.
+        //All tab options selected.
+        //status of all rooms, condition, upgrades, cleanliness, etc...
+        //billboard actives, comments actives.
+        //staffing status.
+        //calendar generated including random generated events.
+        //random events.
+
+        //Possibly camera position.
+
     }
 
     public void LoadGame() //Load all available data into reception.
@@ -61,6 +72,7 @@ public class Serializer_Deserializer : MonoBehaviour {
     void SetGameState() //need to set date at current loaded.
     {
         Calendar.SetDate(Reception.monthlyReports[Reception.monthlyReports.Count - 1].currentMonth);
+        //need to set all tab options selected. 
     }
 
     #region Save/Load Methods

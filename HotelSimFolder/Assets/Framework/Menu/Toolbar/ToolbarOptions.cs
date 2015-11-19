@@ -5,8 +5,6 @@ using UnityEngine.UI;
 public class ToolbarOptions : MonoBehaviour 
 {
 
-
-	//Variables (Setup)
 	static Text cashAtBank;	//Holds the text object displaying current credits
 	static Text monthlyIncome;
 	static Text monthlyCosts;

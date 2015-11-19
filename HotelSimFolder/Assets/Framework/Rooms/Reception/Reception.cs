@@ -87,7 +87,6 @@ public class Reception : MonoBehaviour
 		medianRoomCostWD = rateSetup.medianRoomCostWD;
 		medianRoomCostWE = rateSetup.medianRoomCostWE;
 
-       
 	}
 
     void Start()
