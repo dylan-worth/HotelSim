@@ -60,15 +60,15 @@ public class Serializer_Deserializer : MonoBehaviour {
 
         if (Reception.balanceSheets.Count != 0)
         {
-            for (int k = 0; k < Reception.balanceSheets.Count; k++)
+            for (int i = 0; i < Reception.balanceSheets.Count; i++)
             {
-                newList.AddBalanceSheet(Reception.balanceSheets[k]);
+                newList.Add(Reception.balanceSheets[i]);
             }
         }
 
         System.Type[] sheet = { typeof(BalanceSheet) };
         XmlSerializer serializer = new XmlSerializer(typeof(BalanceSheetList), sheet);
-        FileStream fs = new FileStream(fullPath + "BalanceSheetArray.xml", FileMode.Create);
+        FileStream fs = new FileStream(fullPath + balanceSheetPath, FileMode.Create);
         serializer.Serialize(fs, newList);
         fs.Close();
         newList = null;
@@ -78,12 +78,12 @@ public class Serializer_Deserializer : MonoBehaviour {
     {
         if (!File.Exists(fullPath + "BalanceSheetArray.xml"))
         {
-            Debug.LogError("FILE " + fullPath + "BalanceSheetArray.xml" + " NOT FOUND!");
+            Debug.LogError("FILE " + fullPath + balanceSheetPath + " NOT FOUND!");
             return;
         }
         XmlSerializer serializer = new XmlSerializer(typeof(BalanceSheetList));
         // To read the file, create a FileStream.
-        FileStream fs = new FileStream(fullPath + "BalanceSheetArray.xml", FileMode.Open);
+        FileStream fs = new FileStream(fullPath + balanceSheetPath, FileMode.Open);
         // Call the Deserialize method and cast to the object type.
         BalanceSheetList loadedlist = (BalanceSheetList)serializer.Deserialize(fs);
 
@@ -100,12 +100,47 @@ public class Serializer_Deserializer : MonoBehaviour {
     //Monthly Report------------------------------------------------------------------------//
     void MonthlyReport_Save() 
     {
-         //Can duplicate methods from balance sheet once we set up the classes proprely. 
+        MonthlyReportList newList = new MonthlyReportList();
+        newList.Listname = "MonthlyReport";
+
+        if (Reception.monthlyReports.Count != 0)
+        {
+            for (int i = 0; i < Reception.monthlyReports.Count; i++)
+            {
+                newList.Add(Reception.monthlyReports[i]);
+            }
+        }
+
+        System.Type[] sheet = { typeof(MonthlyReport) };
+        XmlSerializer serializer = new XmlSerializer(typeof(MonthlyReportList), sheet);
+        FileStream fs = new FileStream(fullPath + monthlyReportPath, FileMode.Create);
+        serializer.Serialize(fs, newList);
+        fs.Close();
+        newList = null;
     }
 
     void MonthlyReport_Load() 
     {
-        //Can duplicate methods from balance sheet once we set up the classes proprely. 
+        if (!File.Exists(fullPath + monthlyReportPath))
+        {
+            Debug.LogError("FILE " + fullPath + monthlyReportPath + " NOT FOUND!");
+            return;
+        }
+        XmlSerializer serializer = new XmlSerializer(typeof(MonthlyReportList));
+        // To read the file, create a FileStream.
+        FileStream fs = new FileStream(fullPath + monthlyReportPath, FileMode.Open);
+        // Call the Deserialize method and cast to the object type.
+        MonthlyReportList loadedlist = (MonthlyReportList)serializer.Deserialize(fs);
+
+        if (Reception.monthlyReports.Count != 0)//Clear the list in reception if it isnt empty.
+        {
+            Reception.monthlyReports.Clear();
+        }
+
+        for (int i = 0; i < loadedlist.monthlyReportList.Count; i++)
+        {
+            Reception.monthlyReports.Add(loadedlist.monthlyReportList[i]);
+        }
     }
     //Feedback-------------------------------------------------------------------------------//
     void Feedback_Save() 
@@ -120,12 +155,47 @@ public class Serializer_Deserializer : MonoBehaviour {
     //Restaurant report----------------------------------------------------------------------//
     void Restaurant_Save() 
     {
-        //Can duplicate methods from balance sheet once we set up the classes proprely. 
+        RestaurantBookList newList = new RestaurantBookList();
+        newList.Listname = "RestaurantBook";
+
+        if (Reception.restaurantBooks.Count != 0)
+        {
+            for (int i = 0; i < Reception.restaurantBooks.Count; i++)
+            {
+                newList.Add(Reception.restaurantBooks[i]);
+            }
+        }
+
+        System.Type[] sheet = { typeof(RestaurantBook) };
+        XmlSerializer serializer = new XmlSerializer(typeof(RestaurantBookList), sheet);
+        FileStream fs = new FileStream(fullPath + restaurantPath, FileMode.Create);
+        serializer.Serialize(fs, newList);
+        fs.Close();
+        newList = null;
     }
 
     void Restaurant_Load() 
     {
-        //Can duplicate methods from balance sheet once we set up the classes proprely. 
+        if (!File.Exists(fullPath + restaurantPath))
+        {
+            Debug.LogError("FILE " + fullPath + restaurantPath + " NOT FOUND!");
+            return;
+        }
+        XmlSerializer serializer = new XmlSerializer(typeof(RestaurantBookList));
+        // To read the file, create a FileStream.
+        FileStream fs = new FileStream(fullPath + restaurantPath, FileMode.Open);
+        // Call the Deserialize method and cast to the object type.
+        RestaurantBookList loadedlist = (RestaurantBookList)serializer.Deserialize(fs);
+
+        if (Reception.restaurantBooks.Count != 0)//Clear the balancesheet list in reception if it isnt empty.
+        {
+            Reception.restaurantBooks.Clear();
+        }
+
+        for (int i = 0; i < loadedlist.restaurantBooklist.Count; i++)
+        {
+            Reception.restaurantBooks.Add(loadedlist.restaurantBooklist[i]);
+        }
     }
 
 

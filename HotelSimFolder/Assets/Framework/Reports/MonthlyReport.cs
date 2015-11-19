@@ -1,9 +1,41 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using System.Xml;
+using System.Xml.Serialization;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
+
+[XmlRoot("MonthlyReports")]
+[XmlInclude(typeof(MonthlyReport))] // include type class restaurantbook.
+public class MonthlyReportList       //Class holding a list of restaurantbook. Used to storing and loading purposes.
+{
+    [XmlArray("MonthlyReportArray")]
+    public List<MonthlyReport> monthlyReportList = new List<MonthlyReport>();
+
+    [XmlElement("Listname")]
+    public string Listname { get; set; }
+
+    // Constructor
+    public MonthlyReportList() { }
+
+    public MonthlyReportList(string name)
+    {
+        this.Listname = name;
+    }
+
+    public void Add(MonthlyReport report)
+    {
+        monthlyReportList.Add(report);
+    }
+
+}
+[System.Serializable]
+[XmlRoot("MonthlyReport")]
 public class MonthlyReport {
 
-	//date:
+	
 	public date currentMonth;
 	//revenues:
 	public float restaurantTake;
@@ -125,6 +157,26 @@ public class MonthlyReport {
 		total = numbRoomLvl1Booked+numbRoomLvl2Booked+numbRoomLvl3Booked+numbRoomLvl4Booked+numbRoomLvl5Booked;
 		return total;
 	}
+
+    public void Save(string filename)
+    {
+        using (var stream = new FileStream(filename, FileMode.Create))
+        {
+            var XML = new XmlSerializer(typeof(MonthlyReport));
+            XML.Serialize(stream, this);
+        }
+    }
+
+    public static MonthlyReport LoadFromFile(string filename)
+    {
+        using (var stream = new FileStream(filename, FileMode.Open))
+        {
+            var XML = new XmlSerializer(typeof(MonthlyReport));
+            return (MonthlyReport)XML.Deserialize(stream);
+        }
+    }
+
+
 	public MonthlyReport DeepCopy()
 	{
 		MonthlyReport newReport = new MonthlyReport();

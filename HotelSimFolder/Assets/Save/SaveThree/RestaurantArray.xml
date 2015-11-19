@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<RestaurantBooks xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <RestaurantBookArray>
+    <RestaurantBook>
+      <startDate>
+        <year>2017</year>
+        <dayOfTheMonth>29</dayOfTheMonth>
+        <day>Sunday</day>
+        <month>January</month>
+        <numberOfWeeks>4</numberOfWeeks>
+      </startDate>
+      <numbOfDays>28</numbOfDays>
+      <restaurantLevel>1</restaurantLevel>
+      <barLevel>1</barLevel>
+      <numberOfStaff>2</numberOfStaff>
+      <staffProductivity>0</staffProductivity>
+      <productivityNeeded>0</productivityNeeded>
+      <totalFoodSales>3735</totalFoodSales>
+      <totalBeverageSales>1255</totalBeverageSales>
+      <foodPrice>15</foodPrice>
+      <beveragePrice>5</beveragePrice>
+      <conditionStart>100</conditionStart>
+      <conditionEnd>100</conditionEnd>
+      <lostCustomers>4</lostCustomers>
+      <staffCost>640</staffCost>
+    </RestaurantBook>
+  </RestaurantBookArray>
+  <Listname>RestaurantBook</Listname>
+</RestaurantBooks>

@@ -133,7 +133,7 @@ public class Reception : MonoBehaviour
 	public static List<ReceptionLog> receptionLogs;	//Holds logs of the recieptions data over every week
 	public static Reception singleton;				//Reference to the singleton of this script
 	public static List<StaffingLog> staffingLogs;//holds logs of staffing data week by week.
-	public List<RestaurantBook> restaurantBooks = new List<RestaurantBook>();
+    public static List<RestaurantBook> restaurantBooks;
 	public static List<BalanceSheet> balanceSheets;
 	public static List<MonthlyReport> monthlyReports;
 	bool firstGeneration = true;

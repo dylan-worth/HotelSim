@@ -20,7 +20,7 @@ public class Data_BalanceSheet : MonoBehaviour {
 
             for (int i = 0; i < Reception.balanceSheets.Count; i++ )
             {
-                    newList.AddBalanceSheet(Reception.balanceSheets[i]);
+                    newList.Add(Reception.balanceSheets[i]);
             }
 
         }

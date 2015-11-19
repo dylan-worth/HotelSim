@@ -24,7 +24,7 @@ public class BalanceSheetList       //Class holding a list of balancesheet. Used
         this.Listname = name;
     }
 
-    public void AddBalanceSheet(BalanceSheet balanceSheet)
+    public void Add(BalanceSheet balanceSheet)
     {
         balanceSheetList.Add(balanceSheet);
     }
