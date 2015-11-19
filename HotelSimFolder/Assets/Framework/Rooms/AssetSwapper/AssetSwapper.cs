@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
-public class AssetSwapper : MonoBehaviour {
 
-   
+public class AssetSwapper : MonoBehaviour {
 
     [SerializeField]
     [Tooltip("Repair billboard")]

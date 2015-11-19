@@ -33,7 +33,7 @@ public class MonthlyReportList       //Class holding a list of restaurantbook. U
 public class MonthlyReport {
 
 	
-	public date currentMonth;
+	public Date currentMonth;
 	//revenues:
 	public float restaurantTake;
 	//money made from each type of rooms for the month.
@@ -213,7 +213,7 @@ public class MonthlyReport {
 	}
 
 	public MonthlyReport(){}
-	public MonthlyReport(date currentDate){
+	public MonthlyReport(Date currentDate){
 		this.currentMonth = currentDate.deepCopy();
 	}
 

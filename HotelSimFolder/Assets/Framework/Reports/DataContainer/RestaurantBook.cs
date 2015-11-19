@@ -30,7 +30,7 @@ public class RestaurantBookList       //Class holding a list of restaurantbook. 
 [XmlRoot("RestaurantBook")]
 public class RestaurantBook
 {
-    public date startDate;
+    public Date startDate;
     public int numbOfDays;
     public int restaurantLevel;
     public int barLevel;
@@ -60,7 +60,7 @@ public class RestaurantBook
 
     public RestaurantBook() { }
 
-    public RestaurantBook(date sD, int nOD, int rL, int bL, int nOS, float fP, float bP, float cnd)
+    public RestaurantBook(Date sD, int nOD, int rL, int bL, int nOS, float fP, float bP, float cnd)
     {
         this.startDate = sD;
         this.numbOfDays = nOD;

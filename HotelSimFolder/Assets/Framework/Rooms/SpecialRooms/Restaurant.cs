@@ -62,7 +62,7 @@ public class Restaurant : MonoBehaviour {
 	{
 		float numbFOOD = numbOfGuest/days;
 		float numbDRINK = numbOfGuest/days;
-		RestaurantBook newMonth = new RestaurantBook (Calendar.getDate(), days , MasterReference.restaurantLevel, MasterReference.barLevel
+		RestaurantBook newMonth = new RestaurantBook (Calendar.GetDate(), days , MasterReference.restaurantLevel, MasterReference.barLevel
 		                                              , Staff.staffFoodAndBeverages.Count, foodPrice, liquorPrice, condition);
 		//reset daily numbers at start of day. Need to save them somewhere later.
 		dailyFoodSales = 0;
@@ -175,7 +175,7 @@ public class Restaurant : MonoBehaviour {
 	{
 		float costs = 0f;
 		foreach (StaffMember aStaff in Staff.staffFoodAndBeverages) {
-			costs += (aStaff.PayRate * 8*Calendar.getNumberOfWeeksInMonth());
+			costs += (aStaff.PayRate * 8*Calendar.GetNumberOfWeeksInMonth());
 		}
 		return costs;
 	}

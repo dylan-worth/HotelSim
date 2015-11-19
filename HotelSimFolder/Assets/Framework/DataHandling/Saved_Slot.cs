@@ -54,18 +54,6 @@ public class Saved_Slot : MonoBehaviour {
         }
     }
 
-    void LoadSaved()
-    {
-        
-    }
-
-    void OnLevelWasLoaded(int level)
-    {
-        if (level == 1 && isLoaded)
-        {
-            //calls the loading function.
-        }
-
-    }
+   
 
 }

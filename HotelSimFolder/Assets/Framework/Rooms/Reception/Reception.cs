@@ -14,6 +14,9 @@ public class Reception : MonoBehaviour
     EMSReport emsTab;//reference to emsTab.
     RevenueManagement revenueManagementTab;//refrence to revenue management tab
     RandomEvent randomEvent;//reference to our random event controller.
+    ToolbarOptions toolbar;//overworld display script.
+    
+
 	//Variables (Utility)
 	static float debugDayDelay = 0.1f;
 
@@ -37,6 +40,7 @@ public class Reception : MonoBehaviour
 	ReceptionLog currentLog;
 	StaffingLog currentLogStaff;
 	RatesSetup rateSetup;
+    AssetSwapper assetSwapper;
 	GroupBookController groupController;
 	CalendarController calendarController;
 	FeedbackController feedbackController;
@@ -55,9 +59,10 @@ public class Reception : MonoBehaviour
 		calendarController = controller.transform.FindChild("CalendarController").GetComponent<CalendarController>();
 		feedbackController = controller.transform.FindChild("FeedBackController").GetComponent<FeedbackController>();
         dataProcessor = GameObject.Find("DataCollection").GetComponent<Serializer_Deserializer>();
+        assetSwapper = controller.transform.FindChild("AssetController").GetComponent<AssetSwapper>();
+        toolbar = GameObject.FindGameObjectWithTag("UI").transform.FindChild("OverWorld").GetComponent<ToolbarOptions>();
 
-
-		SingletonCheck();
+        SingletonCheck();
 		if(monthlyReports == null){
 			monthlyReports = new List<MonthlyReport>();//create list on first run.
 		}
@@ -81,7 +86,14 @@ public class Reception : MonoBehaviour
 
 		medianRoomCostWD = rateSetup.medianRoomCostWD;
 		medianRoomCostWE = rateSetup.medianRoomCostWE;
+
+       
 	}
+
+    void Start()
+    {
+        toolbar.UpdateCredits();
+    }
 
 	//Ensures a singleton is set
 	void SingletonCheck()
@@ -124,7 +136,7 @@ public class Reception : MonoBehaviour
 	//create monthly reports
 	public void GenerateNewMonthReports()
 	{
-		newMonthlyReport = new MonthlyReport(Calendar.getDate());
+		newMonthlyReport = new MonthlyReport(Calendar.GetDate());
 		monthlyReports.Add(newMonthlyReport);
 
 		//-----------------------------------------reception log
@@ -160,8 +172,9 @@ public class Reception : MonoBehaviour
 		newMonthlyReport.numbConferenceStaff = Staff.staffConference.Count;
 		newMonthlyReport.numbOtherStaff = Staff.staffOthers.Count;
 		//-------------------------------------------//
-		for (int weeks = 0; weeks < Calendar.getNumberOfWeeksInMonth(); weeks++) 
+		for (int weeks = 0; weeks < Calendar.GetNumberOfWeeksInMonth(); weeks++) 
         {
+           
             //Try and generate a random event each week. 
             randomEvent.InitiateRandomEvent();
 			//runs the stafftraining function to increase or decrease staff training.
@@ -178,14 +191,14 @@ public class Reception : MonoBehaviour
 				//set the date.
 				Calendar.addDay();
 				Days++;
+                //Ticks the billboard duration by one.
+                assetSwapper.TickDown();
 				//Determine how many special groups will book.
 				specialBookings specialBooked = SpecialBookingRun();
 				//Determine how many rooms we will try to book:
-
-
 				int roomsToBook = (int)((calendarController.seasonalTrends[Calendar.GetDayOfTheYear()]) * 
 				                        (MasterReference.ReturnRegularBookingPop() / 100f));
-
+                
 				//check if enought ppl show up to trigger overbooking.
 				if((roomsToBook-specialBooked.numberOfRooms)/(BedroomBehaviour.allBedrooms.Count-specialBooked.numberOfRooms) > 0.9 && revenueManagementTab.GetOverbooked())
 				{
@@ -204,9 +217,6 @@ public class Reception : MonoBehaviour
 						}
 					}
 				}
-			
-				
-                
 
 				//Try to book specialgroups Rooms.---------------
 				BedroomBehaviour.GetNumberOfRoomsAvailable();
@@ -268,8 +278,9 @@ public class Reception : MonoBehaviour
 				//adds all 6 staff list's cost daily.
 				MasterReference.accountsPayable += (dailyCost[0]+dailyCost[1]+dailyCost[2]
 				                                    +dailyCost[3]+dailyCost[4]+dailyCost[5]);
-			
-				yield return new WaitForSeconds (debugDayDelay);
+
+                toolbar.UpdateCredits();
+                yield return new WaitForSeconds (debugDayDelay);
 			}
 			
 		}
@@ -277,24 +288,24 @@ public class Reception : MonoBehaviour
 		//create a new restaurant book with simulated data. 1 month at the time.
 		newRestaurantBook = 
 			GameObject.FindGameObjectWithTag("Restaurant").GetComponent<Restaurant>().SimulateMonth (newMonthlyReport.totalBookings()
-			                                                                                        , 7*Calendar.getNumberOfWeeksInMonth());
+			                                                                                        , 7*Calendar.GetNumberOfWeeksInMonth());
 		restaurantBooks.Add (newRestaurantBook);//creates a new log for the restaurant numbers. stored inside a list.
 		
 		//--------------------------------ASSIGN VALUE OF NEW BALANCE SHEET----------------------------------------//
 		BalanceSheet newBalanceSheet = 
-			new BalanceSheet(Calendar.getDate(), MasterReference.cashAtBank, MasterReference.accountsReceivable,
+			new BalanceSheet(Calendar.GetDate(), MasterReference.cashAtBank, MasterReference.accountsReceivable,
 			                 MasterReference.inventories, MasterReference.totalCurrentAssets(), MasterReference.propretyAndEquipment,
 			                 MasterReference.totalAssets(), MasterReference.accountsPayable, MasterReference.carbonOffsetReceipts,
 			                 MasterReference.incomeTaxPayable, MasterReference.dividendOwed, MasterReference.currentMaturityofLongtermDebt,
 			                 MasterReference.totalCurrentLiabilities(), MasterReference.longTermDebt, MasterReference.shareCapital,
 			                 MasterReference.retainedEarnings, MasterReference.ownersEquity(), MasterReference.totalLiabilitiesAndOwnersEquity);
         //add date reference for nicer serialization
-        date currentDate = Calendar.getDate();
+        Date currentDate = Calendar.GetDate();
         newBalanceSheet.dayOfTheMonth = currentDate.dayOfTheMonth;
         newBalanceSheet.month = currentDate.month;
         newBalanceSheet.year = currentDate.year;
         newBalanceSheet.day = currentDate.day;
-        newBalanceSheet.numberOfWeeks = Calendar.getNumberOfWeeksInMonth(balanceSheets.Count%12);
+        newBalanceSheet.numberOfWeeks = Calendar.GetNumberOfWeeksInMonth(balanceSheets.Count%12);
 		balanceSheets.Add(newBalanceSheet);
 		//-------------------------------ADD DATA TO MONTHLY REPORT------------------------------------------------//
 		newMonthlyReport.restaurantTake = (newRestaurantBook.totalBeverageSales + newRestaurantBook.totalFoodSales);
@@ -328,7 +339,8 @@ public class Reception : MonoBehaviour
 		isSimulating = false;
 		MasterReference.accountsPayable = 0f;
 
-		//-------------------------------------END OF SIMULATION LOOP---------------------------------------------//
+        //-------------------------------------END OF SIMULATION LOOP---------------------------------------------//
+       
         //------------------------------------------AUTO SAVE-----------------------------------------------------//
         dataProcessor.SaveGame();
 		//-------------------------------------RESET SOME DATA----------------------------------------------------//

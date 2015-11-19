@@ -31,7 +31,7 @@ public class BalanceSheet{
 
 	//saved for every months. Last day of Period
     [XmlIgnoreAttribute]//To remove the data.
-    public date dateOfReport { get; set; }
+    public Date dateOfReport { get; set; }
     public int dayOfTheMonth { get; set; }
     public months month { get; set; }
     public int year { get; set; }
@@ -100,7 +100,7 @@ public class BalanceSheet{
 
 	//contructor with dateofReport, cashatbank, accountreceivable, inventories, propertyandequipment, accountpayable, carbonoffsetreceipt, incometaxPayable,
 	//dividenOwed, currentmaturityoflongtermdebt, longtermdept, sharecapital, retainedearnings.
-	public BalanceSheet(date dOR, float cAB, float aR, float inv, float tCA,float pAE, float tA, float aP, float cOR, 
+	public BalanceSheet(Date dOR, float cAB, float aR, float inv, float tCA,float pAE, float tA, float aP, float cOR, 
 	                    float iTP, float dO, float cMOLTD, float tCMOLT, float lTD, float sC, float rE, float oE, float tLAOE)
 	{
 		this.dateOfReport = dOR;

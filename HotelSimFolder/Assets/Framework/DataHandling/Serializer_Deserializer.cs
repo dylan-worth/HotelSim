@@ -26,7 +26,7 @@ public class Serializer_Deserializer : MonoBehaviour {
         currentSavedSlot = GetSavedSlot();
         SetPath();
 
-       // LoadGame(); Needs fixing a bit.
+        LoadGame();// Needs fixing a bit.
        
     }
 
@@ -36,7 +36,7 @@ public class Serializer_Deserializer : MonoBehaviour {
     }
     void SetPath() //contatenates the path.
     {
-        fullPath = savedPath+currentSavedSlot;
+        fullPath = savedPath + currentSavedSlot;
     }
 
     public void SaveGame() //Calls all save functions.
@@ -106,8 +106,12 @@ public class Serializer_Deserializer : MonoBehaviour {
 
         for (int i = 0; i < loadedlist.balanceSheetList.Count; i++)
         {
+            Date reportDate = new Date(loadedlist.balanceSheetList[i].year, loadedlist.balanceSheetList[i].dayOfTheMonth, 
+                                        loadedlist.balanceSheetList[i].day, loadedlist.balanceSheetList[i].month, loadedlist.balanceSheetList[i].numberOfWeeks);
+            loadedlist.balanceSheetList[i].dateOfReport = reportDate;
             Reception.balanceSheets.Add(loadedlist.balanceSheetList[i]);
         }
+        fs.Close();
     }
     //Monthly Report------------------------------------------------------------------------//
     void MonthlyReport_Save() 
@@ -153,6 +157,7 @@ public class Serializer_Deserializer : MonoBehaviour {
         {
             Reception.monthlyReports.Add(loadedlist.monthlyReportList[i]);
         }
+        fs.Close();
     }
     //Feedback-------------------------------------------------------------------------------//
     void Feedback_Save() 
@@ -203,6 +208,7 @@ public class Serializer_Deserializer : MonoBehaviour {
 		{
 			fbC.archivedListOfFeedbacks.Add(loadedlist.feedbackList[i]);
 		}
+        fs.Close();
     }
     //Restaurant report----------------------------------------------------------------------//
     void Restaurant_Save() 
@@ -248,6 +254,7 @@ public class Serializer_Deserializer : MonoBehaviour {
         {
             Reception.restaurantBooks.Add(loadedlist.restaurantBooklist[i]);
         }
+        fs.Close();
     }
 
 

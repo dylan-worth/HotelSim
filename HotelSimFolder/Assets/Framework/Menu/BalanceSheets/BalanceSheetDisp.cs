@@ -51,8 +51,8 @@ public class BalanceSheetDisp : MonoBehaviour {//Displays the balense sheet numb
 
 	public void OpenTab()
 	{
-		year = Calendar.getDate().year-2016;
-		month = (int)(Calendar.getDate().month)+1;
+		year = Calendar.GetDate().year-2016;
+		month = (int)(Calendar.GetDate().month)+1;
 		DisplayEndOfMonthBalanceSheet();
 		months selectedMonth = (months)month-1; 
 		monthSelector.text = ""+selectedMonth;

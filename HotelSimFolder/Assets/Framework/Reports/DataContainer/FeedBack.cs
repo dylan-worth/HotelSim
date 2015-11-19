@@ -25,8 +25,8 @@ public class FeedbackList       //Class holding a list of reports. Used to stori
 	{
 		feedbackList.Add(report);
 	}
-	
 }
+
 [System.Serializable]
 [XmlRoot("Feedback")]
 public class FeedBack
@@ -49,6 +49,4 @@ public class FeedBack
 		this.content = c;
 		this.rating = r;
 	}
-	
-	
 }

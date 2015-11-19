@@ -1,7 +1,7 @@
 ﻿public enum WeekDays { Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday, NumberOfWeekdays }
-
 public enum months{ January, February, March, April, May, June, July, August, September, October, November, December }
-public struct date
+[System.Serializable]
+public class Date
 {
 	public int year;
 	public int dayOfTheMonth;
@@ -9,15 +9,19 @@ public struct date
 	public months month;
 	public int numberOfWeeks;
 
-	public date(int currentYear = 2017, int dayOTM = 1, WeekDays dayP = WeekDays.Sunday, months monthP = months.January, int numberOfWeeks = 4){
-		this.year = currentYear;
-		this.dayOfTheMonth = dayOTM;
-		this.day = dayP;
-		this.month = monthP;
-		this.numberOfWeeks = numberOfWeeks;
-	}
-	public date deepCopy(){
-		date newdate = new date();
+    public Date(){ }
+
+    public Date(int currentYear, int dayOTM, WeekDays dayP, months monthP, int numberOfWeeks)
+    {
+        this.year = currentYear;
+        this.dayOfTheMonth = dayOTM;
+        this.day = dayP;
+        this.month = monthP;
+        this.numberOfWeeks = numberOfWeeks;
+    }
+    public Date deepCopy()
+    {
+		Date newdate = new Date();
 		newdate.year = this.year;
 		newdate.dayOfTheMonth = this.dayOfTheMonth;
 		newdate.day = this.day;
@@ -27,10 +31,10 @@ public struct date
 	}
   
 	
-};
+}
 public static class Calendar {
 
-	private static date currentDate = new date(2017, 1,WeekDays.Sunday, months.January, getNumberOfWeeksInMonth());
+	private static Date currentDate = new Date(2017, 1, WeekDays.Sunday, months.January, Calendar.GetNumberOfWeeksInMonth(0));
 	private static int dayOfTheYear = 1;
 
 	public static void addDay()
@@ -104,11 +108,11 @@ public static class Calendar {
 		}
 	}
 
-	public static date getDate()
+	public static Date GetDate()
 	{
 		return currentDate;
 	}
-    public static void SetDate(date newDate)
+    public static void SetDate(Date newDate)
     {
         currentDate = newDate;
     }
@@ -117,24 +121,24 @@ public static class Calendar {
 		return dayOfTheYear;
 	}
     //returns the number of weeks in the current month.
-	public static int getNumberOfWeeksInMonth()
+	public static int GetNumberOfWeeksInMonth()
 	{
 		int[] numWeekInMonth = new int[12]{4,4,5,4,5,4,4,5,4,4,5,5};
 		return numWeekInMonth[(int)currentDate.month];
 	}
     //overloaded method to return the number of weeks in selected month.
-    public static int getNumberOfWeeksInMonth(int period) 
+    public static int GetNumberOfWeeksInMonth(int period) 
     {
         int[] numWeekInMonth = new int[12] { 4, 4, 5, 4, 5, 4, 4, 5, 4, 4, 5, 5 };
         return numWeekInMonth[period];
     }
-    public static date GetEndOfPeriodDate(int period) 
+    public static Date GetEndOfPeriodDate(int period) 
     {
-        date toReturn = new date();
+        Date toReturn = new Date();
 
         for (int i = 0; i < period; i++)
         {
-            int weeksInPeriod = getNumberOfWeeksInMonth(i%12);
+            int weeksInPeriod = GetNumberOfWeeksInMonth(i%12);
             for (int j = 0; j < weeksInPeriod; j++)
             {
                 for (int k = 0; k < 7; k++)
@@ -143,7 +147,6 @@ public static class Calendar {
                         toReturn.day++;
                     else
                         toReturn.day = WeekDays.Monday;
-
 
                     switch (currentDate.month)
                     {
@@ -192,7 +195,7 @@ public static class Calendar {
         }
         return toReturn;
     }
-    static void checkMonth(int numDays, date myDate)
+    static void checkMonth(int numDays, Date myDate)
     {
         if (myDate.dayOfTheMonth == numDays && myDate.month != months.December)
         {

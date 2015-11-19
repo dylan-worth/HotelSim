@@ -240,7 +240,7 @@ public class BankingReport : MonoBehaviour {
 			tabSmallLoan.SetActive(false);
 			activeSmallLoan.GetComponent<Text>().text = "Current Small Loan: $" + borrowed1 + " at " 
 				+ rateSmallLoan + "%. Repayment Period: "+ durationSmallLoan +" months. Last payment period : " 
-					+ Calendar.getDate().month + " " +(Calendar.getDate().year+(durationSmallLoan/12)) + ". Borrowing cost: $" + Mathf.RoundToInt(costOfSmall);
+					+ Calendar.GetDate().month + " " +(Calendar.GetDate().year+(durationSmallLoan/12)) + ". Borrowing cost: $" + Mathf.RoundToInt(costOfSmall);
 			activeSmallLoan.SetActive(true);
 			allAmountBorrowed.text = (smallLoanAmount+medLoanAmount+largeLoanAmount).ToString();
 			allAmountPayBack.text = Mathf.RoundToInt(monthlyRepaymentSmallLoan+monthlyRepaymentMedLoan+monthlyRepaymentLargeLoan).ToString();
@@ -253,7 +253,7 @@ public class BankingReport : MonoBehaviour {
 			tabMediumLoan.SetActive(false);
 			activeMedLoan.GetComponent<Text>().text = "Current Medium Loan: $" + borrowed2 + " at " 
 				+ rateMedLoan + "%. Repayment Period: "+ durationMedLoan +" months. Last payment period : " 
-					+ Calendar.getDate().month + " " +(Calendar.getDate().year+(durationMedLoan/12)) + ". Borrowing cost: $" + Mathf.RoundToInt(costOfMed);
+					+ Calendar.GetDate().month + " " +(Calendar.GetDate().year+(durationMedLoan/12)) + ". Borrowing cost: $" + Mathf.RoundToInt(costOfMed);
 			activeMedLoan.SetActive(true);
 			allAmountBorrowed.text = (smallLoanAmount+medLoanAmount+largeLoanAmount).ToString();
 			allAmountPayBack.text = Mathf.RoundToInt(monthlyRepaymentSmallLoan+monthlyRepaymentMedLoan+monthlyRepaymentLargeLoan).ToString();
@@ -266,7 +266,7 @@ public class BankingReport : MonoBehaviour {
 			tabLargeLoan.SetActive(false);
 			activeLargeLoan.GetComponent<Text>().text = "Current Large Loan: $" + borrowed3 + " at " 
 				+ rateLargeLoan + "%. Repayment Period: "+ durationLargeLoan +" months. Last payment period : " 
-					+ Calendar.getDate().month + " " +(Calendar.getDate().year+(durationLargeLoan/12)) + ". Borrowing cost: $" + Mathf.RoundToInt(costOfLarge);
+					+ Calendar.GetDate().month + " " +(Calendar.GetDate().year+(durationLargeLoan/12)) + ". Borrowing cost: $" + Mathf.RoundToInt(costOfLarge);
 			activeLargeLoan.SetActive(true);
 			allAmountBorrowed.text = (smallLoanAmount+medLoanAmount+largeLoanAmount).ToString();
 			allAmountPayBack.text = Mathf.RoundToInt(monthlyRepaymentSmallLoan+monthlyRepaymentMedLoan+monthlyRepaymentLargeLoan).ToString();
