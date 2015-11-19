@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
+
 public class Advertisment : MonoBehaviour {//Handles the expenses and effect of advertissement.
 
 

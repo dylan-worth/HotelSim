@@ -1,6 +1,33 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections.Generic;
+using System.Xml;
+using System.Xml.Serialization;
 
+[XmlRoot("ReceptionLogs")]
+[XmlInclude(typeof(ReceptionLog))] // include type class.
+public class ReceptionLogList       //Class holding a list of reports. Used to storing and loading purposes.
+{
+	[XmlArray("ReceptionLogList")]
+	public List<ReceptionLog> receptionLogList = new List<ReceptionLog>();
+	
+	[XmlElement("Listname")]
+	public string Listname { get; set; }
+	
+	// Constructor
+	public ReceptionLogList() { }
+	
+	public ReceptionLogList(string name)
+	{
+		this.Listname = name;
+	}
+	
+	public void Add(ReceptionLog report)
+	{
+		receptionLogList.Add(report);
+	}
+	
+}
+[System.Serializable]
+[XmlRoot("ReceptionLog")]
 public class ReceptionLog
 {
     //Variables (Standard)
@@ -36,6 +63,7 @@ public class ReceptionLog
     public int weekdayRoomsBooked;	//How many rooms were booked during the week
     public int weekendRoomsBooked;	//How many rooms were booked during the weekend
 
+	public ReceptionLog(){}
 
     public ReceptionLog DeepCopy()
     {

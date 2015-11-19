@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
+
+
 public class RoomStats : RoomBehaviour
 {
 	public int roomQuality = 1;			//Room quality (based on a tier system out of 5)
@@ -34,7 +35,6 @@ public class RoomStats : RoomBehaviour
 	{
 		if (TxtDaysOccupied == null)
 		{
-			print ("Seting Text Box");
 			GameObject UImenu = GameObject.FindGameObjectWithTag("UI");
 			IM = UImenu.transform.GetComponent("ImageHolder") as ImageHolder;
 			BedroomMenu =  UImenu.transform.FindChild("Popups").transform.FindChild("BedroomMenu").gameObject;

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public enum groupType{conference, group, specialEvent, noneBooked}
 

@@ -1,7 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class CamRotation : MonoBehaviour, IPointerDownHandler, IPointerUpHandler {
 

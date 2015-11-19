@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class DestroyedByTime : MonoBehaviour {//Add to a gameobject to remove after timer duration.
 

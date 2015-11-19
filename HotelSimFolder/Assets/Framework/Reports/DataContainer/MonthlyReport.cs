@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 using System.Xml.Serialization;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 
 
 [XmlRoot("MonthlyReports")]
@@ -158,23 +155,7 @@ public class MonthlyReport {
 		return total;
 	}
 
-    public void Save(string filename)
-    {
-        using (var stream = new FileStream(filename, FileMode.Create))
-        {
-            var XML = new XmlSerializer(typeof(MonthlyReport));
-            XML.Serialize(stream, this);
-        }
-    }
-
-    public static MonthlyReport LoadFromFile(string filename)
-    {
-        using (var stream = new FileStream(filename, FileMode.Open))
-        {
-            var XML = new XmlSerializer(typeof(MonthlyReport));
-            return (MonthlyReport)XML.Deserialize(stream);
-        }
-    }
+   
 
 
 	public MonthlyReport DeepCopy()

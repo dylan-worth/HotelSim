@@ -1,8 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-
-//This holds all the main information about this hotel
+﻿//This holds all the main information about this hotel
 public static class MasterReference
 {
 	public static int currentMonthInt = 1;

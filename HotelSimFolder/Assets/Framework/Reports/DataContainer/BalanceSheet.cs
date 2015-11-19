@@ -1,10 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Xml;
 using System.Xml.Serialization;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 
 [XmlRoot("BalanceSheets")]
 [XmlInclude(typeof(BalanceSheet))] // include type class BalanceSheet
@@ -73,33 +69,7 @@ public class BalanceSheet{
     public float ownersEquity { get; set; }
 
     public float totalLiabilitiesAndOwnersEquity { get; set; }
-    //save function for balance sheet
-    public void Save(string filename) 
-    {
-        using (var stream = new FileStream(filename, FileMode.Create)) 
-        {
-            var XML = new XmlSerializer(typeof(BalanceSheet));
-            XML.Serialize(stream, this);
-        }
-    }
-    public void AddToSavedFile(string filename)
-    {
-        using (var stream = new FileStream(filename, FileMode.Append))
-        {
-            var XML = new XmlSerializer(typeof(BalanceSheet));                                 
-            XML.Serialize(stream, this);
-
-        }
-    }
-    //load function for balance sheet
-    public static BalanceSheet LoadFromFile(string filename) 
-    {
-        using (var stream = new FileStream(filename, FileMode.Open))
-        {
-            var XML = new XmlSerializer(typeof(BalanceSheet));
-            return (BalanceSheet)XML.Deserialize(stream);
-        }
-    }
+    
 
     public BalanceSheet deepCopy()
 	{

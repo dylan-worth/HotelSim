@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public static class ExtensionMethods {
+﻿public static class ExtensionMethods {
 
 	public static void Populate<T>(this T[] arr, T value ) {
 		for ( int i = 0; i < arr.Length;i++ ) {

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Saved_Slot : MonoBehaviour {
 
@@ -22,8 +21,8 @@ public class Saved_Slot : MonoBehaviour {
         }
         else
         {
-            Debug.LogError("NO Saved_Slot selected. Set to slot one default.");
-            return "slot_One/";
+            Debug.LogWarning("No Saved_Slot selected. Set to "+ slot_One +" default.");
+            return slot_One;
         }
     }
     public void SetCurrent(int i) //sets the string path to saved folder.

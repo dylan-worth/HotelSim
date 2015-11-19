@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 public class ImageHolder : MonoBehaviour {
 	public Transform[] stars;

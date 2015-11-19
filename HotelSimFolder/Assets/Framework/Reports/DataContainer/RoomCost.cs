@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public class RoomCost : MonoBehaviour {
+﻿public class RoomCost {
 
     //Holds all information pertaining to reception behaviour's for a single week
     //NOTE: these need default values for starting or something to setup first time use

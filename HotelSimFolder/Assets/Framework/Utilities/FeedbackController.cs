@@ -1,44 +1,13 @@
 ﻿using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
-using System.Xml.Serialization;
-using System.IO;
 using UnityEngine.UI;
 
-#region Feedback Class
-[System.Serializable]
-public class FeedBack
-{
-	[Range(1,4)][Tooltip("Types are: 1 = positive review, 2 = negative review, 3 = special review, 4 = Instructor review.")]
-	public int feedbackType = 1;
-	[Tooltip("Name of the person making the review. If left empty, a random name will be provided.")]
-	public string person;
-	[Tooltip("Actual content of the review.")]
-	public string content;
-	[Range(0f,5f)][Tooltip("Review grade out of 5.")]
-	public float rating;
-
-	public FeedBack(){}
-
-	public FeedBack(int t, string p, string c, float r)
-	{
-		this.feedbackType = t;
-		this.person = p;
-		this.content = c;
-		this.rating = r;
-	}
-
-
-}
-#endregion
 public class FeedbackController : MonoBehaviour {
 
 
 	List<GameObject> listOfFeedbacks = new List<GameObject>();//Active List on screen.
-	List<FeedBack> archivedListOfFeedbacks = new List<FeedBack>();//List of all previous feedback.
-
-
+	public List<FeedBack> archivedListOfFeedbacks = new List<FeedBack>();//List of all previous feedback.
 
 	[SerializeField]
 	FeedBack one;
@@ -59,13 +28,6 @@ public class FeedbackController : MonoBehaviour {
 	Sprite[] stars = new Sprite[11];
 
 	public GameObject feedBackPrefab;
-
-
-
-	void Awake()
-	{
-
-	}
 
 	void Start()
 	{

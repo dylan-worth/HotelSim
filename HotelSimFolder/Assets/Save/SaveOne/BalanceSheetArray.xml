@@ -7,36 +7,12 @@
       <year>2017</year>
       <day>Sunday</day>
       <numberOfWeeks>4</numberOfWeeks>
-      <cashAtBank>211042.25</cashAtBank>
-      <accountsReceivable>15420.959</accountsReceivable>
+      <cashAtBank>206925.375</cashAtBank>
+      <accountsReceivable>12439.0771</accountsReceivable>
       <inventories>13757</inventories>
-      <totalCurrentAssets>229177.953</totalCurrentAssets>
+      <totalCurrentAssets>226196.078</totalCurrentAssets>
       <propretyAndEquipment>5200641</propretyAndEquipment>
-      <totalAssets>5429819</totalAssets>
-      <accountsPayable>10493.7012</accountsPayable>
-      <carbonOffsetReceipts>0</carbonOffsetReceipts>
-      <incomeTaxPayable>0</incomeTaxPayable>
-      <dividendOwed>0</dividendOwed>
-      <currentMaturityofLongtermDebt>0</currentMaturityofLongtermDebt>
-      <totalCurrentLiabilities>10493.7012</totalCurrentLiabilities>
-      <longTermDebt>0</longTermDebt>
-      <shareCapital>4750000</shareCapital>
-      <retainedEarnings>136295</retainedEarnings>
-      <ownersEquity>4886295</ownersEquity>
-      <totalLiabilitiesAndOwnersEquity>5487819</totalLiabilitiesAndOwnersEquity>
-    </BalanceSheet>
-    <BalanceSheet>
-      <dayOfTheMonth>26</dayOfTheMonth>
-      <month>February</month>
-      <year>2017</year>
-      <day>Sunday</day>
-      <numberOfWeeks>4</numberOfWeeks>
-      <cashAtBank>217552.609</cashAtBank>
-      <accountsReceivable>12009.0615</accountsReceivable>
-      <inventories>13757</inventories>
-      <totalCurrentAssets>236808.313</totalCurrentAssets>
-      <propretyAndEquipment>5200641</propretyAndEquipment>
-      <totalAssets>5437449.5</totalAssets>
+      <totalAssets>5426837</totalAssets>
       <accountsPayable>10493.7012</accountsPayable>
       <carbonOffsetReceipts>0</carbonOffsetReceipts>
       <incomeTaxPayable>0</incomeTaxPayable>

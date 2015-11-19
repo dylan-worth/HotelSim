@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
 
@@ -20,10 +18,13 @@ public class Serializer_Deserializer : MonoBehaviour {
     string currentSavedSlot;//selected path from main menu.
     string fullPath;//concatenated path from savedPath and currentsavedSlot.
 
+	GameObject gameController;
+
     void Start() 
     {
-       currentSavedSlot = GetSavedSlot();
-       SetPath();
+		gameController = GameObject.FindGameObjectWithTag("GameController");
+        currentSavedSlot = GetSavedSlot();
+        SetPath();
     }
 
     string GetSavedSlot() //restrieve the saved slot from Saved_Slot singleton.
@@ -145,12 +146,52 @@ public class Serializer_Deserializer : MonoBehaviour {
     //Feedback-------------------------------------------------------------------------------//
     void Feedback_Save() 
     {
-        //Can duplicate methods from balance sheet once we set up the classes proprely. 
+		FeedbackList newList = new FeedbackList();
+		newList.Listname = "Feedbacks";
+
+		FeedbackController fbC = gameController.transform.FindChild("FeedBackController").GetComponent<FeedbackController>();
+
+		if (fbC.archivedListOfFeedbacks.Count != 0)
+		{
+			for (int i = 0; i < fbC.archivedListOfFeedbacks.Count; i++)
+			{
+				newList.Add(fbC.archivedListOfFeedbacks[i]);
+			}
+		}
+		
+		System.Type[] sheet = { typeof(FeedBack) };
+		XmlSerializer serializer = new XmlSerializer(typeof(FeedbackList), sheet);
+		FileStream fs = new FileStream(fullPath + feedbackPath, FileMode.Create);
+		serializer.Serialize(fs, newList);
+		fs.Close();
+		newList = null;
     }
 
     void Feedback_Load() 
     {
-        //Can duplicate methods from balance sheet once we set up the classes proprely. 
+		if (!File.Exists(fullPath + feedbackPath))
+		{
+			Debug.LogError("FILE " + fullPath + feedbackPath + " NOT FOUND!");
+			return;
+		}
+
+		FeedbackController fbC = gameController.transform.FindChild("FeedBackController").GetComponent<FeedbackController>();
+
+		XmlSerializer serializer = new XmlSerializer(typeof(FeedbackList));
+		// To read the file, create a FileStream.
+		FileStream fs = new FileStream(fullPath + feedbackPath, FileMode.Open);
+		// Call the Deserialize method and cast to the object type.
+		FeedbackList loadedlist = (FeedbackList)serializer.Deserialize(fs);
+		
+		if (fbC.archivedListOfFeedbacks.Count != 0)//Clear the balancesheet list in reception if it isnt empty.
+		{
+			fbC.archivedListOfFeedbacks.Clear();
+		}
+		
+		for (int i = 0; i < loadedlist.feedbackList.Count; i++)
+		{
+			fbC.archivedListOfFeedbacks.Add(loadedlist.feedbackList[i]);
+		}
     }
     //Restaurant report----------------------------------------------------------------------//
     void Restaurant_Save() 

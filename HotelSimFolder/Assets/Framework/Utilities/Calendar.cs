@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public enum WeekDays { Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday, NumberOfWeekdays }
+﻿public enum WeekDays { Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday, NumberOfWeekdays }
 
 public enum months{ January, February, March, April, May, June, July, August, September, October, November, December }
 public struct date

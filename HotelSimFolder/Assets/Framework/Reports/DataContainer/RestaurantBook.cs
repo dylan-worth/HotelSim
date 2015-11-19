@@ -1,10 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Xml;
 using System.Xml.Serialization;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 
 [XmlRoot("RestaurantBooks")]
 [XmlInclude(typeof(RestaurantBook))] // include type class restaurantbook.
@@ -60,23 +56,7 @@ public class RestaurantBook
         return total;
     }
 
-    public void Save(string filename)
-    {
-        using (var stream = new FileStream(filename, FileMode.Create))
-        {
-            var XML = new XmlSerializer(typeof(RestaurantBook));
-            XML.Serialize(stream, this);
-        }
-    }
-
-    public static RestaurantBook LoadFromFile(string filename)
-    {
-        using (var stream = new FileStream(filename, FileMode.Open))
-        {
-            var XML = new XmlSerializer(typeof(RestaurantBook));
-            return (RestaurantBook)XML.Deserialize(stream);
-        }
-    }
+   
 
     public RestaurantBook() { }
 

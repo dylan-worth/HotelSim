@@ -1,8 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-using System;
-
-public enum staffType{ DepartmentHead, HotelServices, FoodAndBeverages, FrontDesk, Conference, Others }
+﻿public enum staffType{ DepartmentHead, HotelServices, FoodAndBeverages, FrontDesk, Conference, Others }
 
 public class StaffMember
 {

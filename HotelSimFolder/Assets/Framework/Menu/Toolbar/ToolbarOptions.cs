@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 //Holds all the calls for menu options in the toolbar
 public class ToolbarOptions : MonoBehaviour 
