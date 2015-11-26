@@ -45,6 +45,7 @@ public class Reception : MonoBehaviour
 	CalendarController calendarController;
 	FeedbackController feedbackController;
     Serializer_Deserializer dataProcessor;
+    Advertisment adController;
 
 	void Awake()
 	{
@@ -61,6 +62,7 @@ public class Reception : MonoBehaviour
         dataProcessor = GameObject.Find("DataCollection").GetComponent<Serializer_Deserializer>();
         assetSwapper = controller.transform.FindChild("AssetController").GetComponent<AssetSwapper>();
         toolbar = GameObject.FindGameObjectWithTag("UI").transform.FindChild("OverWorld").GetComponent<ToolbarOptions>();
+        adController = controller.transform.FindChild("AdvertController").gameObject.GetComponent<Advertisment>();
 
         SingletonCheck();
 		if(monthlyReports == null){
@@ -337,7 +339,7 @@ public class Reception : MonoBehaviour
 		MasterReference.currentMonthInt++;
 		isSimulating = false;
 		MasterReference.accountsPayable = 0f;
-
+        adController.Tick();//Ends the month for all ad campaigns and decay/improves hotel exposures.
         //-------------------------------------END OF SIMULATION LOOP---------------------------------------------//
        
         //------------------------------------------AUTO SAVE-----------------------------------------------------//

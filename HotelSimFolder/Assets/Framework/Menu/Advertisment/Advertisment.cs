@@ -12,6 +12,10 @@ public class Advertisment : MonoBehaviour {//Handles the expenses and effect of 
     public float hotelTourismExposureBonus;
 
     [SerializeField]
+    [Tooltip("Max amount of exposure for any types.")]
+    float max_Exposure;
+
+    [SerializeField]
     [Tooltip("Hotel exposure normal decay every month.")]
     float decay_HotelExposure;
     [SerializeField]
@@ -117,17 +121,45 @@ public class Advertisment : MonoBehaviour {//Handles the expenses and effect of 
     List<AdCampaign> currentAdCampaigns = new List<AdCampaign>();
     List<AdCampaign> archivedAdCampaigns = new List<AdCampaign>();
 
+    GameObject advertTab;
+
+    void Start()
+    {
+        advertTab = GameObject.FindGameObjectWithTag("UI").transform.FindChild("Tabs").transform.FindChild("Advertisment").gameObject;
+    }
 
     public void Tick()//ticks all campaing by one month/period, decreases exposure due to lost of interest and increases exposure due to campaigns currently running.
     {
         float monthlyCost = 0f;
+        
         for (int i = 0; i < currentAdCampaigns.Count; i++)
         {
+            //calculate total monthly costs.
             monthlyCost += currentAdCampaigns[i].cost;
+            //adds all 3 types of bonus exposures.
+            MasterReference.hotelExposure += currentAdCampaigns[i].hotelExposureMonthlyBonus;
+            MasterReference.hotelCorporateExposure += currentAdCampaigns[i].hotelCorporateExposureMonthlyBonus;
+            MasterReference.hotelTourismExposure += currentAdCampaigns[i].hotelTourismExposureMonthlyBonus;
+
+
+            //counts the duration down for all campaigns.
             currentAdCampaigns[i].remainingDuration--;
             if(currentAdCampaigns[i].remainingDuration <= 0)
-            { }
+            {
+                advertTab.transform.FindChild("Campaign_Buttons").transform.FindChild(currentAdCampaigns[i].typeOfCampaign.ToString()).gameObject.GetComponent<Button>().interactable = true;
+                archivedAdCampaigns.Add(currentAdCampaigns[i]);//remove from current list and add to archived.
+                currentAdCampaigns.Remove(currentAdCampaigns[i]);
+            }
         }
+        MasterReference.accountsPayable += monthlyCost;//should add to a diffrent variable so we can track the total spent on ads.
+
+
+        //removes some exposure each months due to decaying exposure. Can't get lower than min decay.
+        MasterReference.hotelExposure = Mathf.Clamp(MasterReference.hotelExposure -= decay_HotelExposure, min_HotelExposure, max_Exposure);
+        MasterReference.hotelCorporateExposure = Mathf.Clamp(MasterReference.hotelCorporateExposure -= decay_CorporateExposure, min_CorporateExposure, max_Exposure);
+        MasterReference.hotelTourismExposure = Mathf.Clamp(MasterReference.hotelTourismExposure -= decay_TourismExposure, min_TourismExposure, max_Exposure);
+
+
     }
 
    // float costOfAdvert = 0f;
@@ -138,6 +170,7 @@ public class Advertisment : MonoBehaviour {//Handles the expenses and effect of 
 		{
 		case "1"://local campaign.
                 AdCampaign newLocal = new AdCampaign(Calendar.GetDate(),
+                                                        int.Parse(type.name), 
                                                         localCampaignCost, 
                                                         lcDuration, 
                                                         "placeholder", 
@@ -145,14 +178,12 @@ public class Advertisment : MonoBehaviour {//Handles the expenses and effect of 
                                                         lcCorporateExposureBonus,
                                                         lcTourismExposureBonus);
                 currentAdCampaigns.Add(newLocal);
-                /*
-			costOfAdvert = 500f;
-			MasterReference.hotelExposure += 5f;
-			MasterReference.hotelCorporateExposure += 5f;
-			type.interactable = false;*/
+      
+			type.interactable = false;
 			break;
 		case "2"://regional campaign.
-                AdCampaign newRegional = new AdCampaign(Calendar.GetDate(),
+                AdCampaign newRegional = new AdCampaign(Calendar.GetDate(), 
+                                                        int.Parse(type.name),
                                                         regionalCampaignCost,
                                                         rcDuration,
                                                         "placeholder",
@@ -160,13 +191,12 @@ public class Advertisment : MonoBehaviour {//Handles the expenses and effect of 
                                                         rcCorporateExposureBonus,
                                                         rcTourismExposureBonus);
                 currentAdCampaigns.Add(newRegional);
-                /*MasterReference.hotelExposure += 10f;
-                MasterReference.hotelCorporateExposure += 5f;
-                costOfAdvert = 1500f;
-                type.interactable = false;*/
+               
+                type.interactable = false;
                 break;
 		case "3"://statewide campaign.
-                AdCampaign newSateWide = new AdCampaign(Calendar.GetDate(),
+                AdCampaign newSateWide = new AdCampaign(Calendar.GetDate(), 
+                                                       int.Parse(type.name),
                                                        statewideCampaignCost,
                                                        scDuration,
                                                        "placeholder",
@@ -174,13 +204,12 @@ public class Advertisment : MonoBehaviour {//Handles the expenses and effect of 
                                                        scCorporateExposureBonus,
                                                        scTourismExposureBonus);
                 currentAdCampaigns.Add(newSateWide);
-                /*MasterReference.hotelExposure += 10f;
-                MasterReference.hotelCorporateExposure += 10f;
-                costOfAdvert = 5000f;
-                type.interactable = false;*/
+              
+                type.interactable = false;
                 break;
 		case "4"://country wide campaign.
-                AdCampaign newCountrywide = new AdCampaign(Calendar.GetDate(),
+                AdCampaign newCountrywide = new AdCampaign(Calendar.GetDate(), 
+                                                      int.Parse(type.name),
                                                       countrywideCampaignCost,
                                                       ccDuration,
                                                       "placeholder",
@@ -188,14 +217,12 @@ public class Advertisment : MonoBehaviour {//Handles the expenses and effect of 
                                                       ccCorporateExposureBonus,
                                                       ccTourismExposureBonus);
                 currentAdCampaigns.Add(newCountrywide);
-                /*MasterReference.hotelExposure += 25f;
-                MasterReference.hotelCorporateExposure += 10f;
-                MasterReference.hotelTourismExposure += 5f;
-                costOfAdvert = 50000f;
-                type.interactable = false;*/
+              
+                type.interactable = false;
                 break;
 		case "5"://worldwide campaign.
-                AdCampaign newWorldwide = new AdCampaign(Calendar.GetDate(),
+                AdCampaign newWorldwide = new AdCampaign(Calendar.GetDate(), 
+                                                      int.Parse(type.name),
                                                       worldwideCampaignCost,
                                                       wcDuration,
                                                       "placeholder",
@@ -203,18 +230,12 @@ public class Advertisment : MonoBehaviour {//Handles the expenses and effect of 
                                                       wcCorporateExposureBonus,
                                                       wcTourismExposureBonus);
                 currentAdCampaigns.Add(newWorldwide);
-                /*MasterReference.hotelExposure += 25f;
-                MasterReference.hotelCorporateExposure += 25f;
-                MasterReference.hotelTourismExposure += 10f;
-                costOfAdvert = 250000f;
-                type.interactable = false;*/
+               
+                type.interactable = false;
                 break;
 		case "6"://later add custom campaigns where player can set the duration, target audiance and would give out a custom cost.
-                 /*MasterReference.hotelExposure += 25f;
-                 MasterReference.hotelCorporateExposure += 25f;
-                 MasterReference.hotelTourismExposure += 25f;
-                 costOfAdvert = 2000000f;
-                 type.interactable = false;*/
+                 
+                 type.interactable = false;
                 Debug.LogWarning("Currently no lvl 6 campaign type.");
 			break;
 		}
