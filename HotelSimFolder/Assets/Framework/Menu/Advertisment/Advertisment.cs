@@ -33,7 +33,9 @@ public class Advertisment : MonoBehaviour {//Handles the expenses and effect of 
     [SerializeField]
     [Tooltip("Resting point beyound which decay doesn't happen.")]
     float min_TourismExposure;
-
+    [SerializeField]
+    [Tooltip("Text to display on the button.")]
+    string btn_1;
 
     [SerializeField]
     [Tooltip("Total costs as a one of for a local campaign.")]
@@ -50,7 +52,9 @@ public class Advertisment : MonoBehaviour {//Handles the expenses and effect of 
     [SerializeField]
     [Tooltip("Effects of one month's worth of advertising.")]
     float lcTourismExposureBonus;
-
+    [SerializeField]
+    [Tooltip("Text to display on the button.")]
+    string btn_2;
 
     [SerializeField]
     [Tooltip("Total costs as a one of for a regional campaign.")]
@@ -67,6 +71,9 @@ public class Advertisment : MonoBehaviour {//Handles the expenses and effect of 
     [SerializeField]
     [Tooltip("Effects of one month's worth of advertising.")]
     float rcTourismExposureBonus;
+    [SerializeField]
+    [Tooltip("Text to display on the button.")]
+    string btn_3;
 
     [SerializeField]
     [Tooltip("Total costs as a one of for a statewide campaign.")]
@@ -83,6 +90,9 @@ public class Advertisment : MonoBehaviour {//Handles the expenses and effect of 
     [SerializeField]
     [Tooltip("Effects of one month's worth of advertising.")]
     float scTourismExposureBonus;
+    [SerializeField]
+    [Tooltip("Text to display on the button.")]
+    string btn_4;
 
     [SerializeField]
     [Tooltip("Total costs as a one of for a contrywide campaign.")]
@@ -99,6 +109,9 @@ public class Advertisment : MonoBehaviour {//Handles the expenses and effect of 
     [SerializeField]
     [Tooltip("Effects of one month's worth of advertising.")]
     float ccTourismExposureBonus;
+    [SerializeField]
+    [Tooltip("Text to display on the button.")]
+    string btn_5;
 
     [SerializeField]
     [Tooltip("Total costs as a one of for a worldwide campaign.")]
@@ -115,17 +128,41 @@ public class Advertisment : MonoBehaviour {//Handles the expenses and effect of 
     [SerializeField]
     [Tooltip("Effects of one month's worth of advertising.")]
     float wcTourismExposureBonus;
-
+    [SerializeField]
+    [Tooltip("Text to display on the button.")]
+    string btn_6;
 
 
     List<AdCampaign> currentAdCampaigns = new List<AdCampaign>();
     List<AdCampaign> archivedAdCampaigns = new List<AdCampaign>();
 
+    string[] buttonInnerText = new string[6];
+
     GameObject advertTab;
+    GameObject buttons;
+
+    void Awake()
+    {
+        buttonInnerText[0] = btn_1;
+        buttonInnerText[1] = btn_2;
+        buttonInnerText[2] = btn_3;
+        buttonInnerText[3] = btn_4;
+        buttonInnerText[4] = btn_5;
+        buttonInnerText[5] = btn_6;
+    }
 
     void Start()
     {
         advertTab = GameObject.FindGameObjectWithTag("UI").transform.FindChild("Tabs").transform.FindChild("Advertisment").gameObject;
+        buttons = advertTab.transform.FindChild("Campaign_Buttons").gameObject;
+        SetTab();
+    }
+    void SetTab()
+    {
+        for (int i = 1; i <= 6; i++)
+        {
+            buttons.transform.FindChild(i.ToString()).transform.FindChild("Text").GetComponent<Text>().text = buttonInnerText[i-1];
+        }
     }
 
     public void Tick()//ticks all campaing by one month/period, decreases exposure due to lost of interest and increases exposure due to campaigns currently running.
@@ -146,12 +183,12 @@ public class Advertisment : MonoBehaviour {//Handles the expenses and effect of 
             currentAdCampaigns[i].remainingDuration--;
             if(currentAdCampaigns[i].remainingDuration <= 0)
             {
-                advertTab.transform.FindChild("Campaign_Buttons").transform.FindChild(currentAdCampaigns[i].typeOfCampaign.ToString()).gameObject.GetComponent<Button>().interactable = true;
+                buttons.transform.FindChild(currentAdCampaigns[i].typeOfCampaign.ToString()).gameObject.GetComponent<Button>().interactable = true;
                 archivedAdCampaigns.Add(currentAdCampaigns[i]);//remove from current list and add to archived.
                 currentAdCampaigns.Remove(currentAdCampaigns[i]);
             }
         }
-        MasterReference.accountsPayable += monthlyCost;//should add to a diffrent variable so we can track the total spent on ads.
+        MasterReference.accountsPayable += monthlyCost;//should add to a different variable so we can track the total spent on ads.
 
 
         //removes some exposure each months due to decaying exposure. Can't get lower than min decay.
@@ -178,7 +215,7 @@ public class Advertisment : MonoBehaviour {//Handles the expenses and effect of 
                                                         lcCorporateExposureBonus,
                                                         lcTourismExposureBonus);
                 currentAdCampaigns.Add(newLocal);
-      
+            
 			type.interactable = false;
 			break;
 		case "2"://regional campaign.
