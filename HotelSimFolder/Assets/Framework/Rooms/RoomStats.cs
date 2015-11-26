@@ -184,20 +184,27 @@ public class RoomStats : RoomBehaviour
 		this.GetComponent<Renderer>().material.color = Color.white;
 		MasterReference.accountsPayable += cost;
 		Reception.monthlyReports[Reception.monthlyReports.Count-1].expenseUpgradeCost += cost;
-		if(level > 1)
-		{
-			//GameObject upgradeEffect = GameObject.Find("/GameController/PrefabHolder").GetComponent<MainHolderScript>().UpgradeSmokePrefab;
-			/*for(int i = 0; i < refurbCTR.upgradeList[level-2].Length; i++)
-			{
-				GameObject addOn = Instantiate(refurbCTR.upgradeList[level-2][i], transform.parent.position, Quaternion.identity) as GameObject;
-				addOn.transform.SetParent(transform);
-				addOn.transform.localScale = transform.parent.localScale;
-			}*/
-			//Instantiate(upgradeEffect, bedToAdd.transform.position, Quaternion.identity);
-		}
 
-		GameObject upgradeIcon = Instantiate(refurbCTR.upgradeIcon, gameObject.transform.parent.position, Quaternion.identity) as GameObject;
-		upgradeIcon.transform.SetParent(gameObject.transform);
+
+        GameObject assetCTR = GameObject.FindGameObjectWithTag("GameController").transform.FindChild("AssetController").gameObject;
+        string oldLayout = "";
+        string newLayout = "";
+        switch (level)//missing layouts
+        {
+            case 2:
+                oldLayout = "Standard";
+                newLayout = "Double";
+                break;
+            case 3:
+                oldLayout = "Double";
+                newLayout = "Deluxe";
+                break;
+        }
+
+        assetCTR.GetComponent<AssetSwapper>().SwapRoomLayout(gameObject, oldLayout, newLayout);
+
+		//GameObject upgradeIcon = Instantiate(refurbCTR.upgradeIcon, gameObject.transform.parent.position, Quaternion.identity) as GameObject;
+		//upgradeIcon.transform.SetParent(gameObject.transform);
 		daysUnderConstruction += refurbCTR.roomUpgradeTime[level-2];
 		HandleMenu(lastestPOS);
 	}
@@ -213,9 +220,21 @@ public class RoomStats : RoomBehaviour
 		
 		//Temporarily change room color so we know it's taken
 		this.GetComponent<Renderer>().material.color = Color.red;
-		
-		//Book the room:
-		daysOccupied = daysToBook;
+        GameObject assetCTR = GameObject.FindGameObjectWithTag("GameController").transform.FindChild("AssetController").gameObject;
+        string currentLayout = "";
+        switch(roomQuality)
+        {
+            case 1:
+                currentLayout = "Standard";
+                break;
+            case 2:
+                currentLayout = "Double";
+                break;
+        }
+        if(gameObject.name == "Container")
+        assetCTR.GetComponent<AssetSwapper>().SwapRoomStatus(gameObject, currentLayout, "Occupied");
+        //Book the room:
+        daysOccupied = daysToBook;
 		inUse = true;
 		return true;
 	}

@@ -17,7 +17,6 @@ public class BankingReport : MonoBehaviour {
 	public GameObject btnMedLoan;
 	public GameObject btnLargeLoan;
 
-	//-----------------------------------New Set of Variables----------------------------------//
 	[Range(0f,1f)][Tooltip("In percentage, 1 = 100% interest over a year. Rate for shortest Borrowed time. Rate will be lowered by longer loan duration.")]
 	public float rateSmallLoan;
 	[Range(0f,1f)][Tooltip("In percentage, 1 = 100% interest over a year. Rate for shortest Borrowed time. Rate will be lowered by longer loan duration.")]
@@ -74,13 +73,13 @@ public class BankingReport : MonoBehaviour {
 	public InputField loan3Interest; 
 	public InputField loan3Payback;
 
-    //-----------------------------------------------------------------------------------------new stuff---------------------------------------------------//
-    //nothing connected yet. Will rebuild everything then enable.
-    GameObject bankingTab;
-    [System.NonSerialized]
-    public List<BankLoan> loanList = new List<BankLoan>();
-
-    [Range(0f, 1f)]
+    //----------------------------------------------------------------------------------------REBUILD ADDITIONS--------------------------------------------//   ||
+    //nothing connected yet. Will rebuild everything then enable.                                                                                          //   ||
+    GameObject bankingTab;                                                                                                                                 //   ||
+    [System.NonSerialized]                                                                                                                                 //   ||
+    public List<BankLoan> loanList = new List<BankLoan>();                                                                                                 //   ||
+                                                                                                                                                           //  \\//
+    [Range(0f, 1f)]                                                                                                                                        //   \/
     [SerializeField]
     [Tooltip("In percentage, 1 = 100% interest over a year. Rate for shortest Borrowed time.")]
     float rateShortTerm;
@@ -109,7 +108,7 @@ public class BankingReport : MonoBehaviour {
     [SerializeField]
     [Tooltip("Duration in months.")]
     int longDuration;
-
+   
     void Awake()
     {
         bankingTab = GameObject.FindGameObjectWithTag("UI").transform.FindChild("Tabs").FindChild("BankingMenu").gameObject;
@@ -133,7 +132,7 @@ public class BankingReport : MonoBehaviour {
             loanList[i].remainingDuration--;   
         }
     }
-    //-----------------------------------------------------------------------------------------new stuff---------------------------------------------------//
+    //-----------------------------------------------------------------------------------------END REBUILD ADDITIONS--------------------------------------------------//
 
     //getters for accounts payables
     public float GetLoanRepayments()

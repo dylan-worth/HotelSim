@@ -6,7 +6,7 @@ public class BankLoan {
     public Date StartingDate;//date the loan was taken.
 
     public int duration;//duration in months.
-    public int remainingDuration;
+    public int remainingDuration;//will be ticked down every month.
     public float amount;
     public float interestRate;
     public float monthlyInstallment;//monthly cost.
@@ -21,7 +21,7 @@ public class BankLoan {
         amount = sum;
         interestRate = rate;
         reason = text;
-        remainingDuration = 0;
+        remainingDuration = length;
     }
 
     public void SetInstallment()

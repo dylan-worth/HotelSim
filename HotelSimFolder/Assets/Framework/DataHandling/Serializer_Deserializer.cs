@@ -71,7 +71,7 @@ public class Serializer_Deserializer : MonoBehaviour {
 
     void SetGameState() //need to set date at current loaded.
     {
-        Calendar.SetDate(Reception.monthlyReports[Reception.monthlyReports.Count - 1].currentMonth);
+        Calendar.SetDate(Reception.balanceSheets[Reception.balanceSheets.Count - 1].dateOfReport);
         //need to set all tab options selected. 
     }
 
@@ -116,7 +116,7 @@ public class Serializer_Deserializer : MonoBehaviour {
             Reception.balanceSheets.Clear();
         }
 
-        for (int i = 0; i < loadedlist.balanceSheetList.Count; i++)
+        for (int i = 0; i < loadedlist.balanceSheetList.Count; i++)//recreates the date class manually and adds the balance sheet to the balance sheet list.
         {
             Date reportDate = new Date(loadedlist.balanceSheetList[i].year, loadedlist.balanceSheetList[i].dayOfTheMonth, 
                                         loadedlist.balanceSheetList[i].day, loadedlist.balanceSheetList[i].month, loadedlist.balanceSheetList[i].numberOfWeeks);

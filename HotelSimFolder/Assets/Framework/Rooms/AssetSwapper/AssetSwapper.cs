@@ -16,11 +16,11 @@ public class AssetSwapper : MonoBehaviour {
 
     public void SwapRoomLayout(GameObject room, string oldLayout ,  string newLayout)
     {
-        room.transform.FindChild(oldLayout).gameObject.SetActive(false);
-        room.transform.FindChild(newLayout).gameObject.SetActive(true);
-        room.transform.FindChild(newLayout).FindChild("Clean").gameObject.SetActive(true);
-        room.transform.FindChild(newLayout).FindChild("Occupied").gameObject.SetActive(false);
-        room.transform.FindChild(newLayout).FindChild("Dirty").gameObject.SetActive(false);
+        room.transform.FindChild("RegularRooms").transform.FindChild(oldLayout).gameObject.SetActive(false);
+        room.transform.FindChild("RegularRooms").transform.FindChild(newLayout).gameObject.SetActive(true);
+        room.transform.FindChild("RegularRooms").transform.FindChild(newLayout).transform.FindChild("Clean").gameObject.SetActive(true);
+        room.transform.FindChild("RegularRooms").transform.FindChild(newLayout).transform.FindChild("Occupied").gameObject.SetActive(false);
+        room.transform.FindChild("RegularRooms").transform.FindChild(newLayout).transform.FindChild("Dirty").gameObject.SetActive(false);
     }
 
     public void SwapRoomStatus(GameObject room, string currentLayout, string currentStatus)
@@ -28,19 +28,19 @@ public class AssetSwapper : MonoBehaviour {
         switch (currentStatus)
         {
             case "Clean":
-                room.transform.FindChild(currentLayout).FindChild("Clean").gameObject.SetActive(true);
-                room.transform.FindChild(currentLayout).FindChild("Occupied").gameObject.SetActive(false);
-                room.transform.FindChild(currentLayout).FindChild("Dirty").gameObject.SetActive(false);
+                room.transform.FindChild("RegularRooms").transform.FindChild(currentLayout).FindChild("Clean").gameObject.SetActive(true);
+                room.transform.FindChild("RegularRooms").transform.FindChild(currentLayout).FindChild("Occupied").gameObject.SetActive(false);
+                room.transform.FindChild("RegularRooms").transform.FindChild(currentLayout).FindChild("Dirty").gameObject.SetActive(false);
                 break;
             case "Occupied":
-                room.transform.FindChild(currentLayout).FindChild("Clean").gameObject.SetActive(false);
-                room.transform.FindChild(currentLayout).FindChild("Occupied").gameObject.SetActive(true);
-                room.transform.FindChild(currentLayout).FindChild("Dirty").gameObject.SetActive(false);
+                room.transform.FindChild("RegularRooms").transform.FindChild(currentLayout).FindChild("Clean").gameObject.SetActive(false);
+                room.transform.FindChild("RegularRooms").transform.FindChild(currentLayout).FindChild("Occupied").gameObject.SetActive(true);
+                room.transform.FindChild("RegularRooms").transform.FindChild(currentLayout).FindChild("Dirty").gameObject.SetActive(false);
                 break;
             case "Dirty":
-                room.transform.FindChild(currentLayout).FindChild("Clean").gameObject.SetActive(false);
-                room.transform.FindChild(currentLayout).FindChild("Occupied").gameObject.SetActive(false);
-                room.transform.FindChild(currentLayout).FindChild("Dirty").gameObject.SetActive(true);
+                room.transform.FindChild("RegularRooms").transform.FindChild(currentLayout).FindChild("Clean").gameObject.SetActive(false);
+                room.transform.FindChild("RegularRooms").transform.FindChild(currentLayout).FindChild("Occupied").gameObject.SetActive(false);
+                room.transform.FindChild("RegularRooms").transform.FindChild(currentLayout).FindChild("Dirty").gameObject.SetActive(true);
                 break;
         }
         
@@ -65,7 +65,7 @@ public class AssetSwapper : MonoBehaviour {
        
     }
 
-    public void TickDown()
+    public void TickDown()//will tick duration of the billboards being displayed. Need to make sure it lines up with actual occupancy restrictions.
     {
         
         for (int i = 0; i < activeDurations.Count; i++)

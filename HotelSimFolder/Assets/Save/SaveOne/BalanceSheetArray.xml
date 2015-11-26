@@ -7,12 +7,12 @@
       <year>2017</year>
       <day>Sunday</day>
       <numberOfWeeks>4</numberOfWeeks>
-      <cashAtBank>208788.969</cashAtBank>
-      <accountsReceivable>13712.6758</accountsReceivable>
+      <cashAtBank>210958.563</cashAtBank>
+      <accountsReceivable>15362.2627</accountsReceivable>
       <inventories>13757</inventories>
-      <totalCurrentAssets>227469.672</totalCurrentAssets>
+      <totalCurrentAssets>229119.266</totalCurrentAssets>
       <propretyAndEquipment>5200641</propretyAndEquipment>
-      <totalAssets>5428110.5</totalAssets>
+      <totalAssets>5429760.5</totalAssets>
       <accountsPayable>10493.7012</accountsPayable>
       <carbonOffsetReceipts>0</carbonOffsetReceipts>
       <incomeTaxPayable>0</incomeTaxPayable>
@@ -31,42 +31,18 @@
       <year>2017</year>
       <day>Sunday</day>
       <numberOfWeeks>4</numberOfWeeks>
-      <cashAtBank>211955.109</cashAtBank>
-      <accountsReceivable>9789.838</accountsReceivable>
+      <cashAtBank>-2095517.63</cashAtBank>
+      <accountsReceivable>21975.4063</accountsReceivable>
       <inventories>13757</inventories>
-      <totalCurrentAssets>232335.813</totalCurrentAssets>
+      <totalCurrentAssets>235732.4</totalCurrentAssets>
       <propretyAndEquipment>5200641</propretyAndEquipment>
-      <totalAssets>5432977</totalAssets>
-      <accountsPayable>10493.7012</accountsPayable>
+      <totalAssets>5436373.5</totalAssets>
+      <accountsPayable>2317493</accountsPayable>
       <carbonOffsetReceipts>0</carbonOffsetReceipts>
       <incomeTaxPayable>0</incomeTaxPayable>
       <dividendOwed>0</dividendOwed>
       <currentMaturityofLongtermDebt>0</currentMaturityofLongtermDebt>
-      <totalCurrentLiabilities>10493.7012</totalCurrentLiabilities>
-      <longTermDebt>0</longTermDebt>
-      <shareCapital>4750000</shareCapital>
-      <retainedEarnings>136295</retainedEarnings>
-      <ownersEquity>4886295</ownersEquity>
-      <totalLiabilitiesAndOwnersEquity>5487819</totalLiabilitiesAndOwnersEquity>
-    </BalanceSheet>
-    <BalanceSheet>
-      <dayOfTheMonth>26</dayOfTheMonth>
-      <month>February</month>
-      <year>2017</year>
-      <day>Sunday</day>
-      <numberOfWeeks>5</numberOfWeeks>
-      <cashAtBank>201655.641</cashAtBank>
-      <accountsReceivable>12149.3369</accountsReceivable>
-      <inventories>13757</inventories>
-      <totalCurrentAssets>225906.344</totalCurrentAssets>
-      <propretyAndEquipment>5200641</propretyAndEquipment>
-      <totalAssets>5426547.5</totalAssets>
-      <accountsPayable>10493.7012</accountsPayable>
-      <carbonOffsetReceipts>0</carbonOffsetReceipts>
-      <incomeTaxPayable>0</incomeTaxPayable>
-      <dividendOwed>0</dividendOwed>
-      <currentMaturityofLongtermDebt>0</currentMaturityofLongtermDebt>
-      <totalCurrentLiabilities>10493.7012</totalCurrentLiabilities>
+      <totalCurrentLiabilities>2317493</totalCurrentLiabilities>
       <longTermDebt>0</longTermDebt>
       <shareCapital>4750000</shareCapital>
       <retainedEarnings>136295</retainedEarnings>
@@ -78,13 +54,13 @@
       <month>April</month>
       <year>2017</year>
       <day>Sunday</day>
-      <numberOfWeeks>4</numberOfWeeks>
-      <cashAtBank>212296.891</cashAtBank>
-      <accountsReceivable>17118.3789</accountsReceivable>
+      <numberOfWeeks>5</numberOfWeeks>
+      <cashAtBank>204274.813</cashAtBank>
+      <accountsReceivable>17391.93</accountsReceivable>
       <inventories>13757</inventories>
-      <totalCurrentAssets>232531.016</totalCurrentAssets>
+      <totalCurrentAssets>231148.938</totalCurrentAssets>
       <propretyAndEquipment>5200641</propretyAndEquipment>
-      <totalAssets>5433172</totalAssets>
+      <totalAssets>5431790</totalAssets>
       <accountsPayable>13117.1289</accountsPayable>
       <carbonOffsetReceipts>0</carbonOffsetReceipts>
       <incomeTaxPayable>0</incomeTaxPayable>
@@ -102,13 +78,13 @@
       <month>April</month>
       <year>2017</year>
       <day>Sunday</day>
-      <numberOfWeeks>5</numberOfWeeks>
-      <cashAtBank>217005.75</cashAtBank>
-      <accountsReceivable>10722.5605</accountsReceivable>
+      <numberOfWeeks>4</numberOfWeeks>
+      <cashAtBank>214976.875</cashAtBank>
+      <accountsReceivable>15120.7637</accountsReceivable>
       <inventories>13757</inventories>
-      <totalCurrentAssets>236776.453</totalCurrentAssets>
+      <totalCurrentAssets>233152.578</totalCurrentAssets>
       <propretyAndEquipment>5200641</propretyAndEquipment>
-      <totalAssets>5437417.5</totalAssets>
+      <totalAssets>5433793.5</totalAssets>
       <accountsPayable>10493.7012</accountsPayable>
       <carbonOffsetReceipts>0</carbonOffsetReceipts>
       <incomeTaxPayable>0</incomeTaxPayable>
@@ -126,13 +102,13 @@
       <month>June</month>
       <year>2017</year>
       <day>Sunday</day>
-      <numberOfWeeks>4</numberOfWeeks>
-      <cashAtBank>235840.563</cashAtBank>
-      <accountsReceivable>22486.9375</accountsReceivable>
+      <numberOfWeeks>5</numberOfWeeks>
+      <cashAtBank>215220.844</cashAtBank>
+      <accountsReceivable>9466.098</accountsReceivable>
       <inventories>13757</inventories>
-      <totalCurrentAssets>253249.688</totalCurrentAssets>
+      <totalCurrentAssets>238199.969</totalCurrentAssets>
       <propretyAndEquipment>5200641</propretyAndEquipment>
-      <totalAssets>5453890.5</totalAssets>
+      <totalAssets>5438841</totalAssets>
       <accountsPayable>13117.1289</accountsPayable>
       <carbonOffsetReceipts>0</carbonOffsetReceipts>
       <incomeTaxPayable>0</incomeTaxPayable>
@@ -151,12 +127,12 @@
       <year>2017</year>
       <day>Sunday</day>
       <numberOfWeeks>4</numberOfWeeks>
-      <cashAtBank>246122.422</cashAtBank>
-      <accountsReceivable>14680.5615</accountsReceivable>
+      <cashAtBank>206862.5</cashAtBank>
+      <accountsReceivable>17356.2031</accountsReceivable>
       <inventories>13757</inventories>
-      <totalCurrentAssets>264278.125</totalCurrentAssets>
+      <totalCurrentAssets>231113.2</totalCurrentAssets>
       <propretyAndEquipment>5200641</propretyAndEquipment>
-      <totalAssets>5464919</totalAssets>
+      <totalAssets>5431754</totalAssets>
       <accountsPayable>10493.7012</accountsPayable>
       <carbonOffsetReceipts>0</carbonOffsetReceipts>
       <incomeTaxPayable>0</incomeTaxPayable>
@@ -174,13 +150,13 @@
       <month>July</month>
       <year>2017</year>
       <day>Sunday</day>
-      <numberOfWeeks>5</numberOfWeeks>
-      <cashAtBank>261338.531</cashAtBank>
-      <accountsReceivable>17984.8086</accountsReceivable>
+      <numberOfWeeks>4</numberOfWeeks>
+      <cashAtBank>204058.281</cashAtBank>
+      <accountsReceivable>14551.9775</accountsReceivable>
       <inventories>13757</inventories>
-      <totalCurrentAssets>277864.219</totalCurrentAssets>
+      <totalCurrentAssets>228308.984</totalCurrentAssets>
       <propretyAndEquipment>5200641</propretyAndEquipment>
-      <totalAssets>5478505</totalAssets>
+      <totalAssets>5428950</totalAssets>
       <accountsPayable>10493.7012</accountsPayable>
       <carbonOffsetReceipts>0</carbonOffsetReceipts>
       <incomeTaxPayable>0</incomeTaxPayable>
@@ -198,115 +174,19 @@
       <month>September</month>
       <year>2017</year>
       <day>Sunday</day>
-      <numberOfWeeks>4</numberOfWeeks>
-      <cashAtBank>280181.2</cashAtBank>
-      <accountsReceivable>22554.79</accountsReceivable>
-      <inventories>13757</inventories>
-      <totalCurrentAssets>297650.3</totalCurrentAssets>
-      <propretyAndEquipment>5200641</propretyAndEquipment>
-      <totalAssets>5498291.5</totalAssets>
-      <accountsPayable>13117.1289</accountsPayable>
-      <carbonOffsetReceipts>0</carbonOffsetReceipts>
-      <incomeTaxPayable>0</incomeTaxPayable>
-      <dividendOwed>0</dividendOwed>
-      <currentMaturityofLongtermDebt>0</currentMaturityofLongtermDebt>
-      <totalCurrentLiabilities>13117.1289</totalCurrentLiabilities>
-      <longTermDebt>0</longTermDebt>
-      <shareCapital>4750000</shareCapital>
-      <retainedEarnings>136295</retainedEarnings>
-      <ownersEquity>4886295</ownersEquity>
-      <totalLiabilitiesAndOwnersEquity>5487819</totalLiabilitiesAndOwnersEquity>
-    </BalanceSheet>
-    <BalanceSheet>
-      <dayOfTheMonth>3</dayOfTheMonth>
-      <month>September</month>
-      <year>2017</year>
-      <day>Sunday</day>
-      <numberOfWeeks>4</numberOfWeeks>
-      <cashAtBank>203474.719</cashAtBank>
-      <accountsReceivable>16591.84</accountsReceivable>
-      <inventories>13757</inventories>
-      <totalCurrentAssets>230348.844</totalCurrentAssets>
-      <propretyAndEquipment>5200641</propretyAndEquipment>
-      <totalAssets>5430990</totalAssets>
-      <accountsPayable>13117.1289</accountsPayable>
-      <carbonOffsetReceipts>0</carbonOffsetReceipts>
-      <incomeTaxPayable>0</incomeTaxPayable>
-      <dividendOwed>0</dividendOwed>
-      <currentMaturityofLongtermDebt>0</currentMaturityofLongtermDebt>
-      <totalCurrentLiabilities>13117.1289</totalCurrentLiabilities>
-      <longTermDebt>0</longTermDebt>
-      <shareCapital>4750000</shareCapital>
-      <retainedEarnings>136295</retainedEarnings>
-      <ownersEquity>4886295</ownersEquity>
-      <totalLiabilitiesAndOwnersEquity>5487819</totalLiabilitiesAndOwnersEquity>
-    </BalanceSheet>
-    <BalanceSheet>
-      <dayOfTheMonth>3</dayOfTheMonth>
-      <month>September</month>
-      <year>2017</year>
-      <day>Sunday</day>
       <numberOfWeeks>5</numberOfWeeks>
-      <cashAtBank>201410.109</cashAtBank>
-      <accountsReceivable>14527.24</accountsReceivable>
+      <cashAtBank>208715.531</cashAtBank>
+      <accountsReceivable>12754.377</accountsReceivable>
       <inventories>13757</inventories>
-      <totalCurrentAssets>228284.234</totalCurrentAssets>
+      <totalCurrentAssets>230569.656</totalCurrentAssets>
       <propretyAndEquipment>5200641</propretyAndEquipment>
-      <totalAssets>5428925</totalAssets>
+      <totalAssets>5431210.5</totalAssets>
       <accountsPayable>13117.1289</accountsPayable>
       <carbonOffsetReceipts>0</carbonOffsetReceipts>
       <incomeTaxPayable>0</incomeTaxPayable>
       <dividendOwed>0</dividendOwed>
       <currentMaturityofLongtermDebt>0</currentMaturityofLongtermDebt>
       <totalCurrentLiabilities>13117.1289</totalCurrentLiabilities>
-      <longTermDebt>0</longTermDebt>
-      <shareCapital>4750000</shareCapital>
-      <retainedEarnings>136295</retainedEarnings>
-      <ownersEquity>4886295</ownersEquity>
-      <totalLiabilitiesAndOwnersEquity>5487819</totalLiabilitiesAndOwnersEquity>
-    </BalanceSheet>
-    <BalanceSheet>
-      <dayOfTheMonth>1</dayOfTheMonth>
-      <month>October</month>
-      <year>2017</year>
-      <day>Sunday</day>
-      <numberOfWeeks>5</numberOfWeeks>
-      <cashAtBank>204890.422</cashAtBank>
-      <accountsReceivable>10064.0215</accountsReceivable>
-      <inventories>13757</inventories>
-      <totalCurrentAssets>225231.125</totalCurrentAssets>
-      <propretyAndEquipment>5200641</propretyAndEquipment>
-      <totalAssets>5425872</totalAssets>
-      <accountsPayable>10493.7012</accountsPayable>
-      <carbonOffsetReceipts>0</carbonOffsetReceipts>
-      <incomeTaxPayable>0</incomeTaxPayable>
-      <dividendOwed>0</dividendOwed>
-      <currentMaturityofLongtermDebt>0</currentMaturityofLongtermDebt>
-      <totalCurrentLiabilities>10493.7012</totalCurrentLiabilities>
-      <longTermDebt>0</longTermDebt>
-      <shareCapital>4750000</shareCapital>
-      <retainedEarnings>136295</retainedEarnings>
-      <ownersEquity>4886295</ownersEquity>
-      <totalLiabilitiesAndOwnersEquity>5487819</totalLiabilitiesAndOwnersEquity>
-    </BalanceSheet>
-    <BalanceSheet>
-      <dayOfTheMonth>1</dayOfTheMonth>
-      <month>October</month>
-      <year>2017</year>
-      <day>Sunday</day>
-      <numberOfWeeks>4</numberOfWeeks>
-      <cashAtBank>205050.828</cashAtBank>
-      <accountsReceivable>15544.5352</accountsReceivable>
-      <inventories>13757</inventories>
-      <totalCurrentAssets>229301.531</totalCurrentAssets>
-      <propretyAndEquipment>5200641</propretyAndEquipment>
-      <totalAssets>5429942.5</totalAssets>
-      <accountsPayable>10493.7012</accountsPayable>
-      <carbonOffsetReceipts>0</carbonOffsetReceipts>
-      <incomeTaxPayable>0</incomeTaxPayable>
-      <dividendOwed>0</dividendOwed>
-      <currentMaturityofLongtermDebt>0</currentMaturityofLongtermDebt>
-      <totalCurrentLiabilities>10493.7012</totalCurrentLiabilities>
       <longTermDebt>0</longTermDebt>
       <shareCapital>4750000</shareCapital>
       <retainedEarnings>136295</retainedEarnings>

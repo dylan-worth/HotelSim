@@ -163,13 +163,47 @@ public static class BedroomBehaviour
 					//Reset scale when room is available again
 
 				}
-				if(aRoom.daysOccupied == 0 && aRoom.inUse)
-				{
-					aRoom.typeRented = groupType.noneBooked;
-					if (aRoom.roomCleanliness >= 50)
-						aRoom.GetComponent<Renderer>().material.color = Color.white;
-					else 
-						aRoom.GetComponent<Renderer>().material.color = Color.yellow;
+                if (aRoom.daysOccupied == 0 && aRoom.inUse)
+                {
+                    GameObject assetCTR = GameObject.FindGameObjectWithTag("GameController").transform.FindChild("AssetController").gameObject;
+                    string currentLayout = "";
+
+                    aRoom.typeRented = groupType.noneBooked;
+                    if (aRoom.roomCleanliness >= 50)
+                    { 
+                        aRoom.GetComponent<Renderer>().material.color = Color.white;
+
+                        if (aRoom.name == "Container")
+                        {
+                            switch (aRoom.roomQuality)
+                            {
+                                case 1:
+                                    currentLayout = "Standard";
+                                    break;
+                                case 2:
+                                    currentLayout = "Double";
+                                    break;
+                            }
+                            assetCTR.GetComponent<AssetSwapper>().SwapRoomStatus(aRoom.gameObject, currentLayout, "Clean");
+                        }
+                    }
+                    else
+                    {
+                        if (aRoom.name == "Container")
+                        {
+                            switch (aRoom.roomQuality)
+                            {
+                                case 1:
+                                    currentLayout = "Standard";
+                                    break;
+                                case 2:
+                                    currentLayout = "Double";
+                                    break;
+                            }
+                            assetCTR.GetComponent<AssetSwapper>().SwapRoomStatus(aRoom.gameObject, currentLayout, "Dirty");
+                        }
+                        aRoom.GetComponent<Renderer>().material.color = Color.yellow;
+                    }
 					aRoom.inUse = false;
 				}
 			}

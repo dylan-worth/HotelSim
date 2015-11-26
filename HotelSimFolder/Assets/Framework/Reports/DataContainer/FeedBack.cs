@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Xml;
 using System.Xml.Serialization;
 
+
 [XmlRoot("Feedbacks")]
 [XmlInclude(typeof(FeedBack))] // include type class.
 public class FeedbackList       //Class holding a list of reports. Used to storing and loading purposes.

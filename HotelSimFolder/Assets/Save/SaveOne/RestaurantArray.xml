@@ -15,36 +15,13 @@
       <numberOfStaff>2</numberOfStaff>
       <staffProductivity>0</staffProductivity>
       <productivityNeeded>0</productivityNeeded>
-      <totalFoodSales>4185</totalFoodSales>
-      <totalBeverageSales>1385</totalBeverageSales>
+      <totalFoodSales>4560</totalFoodSales>
+      <totalBeverageSales>1530</totalBeverageSales>
       <foodPrice>15</foodPrice>
       <beveragePrice>5</beveragePrice>
       <conditionStart>100</conditionStart>
       <conditionEnd>100</conditionEnd>
-      <lostCustomers>4</lostCustomers>
-      <staffCost>640</staffCost>
-    </RestaurantBook>
-    <RestaurantBook>
-      <startDate>
-        <year>2017</year>
-        <dayOfTheMonth>26</dayOfTheMonth>
-        <day>Sunday</day>
-        <month>February</month>
-        <numberOfWeeks>4</numberOfWeeks>
-      </startDate>
-      <numbOfDays>28</numbOfDays>
-      <restaurantLevel>1</restaurantLevel>
-      <barLevel>1</barLevel>
-      <numberOfStaff>2</numberOfStaff>
-      <staffProductivity>0</staffProductivity>
-      <productivityNeeded>0</productivityNeeded>
-      <totalFoodSales>2895</totalFoodSales>
-      <totalBeverageSales>975</totalBeverageSales>
-      <foodPrice>15</foodPrice>
-      <beveragePrice>5</beveragePrice>
-      <conditionStart>100</conditionStart>
-      <conditionEnd>100</conditionEnd>
-      <lostCustomers>4</lostCustomers>
+      <lostCustomers>6</lostCustomers>
       <staffCost>640</staffCost>
     </RestaurantBook>
     <RestaurantBook>
@@ -63,52 +40,6 @@
       <productivityNeeded>0</productivityNeeded>
       <totalFoodSales>0</totalFoodSales>
       <totalBeverageSales>0</totalBeverageSales>
-      <foodPrice>15</foodPrice>
-      <beveragePrice>5</beveragePrice>
-      <conditionStart>100</conditionStart>
-      <conditionEnd>100</conditionEnd>
-      <lostCustomers>0</lostCustomers>
-      <staffCost>640</staffCost>
-    </RestaurantBook>
-    <RestaurantBook>
-      <startDate>
-        <year>2017</year>
-        <dayOfTheMonth>2</dayOfTheMonth>
-        <day>Sunday</day>
-        <month>April</month>
-        <numberOfWeeks>4</numberOfWeeks>
-      </startDate>
-      <numbOfDays>28</numbOfDays>
-      <restaurantLevel>1</restaurantLevel>
-      <barLevel>1</barLevel>
-      <numberOfStaff>2</numberOfStaff>
-      <staffProductivity>0</staffProductivity>
-      <productivityNeeded>0</productivityNeeded>
-      <totalFoodSales>4980</totalFoodSales>
-      <totalBeverageSales>1660</totalBeverageSales>
-      <foodPrice>15</foodPrice>
-      <beveragePrice>5</beveragePrice>
-      <conditionStart>100</conditionStart>
-      <conditionEnd>100</conditionEnd>
-      <lostCustomers>8</lostCustomers>
-      <staffCost>640</staffCost>
-    </RestaurantBook>
-    <RestaurantBook>
-      <startDate>
-        <year>2017</year>
-        <dayOfTheMonth>30</dayOfTheMonth>
-        <day>Sunday</day>
-        <month>April</month>
-        <numberOfWeeks>4</numberOfWeeks>
-      </startDate>
-      <numbOfDays>28</numbOfDays>
-      <restaurantLevel>1</restaurantLevel>
-      <barLevel>1</barLevel>
-      <numberOfStaff>2</numberOfStaff>
-      <staffProductivity>0</staffProductivity>
-      <productivityNeeded>0</productivityNeeded>
-      <totalFoodSales>3360</totalFoodSales>
-      <totalBeverageSales>1120</totalBeverageSales>
       <foodPrice>15</foodPrice>
       <beveragePrice>5</beveragePrice>
       <conditionStart>100</conditionStart>
@@ -130,13 +61,59 @@
       <numberOfStaff>2</numberOfStaff>
       <staffProductivity>0</staffProductivity>
       <productivityNeeded>0</productivityNeeded>
-      <totalFoodSales>7110</totalFoodSales>
-      <totalBeverageSales>2355</totalBeverageSales>
+      <totalFoodSales>0</totalFoodSales>
+      <totalBeverageSales>0</totalBeverageSales>
       <foodPrice>15</foodPrice>
       <beveragePrice>5</beveragePrice>
       <conditionStart>100</conditionStart>
       <conditionEnd>100</conditionEnd>
-      <lostCustomers>7</lostCustomers>
+      <lostCustomers>0</lostCustomers>
+      <staffCost>640</staffCost>
+    </RestaurantBook>
+    <RestaurantBook>
+      <startDate>
+        <year>2017</year>
+        <dayOfTheMonth>4</dayOfTheMonth>
+        <day>Sunday</day>
+        <month>June</month>
+        <numberOfWeeks>4</numberOfWeeks>
+      </startDate>
+      <numbOfDays>28</numbOfDays>
+      <restaurantLevel>1</restaurantLevel>
+      <barLevel>1</barLevel>
+      <numberOfStaff>2</numberOfStaff>
+      <staffProductivity>0</staffProductivity>
+      <productivityNeeded>0</productivityNeeded>
+      <totalFoodSales>4560</totalFoodSales>
+      <totalBeverageSales>1515</totalBeverageSales>
+      <foodPrice>15</foodPrice>
+      <beveragePrice>5</beveragePrice>
+      <conditionStart>100</conditionStart>
+      <conditionEnd>100</conditionEnd>
+      <lostCustomers>9</lostCustomers>
+      <staffCost>640</staffCost>
+    </RestaurantBook>
+    <RestaurantBook>
+      <startDate>
+        <year>2017</year>
+        <dayOfTheMonth>4</dayOfTheMonth>
+        <day>Sunday</day>
+        <month>June</month>
+        <numberOfWeeks>4</numberOfWeeks>
+      </startDate>
+      <numbOfDays>28</numbOfDays>
+      <restaurantLevel>1</restaurantLevel>
+      <barLevel>1</barLevel>
+      <numberOfStaff>2</numberOfStaff>
+      <staffProductivity>0</staffProductivity>
+      <productivityNeeded>0</productivityNeeded>
+      <totalFoodSales>2925</totalFoodSales>
+      <totalBeverageSales>970</totalBeverageSales>
+      <foodPrice>15</foodPrice>
+      <beveragePrice>5</beveragePrice>
+      <conditionStart>100</conditionStart>
+      <conditionEnd>100</conditionEnd>
+      <lostCustomers>3</lostCustomers>
       <staffCost>640</staffCost>
     </RestaurantBook>
     <RestaurantBook>
@@ -145,7 +122,7 @@
         <dayOfTheMonth>2</dayOfTheMonth>
         <day>Sunday</day>
         <month>July</month>
-        <numberOfWeeks>4</numberOfWeeks>
+        <numberOfWeeks>5</numberOfWeeks>
       </startDate>
       <numbOfDays>28</numbOfDays>
       <restaurantLevel>1</restaurantLevel>
@@ -153,59 +130,13 @@
       <numberOfStaff>2</numberOfStaff>
       <staffProductivity>0</staffProductivity>
       <productivityNeeded>0</productivityNeeded>
-      <totalFoodSales>4590</totalFoodSales>
-      <totalBeverageSales>1505</totalBeverageSales>
+      <totalFoodSales>0</totalFoodSales>
+      <totalBeverageSales>0</totalBeverageSales>
       <foodPrice>15</foodPrice>
       <beveragePrice>5</beveragePrice>
       <conditionStart>100</conditionStart>
       <conditionEnd>100</conditionEnd>
-      <lostCustomers>9</lostCustomers>
-      <staffCost>640</staffCost>
-    </RestaurantBook>
-    <RestaurantBook>
-      <startDate>
-        <year>2017</year>
-        <dayOfTheMonth>30</dayOfTheMonth>
-        <day>Sunday</day>
-        <month>July</month>
-        <numberOfWeeks>4</numberOfWeeks>
-      </startDate>
-      <numbOfDays>28</numbOfDays>
-      <restaurantLevel>1</restaurantLevel>
-      <barLevel>1</barLevel>
-      <numberOfStaff>2</numberOfStaff>
-      <staffProductivity>0</staffProductivity>
-      <productivityNeeded>0</productivityNeeded>
-      <totalFoodSales>5775</totalFoodSales>
-      <totalBeverageSales>1950</totalBeverageSales>
-      <foodPrice>15</foodPrice>
-      <beveragePrice>5</beveragePrice>
-      <conditionStart>100</conditionStart>
-      <conditionEnd>100</conditionEnd>
-      <lostCustomers>9</lostCustomers>
-      <staffCost>640</staffCost>
-    </RestaurantBook>
-    <RestaurantBook>
-      <startDate>
-        <year>2017</year>
-        <dayOfTheMonth>3</dayOfTheMonth>
-        <day>Sunday</day>
-        <month>September</month>
-        <numberOfWeeks>4</numberOfWeeks>
-      </startDate>
-      <numbOfDays>28</numbOfDays>
-      <restaurantLevel>1</restaurantLevel>
-      <barLevel>1</barLevel>
-      <numberOfStaff>2</numberOfStaff>
-      <staffProductivity>0</staffProductivity>
-      <productivityNeeded>0</productivityNeeded>
-      <totalFoodSales>7035</totalFoodSales>
-      <totalBeverageSales>2370</totalBeverageSales>
-      <foodPrice>15</foodPrice>
-      <beveragePrice>5</beveragePrice>
-      <conditionStart>100</conditionStart>
-      <conditionEnd>100</conditionEnd>
-      <lostCustomers>9</lostCustomers>
+      <lostCustomers>0</lostCustomers>
       <staffCost>640</staffCost>
     </RestaurantBook>
     <RestaurantBook>
@@ -234,9 +165,9 @@
     <RestaurantBook>
       <startDate>
         <year>2017</year>
-        <dayOfTheMonth>1</dayOfTheMonth>
+        <dayOfTheMonth>3</dayOfTheMonth>
         <day>Sunday</day>
-        <month>October</month>
+        <month>September</month>
         <numberOfWeeks>4</numberOfWeeks>
       </startDate>
       <numbOfDays>28</numbOfDays>
@@ -245,59 +176,13 @@
       <numberOfStaff>2</numberOfStaff>
       <staffProductivity>0</staffProductivity>
       <productivityNeeded>0</productivityNeeded>
-      <totalFoodSales>0</totalFoodSales>
-      <totalBeverageSales>0</totalBeverageSales>
+      <totalFoodSales>3780</totalFoodSales>
+      <totalBeverageSales>1240</totalBeverageSales>
       <foodPrice>15</foodPrice>
       <beveragePrice>5</beveragePrice>
       <conditionStart>100</conditionStart>
       <conditionEnd>100</conditionEnd>
-      <lostCustomers>0</lostCustomers>
-      <staffCost>640</staffCost>
-    </RestaurantBook>
-    <RestaurantBook>
-      <startDate>
-        <year>2017</year>
-        <dayOfTheMonth>1</dayOfTheMonth>
-        <day>Sunday</day>
-        <month>October</month>
-        <numberOfWeeks>4</numberOfWeeks>
-      </startDate>
-      <numbOfDays>28</numbOfDays>
-      <restaurantLevel>1</restaurantLevel>
-      <barLevel>1</barLevel>
-      <numberOfStaff>2</numberOfStaff>
-      <staffProductivity>0</staffProductivity>
-      <productivityNeeded>0</productivityNeeded>
-      <totalFoodSales>2940</totalFoodSales>
-      <totalBeverageSales>970</totalBeverageSales>
-      <foodPrice>15</foodPrice>
-      <beveragePrice>5</beveragePrice>
-      <conditionStart>100</conditionStart>
-      <conditionEnd>100</conditionEnd>
-      <lostCustomers>2</lostCustomers>
-      <staffCost>640</staffCost>
-    </RestaurantBook>
-    <RestaurantBook>
-      <startDate>
-        <year>2017</year>
-        <dayOfTheMonth>1</dayOfTheMonth>
-        <day>Sunday</day>
-        <month>October</month>
-        <numberOfWeeks>4</numberOfWeeks>
-      </startDate>
-      <numbOfDays>28</numbOfDays>
-      <restaurantLevel>1</restaurantLevel>
-      <barLevel>1</barLevel>
-      <numberOfStaff>2</numberOfStaff>
-      <staffProductivity>0</staffProductivity>
-      <productivityNeeded>0</productivityNeeded>
-      <totalFoodSales>0</totalFoodSales>
-      <totalBeverageSales>0</totalBeverageSales>
-      <foodPrice>15</foodPrice>
-      <beveragePrice>5</beveragePrice>
-      <conditionStart>100</conditionStart>
-      <conditionEnd>100</conditionEnd>
-      <lostCustomers>0</lostCustomers>
+      <lostCustomers>4</lostCustomers>
       <staffCost>640</staffCost>
     </RestaurantBook>
   </RestaurantBookArray>
